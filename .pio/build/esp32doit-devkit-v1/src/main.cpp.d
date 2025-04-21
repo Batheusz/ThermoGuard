@@ -234,27 +234,4 @@
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/port/include/aes/esp_aes.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/aes_types.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/mbedtls/include/mbedtls/error.h \
- .pio/libdeps/esp32doit-devkit-v1/UrlEncode/src/UrlEncode.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/BlynkSimpleEsp32.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/BlynkApiArduino.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkApi.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkConfig.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkDetectDevice.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkHelpers.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkDebug.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkParam.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkTimer.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkHandlers.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkProtocolDefs.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkProtocol.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkUtility.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Adapters/BlynkArduinoClient.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/BlynkWidgets.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetLED.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkWidgetBase.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetLCD.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetTerminal.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/utility/BlynkFifo.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetTimeInput.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkDateTime.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetMap.h
+ .pio/libdeps/esp32doit-devkit-v1/UrlEncode/src/UrlEncode.h

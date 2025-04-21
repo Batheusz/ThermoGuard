@@ -3,13 +3,8 @@
 #include <WiFiClient.h>
 #include <HTTPClient.h>
 #include <UrlEncode.h>
-
-// Blynk config
-#define BLYNK_TEMPLATE_ID "TMPL2KunrIRsv"
-#define BLYNK_TEMPLATE_NAME "ThermoGuard"
-#define BLYNK_AUTH_TOKEN "oXNoqXQ6U49cD_OIWfaX756gTmnXg3Bx"
-#define BLYNK_PRINT Serial // Debuging blynk on serial
-#include <BlynkSimpleEsp32.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 // Whatsapp API key
 String numCelular = "";
@@ -23,31 +18,51 @@ const char* senhaWifi = "";
 const char* server = "http://api.thingspeak.com/update";
 String apiKey = "";
 
+// BLE
+volatile bool flagBle = false;
+void IRAM_ATTR botaoISR() {
+  flagBle = true;
+}
+
+// Dados NV
+RTC_DATA_ATTR uint16_t tempoLeitura = 20;  // 5 minutos
+RTC_DATA_ATTR uint16_t tempoEnvio   = 30;   // 30 segundos
+RTC_DATA_ATTR uint16_t segundosDesdeUltimaLeitura = 0;
+RTC_DATA_ATTR uint16_t segundosDesdeUltimoEnvio   = 0;
+RTC_DATA_ATTR float temperaturaLida = 0.0;
+
 // Funções
 uint8_t EnviarWhats(String messagem);
+uint8_t EnviarWeb(float valor);
 uint8_t ConectaWifi(const char* nome, const char* senha);
+void DesconectaWifi();
 
 void setup() {
   Serial.begin(115200);
-  ConectaWifi(nomeWifi,senhaWifi);
-  
-  float temperatura = 25.35;  // valor fictício, substitua pelo sensor
 
-  if (WiFi.status() == WL_CONNECTED) {
-    HTTPClient http;
-    String url = String(server) + "?api_key=" + apiKey + "&field1=" + String(temperatura);
-    http.begin(url);
-    int httpResponseCode = http.GET();
-    
-    if (httpResponseCode > 0) {
-      Serial.print("Resposta do servidor: ");
-      Serial.println(httpResponseCode);
-    } else {
-      Serial.print("Erro: ");
-      Serial.println(httpResponseCode);
-    }
-    http.end();
+  int tempoCiclo = 10;  // intervalo de deep sleep (segundos)
+  Serial.println("Dispositivo acordou do deep sleep!");
+
+  segundosDesdeUltimaLeitura += tempoCiclo;
+  segundosDesdeUltimoEnvio   += tempoCiclo;
+  Serial.println("Tempo desde última leitura: " + String(segundosDesdeUltimaLeitura));
+  Serial.println("Tempo desde último envio: " + String(segundosDesdeUltimoEnvio));
+
+  if (segundosDesdeUltimaLeitura >= tempoLeitura) {
+    temperaturaLida = 36.0 + random(-30, 30) / 10.0;
+    Serial.println("Temperatura lida: " + String(temperaturaLida) + "°C");
+    segundosDesdeUltimaLeitura = 0;
   }
+
+  if (segundosDesdeUltimoEnvio >= tempoEnvio) {
+    ConectaWifi(nomeWifi,senhaWifi);
+    EnviarWeb(temperaturaLida);
+    DesconectaWifi();
+    segundosDesdeUltimoEnvio = 0;
+  }
+
+  esp_sleep_enable_timer_wakeup(tempoCiclo * 1000000ULL);  // microssegundos
+  esp_deep_sleep_start();
 
 }
 
@@ -92,6 +107,40 @@ else
 }
 
 /**
+ * Envia um valor numérico (float) para um servidor web (ex: ThingSpeak),
+ * via requisição HTTP GET, apenas se o Wi-Fi estiver conectado.
+ *
+ * Inputs:
+ *   - float valor: Valor numérico a ser enviado.
+ *
+ * Outputs:
+ *   - uint8_t:
+ *       - 1 se o valor foi enviado com sucesso (HTTP 200).
+ *       - 0 se houve falha na requisição HTTP.
+ *       - 2 se o Wi-Fi não está conectado.
+ */
+uint8_t EnviarWeb(float valor) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    String url = String(server) + "?api_key=" + apiKey + "&field1=" + String(valor);
+    http.begin(url);
+    int httpResponseCode = http.GET();
+    
+    if (httpResponseCode == 200) {
+      http.end();
+      return 1;
+    } 
+    else {
+      http.end();
+      return 0;
+    }
+  }
+  else {
+    return 2;
+  }
+}
+
+/**
  * Conecta o dispositivo à rede Wi-Fi especificada.
  *
  * Inputs:
@@ -114,4 +163,18 @@ uint8_t ConectaWifi(const char* nome, const char* senha) {
   else{
     return 0;
   }
+}
+
+/**
+ * Desconecta o dispositivo da rede Wi-Fi e desativa o módulo Wi-Fi.
+ *
+ * Inputs:
+ *   - Nenhum.
+ *
+ * Outputs:
+ *   - void (sem retorno).
+ */
+void DesconectaWifi() {
+  WiFi.disconnect(true);
+  WiFi.mode(WIFI_OFF);
 }
