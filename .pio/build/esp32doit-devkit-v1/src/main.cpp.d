@@ -1,4 +1,5 @@
 .pio/build/esp32doit-devkit-v1/src/main.cpp.o: src/main.cpp \
+ .pio/libdeps/esp32doit-devkit-v1/OneWire/OneWire.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/freertos/FreeRTOS.h \
@@ -133,6 +134,10 @@
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_hw_support/include/soc/esp32/spiram.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/cores/esp32/io_pin_remap.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
+ .pio/libdeps/esp32doit-devkit-v1/OneWire/util/OneWire_direct_regtype.h \
+ .pio/libdeps/esp32doit-devkit-v1/DallasTemperature/DallasTemperature.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/Preferences/src/Preferences.h \
+ lib/funcoes/funcoes.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFi.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/cores/esp32/IPv6Address.h \
@@ -235,26 +240,33 @@
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/hal/include/hal/aes_types.h \
  C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/mbedtls/mbedtls/include/mbedtls/error.h \
  .pio/libdeps/esp32doit-devkit-v1/UrlEncode/src/UrlEncode.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/BlynkSimpleEsp32.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/BlynkApiArduino.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkApi.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkConfig.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkDetectDevice.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkHelpers.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkDebug.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkParam.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkTimer.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkHandlers.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkProtocolDefs.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkProtocol.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkUtility.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Adapters/BlynkArduinoClient.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/BlynkWidgets.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetLED.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkWidgetBase.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetLCD.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetTerminal.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/utility/BlynkFifo.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetTimeInput.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/Blynk/BlynkDateTime.h \
- .pio/libdeps/esp32doit-devkit-v1/Blynk/src/WidgetMap.h
+ lib/bleConfig/bleConfig.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEDevice.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gap_ble_api.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_bt_defs.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gattc_api.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatt_defs.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/include/esp32/include/esp_bt.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEServer.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatts_api.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEUUID.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/bt/host/bluedroid/api/include/api/esp_gatt_defs.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEAdvertising.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/RTOS.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_ringbuf/include/freertos/ringbuf.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLECharacteristic.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEDescriptor.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEValue.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEService.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLESecurity.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEAddress.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEClient.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLERemoteService.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLERemoteCharacteristic.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLERemoteDescriptor.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEAdvertisedDevice.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEScan.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEUtils.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEUtils.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLEServer.h \
+ C:/Users/mathe/.platformio/packages/framework-arduinoespressif32/libraries/BLE/src/BLE2902.h
