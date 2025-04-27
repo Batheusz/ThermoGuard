@@ -1,0 +1,321 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Projeto de monitoramento de temperatura e envio de alertas via Whats\+App e Thing\+Speak usando ESP32.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi\+Client.\+h$>$}\newline
+{\ttfamily \#include $<$HTTPClient.\+h$>$}\newline
+{\ttfamily \#include $<$Url\+Encode.\+h$>$}\newline
+{\ttfamily \#include "{}freertos/\+Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}freertos/task.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+sleep.\+h"{}}\newline
+{\ttfamily \#include "{}driver/rtc\+\_\+io.\+h"{}}\newline
+{\ttfamily \#include $<$One\+Wire.\+h$>$}\newline
+{\ttfamily \#include $<$Dallas\+Temperature.\+h$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+One\+Wire \mbox{\hyperlink{main_8cpp_a150087f953fda6915d3f1a40555feb3f}{Pin\+One\+Wire}} (4)
+\begin{DoxyCompactList}\small\item\em Instância do barramento One\+Wire para comunicação com o sensor DS18\+B20. \end{DoxyCompactList}\item 
+void IRAM\+\_\+\+ATTR \mbox{\hyperlink{main_8cpp_a98f1875fb179306f570060a93476cf21}{botao\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em Rotina de interrupção associada ao botão. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8cpp_a9b1f12a605df8c8ef437a1da1ee8c7e6}{Enviar\+Whats}} (String messagem)
+\begin{DoxyCompactList}\small\item\em Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8cpp_a496d1413601446647f4f6e259120b832}{Enviar\+Web}} (float valor)
+\begin{DoxyCompactList}\small\item\em Envia um valor numérico para Thing\+Speak via HTTP GET. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8cpp_a372f1dc3a11e87529e474072a031d170}{Conecta\+Wifi}} (const char \texorpdfstring{$\ast$}{*}nome, const char \texorpdfstring{$\ast$}{*}senha)
+\begin{DoxyCompactList}\small\item\em Conecta o ESP32 à rede Wi-\/\+Fi especificada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}{Desconecta\+Wifi}} ()
+\begin{DoxyCompactList}\small\item\em Desconecta o ESP32 da rede Wi-\/\+Fi e desliga o Wi-\/\+Fi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{num\+Celular}} = "{}+5541936186740"{}
+\item 
+String \mbox{\hyperlink{main_8cpp_a2178705e4b75e3811fb805ea29271cd6}{api\+Whats}} = "{}6043662"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8cpp_a45d8b9f93a42bef3502195e87ccbd517}{nome\+Wifi}} = "{}Tebas"{}
+\begin{DoxyCompactList}\small\item\em Nome da rede Wi-\/\+Fi para conexão. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8cpp_a3a07fc26007cccbce56d5b8b1c22857a}{senha\+Wifi}} = "{}109025300"{}
+\begin{DoxyCompactList}\small\item\em Senha da rede Wi-\/\+Fi. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8cpp_ab68b888c3d204a4403af6d1b22f6d07c}{server}} = "{}http\+://api.\+thingspeak.\+com/update"{}
+\begin{DoxyCompactList}\small\item\em URL do servidor Thing\+Speak para envio de dados. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{main_8cpp_abafd9aa183f18bceec5da61aa1f93a87}{api\+Key}} = "{}J7\+NA0\+N95\+H2\+SGO68\+W"{}
+\begin{DoxyCompactList}\small\item\em API key de acesso ao Thing\+Speak. \end{DoxyCompactList}\item 
+Dallas\+Temperature Temp\+Sensor \& \mbox{\hyperlink{main_8cpp_a2281c25ce20f336862c9efd9b1cb272b}{Pin\+One\+Wire}}
+\begin{DoxyCompactList}\small\item\em Instância do sensor de temperatura Dallas\+Temperature. \end{DoxyCompactList}\item 
+RTC\+\_\+\+DATA\+\_\+\+ATTR uint8\+\_\+t \mbox{\hyperlink{main_8cpp_af1077fd2d9e4f28598b09a829ca27077}{wake\+Count}} = 0
+\item 
+volatile bool \mbox{\hyperlink{main_8cpp_adf204609b938686fca6dcd5c6b7145f9}{flag\+Ble}} = false
+\begin{DoxyCompactList}\small\item\em Flag para controle de acionamento por BLE (interrupção). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}} = 0
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{main_8cpp_ac8b87eeeb2a6a065bbfb0fd654328442}{botao\+Time}} = 0
+\begin{DoxyCompactList}\small\item\em Timestamp atual da última interrupção do botão. \end{DoxyCompactList}\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{main_8cpp_aea6cbc4ff8e3879ccf35d8f8d5f7ad7d}{botao\+Last\+Time}} = 0
+\begin{DoxyCompactList}\small\item\em Timestamp da última validação de botão (para debounce). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Projeto de monitoramento de temperatura e envio de alertas via Whats\+App e Thing\+Speak usando ESP32. 
+
+
+\begin{DoxyItemize}
+\item Leitura de temperatura com DS18\+B20.
+\item Envio de dados para Thing\+Speak.
+\item Envio de mensagens de alerta via Whats\+App API (Call\+Me\+Bot).
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Matheus Orsini 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/04-\/26 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a98f1875fb179306f570060a93476cf21}\index{main.cpp@{main.cpp}!botaoISR@{botaoISR}}
+\index{botaoISR@{botaoISR}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{botaoISR()}{botaoISR()}}
+{\footnotesize\ttfamily \label{main_8cpp_a98f1875fb179306f570060a93476cf21} 
+void IRAM\+\_\+\+ATTR botao\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Rotina de interrupção associada ao botão. 
+
+Implementa debounce simples (250ms) para evitar múltiplos acionamentos. Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{main_8cpp_a372f1dc3a11e87529e474072a031d170}\index{main.cpp@{main.cpp}!ConectaWifi@{ConectaWifi}}
+\index{ConectaWifi@{ConectaWifi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ConectaWifi()}{ConectaWifi()}}
+{\footnotesize\ttfamily \label{main_8cpp_a372f1dc3a11e87529e474072a031d170} 
+uint8\+\_\+t Conecta\+Wifi (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nome}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{senha}{}\end{DoxyParamCaption})}
+
+
+
+Conecta o ESP32 à rede Wi-\/\+Fi especificada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome (SSID) da rede Wi-\/\+Fi. \\
+\hline
+{\em senha} & Senha da rede Wi-\/\+Fi. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & Sucesso \\
+\hline
+{\em 0} & Falha \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}\index{main.cpp@{main.cpp}!DesconectaWifi@{DesconectaWifi}}
+\index{DesconectaWifi@{DesconectaWifi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{DesconectaWifi()}{DesconectaWifi()}}
+{\footnotesize\ttfamily \label{main_8cpp_ac0864cde0bddc4d52913c6a7215a85c8} 
+void Desconecta\+Wifi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Desconecta o ESP32 da rede Wi-\/\+Fi e desliga o Wi-\/\+Fi. 
+
+\Hypertarget{main_8cpp_a496d1413601446647f4f6e259120b832}\index{main.cpp@{main.cpp}!EnviarWeb@{EnviarWeb}}
+\index{EnviarWeb@{EnviarWeb}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{EnviarWeb()}{EnviarWeb()}}
+{\footnotesize\ttfamily \label{main_8cpp_a496d1413601446647f4f6e259120b832} 
+uint8\+\_\+t Enviar\+Web (\begin{DoxyParamCaption}\item[{float}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Envia um valor numérico para Thing\+Speak via HTTP GET. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & Valor float a ser enviado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & Sucesso (HTTP 200) \\
+\hline
+{\em 0} & Falha na requisição \\
+\hline
+{\em 2} & Wi-\/\+Fi não conectado \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8cpp_a9b1f12a605df8c8ef437a1da1ee8c7e6}\index{main.cpp@{main.cpp}!EnviarWhats@{EnviarWhats}}
+\index{EnviarWhats@{EnviarWhats}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{EnviarWhats()}{EnviarWhats()}}
+{\footnotesize\ttfamily \label{main_8cpp_a9b1f12a605df8c8ef437a1da1ee8c7e6} 
+uint8\+\_\+t Enviar\+Whats (\begin{DoxyParamCaption}\item[{String}]{messagem}{}\end{DoxyParamCaption})}
+
+
+
+Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em messagem} & Texto da mensagem a ser enviada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 1} & Sucesso (HTTP 200) \\
+\hline
+{\em 0} & Falha na requisição \\
+\hline
+{\em 2} & Wi-\/\+Fi não conectado \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a150087f953fda6915d3f1a40555feb3f}\index{main.cpp@{main.cpp}!PinOneWire@{PinOneWire}}
+\index{PinOneWire@{PinOneWire}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PinOneWire()}{PinOneWire()}}
+{\footnotesize\ttfamily \label{main_8cpp_a150087f953fda6915d3f1a40555feb3f} 
+One\+Wire Pin\+One\+Wire (\begin{DoxyParamCaption}\item[{4}]{}{}\end{DoxyParamCaption})}
+
+
+
+Instância do barramento One\+Wire para comunicação com o sensor DS18\+B20. 
+
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_abafd9aa183f18bceec5da61aa1f93a87}\index{main.cpp@{main.cpp}!apiKey@{apiKey}}
+\index{apiKey@{apiKey}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{apiKey}{apiKey}}
+{\footnotesize\ttfamily \label{main_8cpp_abafd9aa183f18bceec5da61aa1f93a87} 
+String api\+Key = "{}J7\+NA0\+N95\+H2\+SGO68\+W"{}}
+
+
+
+API key de acesso ao Thing\+Speak. 
+
+\Hypertarget{main_8cpp_a2178705e4b75e3811fb805ea29271cd6}\index{main.cpp@{main.cpp}!apiWhats@{apiWhats}}
+\index{apiWhats@{apiWhats}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{apiWhats}{apiWhats}}
+{\footnotesize\ttfamily \label{main_8cpp_a2178705e4b75e3811fb805ea29271cd6} 
+String api\+Whats = "{}6043662"{}}
+
+\Hypertarget{main_8cpp_aea6cbc4ff8e3879ccf35d8f8d5f7ad7d}\index{main.cpp@{main.cpp}!botaoLastTime@{botaoLastTime}}
+\index{botaoLastTime@{botaoLastTime}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{botaoLastTime}{botaoLastTime}}
+{\footnotesize\ttfamily \label{main_8cpp_aea6cbc4ff8e3879ccf35d8f8d5f7ad7d} 
+volatile uint32\+\_\+t botao\+Last\+Time = 0}
+
+
+
+Timestamp da última validação de botão (para debounce). 
+
+\Hypertarget{main_8cpp_ac8b87eeeb2a6a065bbfb0fd654328442}\index{main.cpp@{main.cpp}!botaoTime@{botaoTime}}
+\index{botaoTime@{botaoTime}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{botaoTime}{botaoTime}}
+{\footnotesize\ttfamily \label{main_8cpp_ac8b87eeeb2a6a065bbfb0fd654328442} 
+volatile uint32\+\_\+t botao\+Time = 0}
+
+
+
+Timestamp atual da última interrupção do botão. 
+
+\Hypertarget{main_8cpp_ad43c3812e6d13e0518d9f8b8f463ffcf}\index{main.cpp@{main.cpp}!count@{count}}
+\index{count@{count}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily \label{main_8cpp_ad43c3812e6d13e0518d9f8b8f463ffcf} 
+int count = 0}
+
+\Hypertarget{main_8cpp_adf204609b938686fca6dcd5c6b7145f9}\index{main.cpp@{main.cpp}!flagBle@{flagBle}}
+\index{flagBle@{flagBle}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{flagBle}{flagBle}}
+{\footnotesize\ttfamily \label{main_8cpp_adf204609b938686fca6dcd5c6b7145f9} 
+volatile bool flag\+Ble = false}
+
+
+
+Flag para controle de acionamento por BLE (interrupção). 
+
+\Hypertarget{main_8cpp_a45d8b9f93a42bef3502195e87ccbd517}\index{main.cpp@{main.cpp}!nomeWifi@{nomeWifi}}
+\index{nomeWifi@{nomeWifi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{nomeWifi}{nomeWifi}}
+{\footnotesize\ttfamily \label{main_8cpp_a45d8b9f93a42bef3502195e87ccbd517} 
+const char\texorpdfstring{$\ast$}{*} nome\+Wifi = "{}Tebas"{}}
+
+
+
+Nome da rede Wi-\/\+Fi para conexão. 
+
+\Hypertarget{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}\index{main.cpp@{main.cpp}!numCelular@{numCelular}}
+\index{numCelular@{numCelular}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{numCelular}{numCelular}}
+{\footnotesize\ttfamily \label{main_8cpp_ae5f1bf82db9796145db3a408488ecefd} 
+String num\+Celular = "{}+5541936186740"{}}
+
+\Hypertarget{main_8cpp_a2281c25ce20f336862c9efd9b1cb272b}\index{main.cpp@{main.cpp}!PinOneWire@{PinOneWire}}
+\index{PinOneWire@{PinOneWire}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{PinOneWire}{PinOneWire}}
+{\footnotesize\ttfamily \label{main_8cpp_a2281c25ce20f336862c9efd9b1cb272b} 
+Dallas\+Temperature Temp\+Sensor\& Pin\+One\+Wire}
+
+
+
+Instância do sensor de temperatura Dallas\+Temperature. 
+
+\Hypertarget{main_8cpp_a3a07fc26007cccbce56d5b8b1c22857a}\index{main.cpp@{main.cpp}!senhaWifi@{senhaWifi}}
+\index{senhaWifi@{senhaWifi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{senhaWifi}{senhaWifi}}
+{\footnotesize\ttfamily \label{main_8cpp_a3a07fc26007cccbce56d5b8b1c22857a} 
+const char\texorpdfstring{$\ast$}{*} senha\+Wifi = "{}109025300"{}}
+
+
+
+Senha da rede Wi-\/\+Fi. 
+
+\Hypertarget{main_8cpp_ab68b888c3d204a4403af6d1b22f6d07c}\index{main.cpp@{main.cpp}!server@{server}}
+\index{server@{server}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{server}{server}}
+{\footnotesize\ttfamily \label{main_8cpp_ab68b888c3d204a4403af6d1b22f6d07c} 
+const char\texorpdfstring{$\ast$}{*} server = "{}http\+://api.\+thingspeak.\+com/update"{}}
+
+
+
+URL do servidor Thing\+Speak para envio de dados. 
+
+\Hypertarget{main_8cpp_af1077fd2d9e4f28598b09a829ca27077}\index{main.cpp@{main.cpp}!wakeCount@{wakeCount}}
+\index{wakeCount@{wakeCount}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{wakeCount}{wakeCount}}
+{\footnotesize\ttfamily \label{main_8cpp_af1077fd2d9e4f28598b09a829ca27077} 
+RTC\+\_\+\+DATA\+\_\+\+ATTR uint8\+\_\+t wake\+Count = 0}
+

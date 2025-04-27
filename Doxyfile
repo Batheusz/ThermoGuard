@@ -1,0 +1,58 @@
+# Project
+PROJECT_NAME           = "ThermoGuard"
+PROJECT_BRIEF          = "Monitoramento de Temperatura e Notificação via WhatsApp e ThingSpeak usando ESP32"
+PROJECT_NUMBER         = 1.0
+OUTPUT_DIRECTORY       = docs
+CREATE_SUBDIRS         = NO
+
+# Input
+INPUT                  = src
+RECURSIVE              = YES
+FILE_PATTERNS          = *.cpp *.h *.ino
+EXCLUDE                = 
+EXCLUDE_PATTERNS       = 
+
+# Main page (opcional, se quiser usar README.md)
+USE_MDFILE_AS_MAINPAGE = README.md
+
+# Output format
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+GENERATE_RTF           = NO
+GENERATE_XML           = NO
+
+# Diagrams and Graphviz
+HAVE_DOT               = YES
+DOT_PATH               =
+DOT_NUM_THREADS        = 2
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_CLEANUP            = YES
+
+# Documentation extraction
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_METHODS  = YES
+INLINE_SOURCES         = YES
+
+# Warnings
+WARN_IF_UNDOCUMENTED   = YES
+
+# HTML settings
+HTML_OUTPUT            = html
+HTML_DYNAMIC_SECTIONS  = YES
+GENERATE_TREEVIEW      = YES
+FULL_PATH_NAMES        = NO
+STRIP_FROM_PATH        = src
+
+# Language
+OUTPUT_LANGUAGE        = English
+
+# Other
+TAB_SIZE               = 2
+OPTIMIZE_OUTPUT_FOR_C  = YES
+MARKDOWN_SUPPORT       = YES
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
