@@ -30,30 +30,20 @@ extern String nomeWifi;
 extern String senhaWifi;
 extern String apiKey;
 extern String server;
-extern float setpointTemp;
+extern float setPointTemp;
 extern uint32_t intervaloTemp;
 extern Preferences prefs;
-extern volatile bool flagBle;
-extern volatile uint32_t botaoTime;
-extern volatile uint32_t botaoLastTime;
-
-/**
- * @brief Rotina de interrupção associada ao botão BLE.
- * 
- * @details Implementa debounce para evitar múltiplos acionamentos.
- */
-void IRAM_ATTR botaoISR();
 
 /**
  * @brief Envia uma mensagem via WhatsApp usando CallMeBot API.
  * 
- * @param messagem Texto da mensagem a ser enviada.
+ * @param mensagem Texto da mensagem a ser enviada.
  * @return uint8_t
  * @retval 1 Sucesso (HTTP 200)
  * @retval 0 Falha na requisição
  * @retval 2 Wi-Fi não conectado
  */
-uint8_t EnviarWhats(String messagem);
+uint8_t EnviarWhats(String mensagem);
 
 /**
  * @brief Envia um valor numérico para ThingSpeak via HTTP GET.
@@ -88,9 +78,9 @@ void DesconectaWifi();
  * @param wifi Nome da rede Wi-Fi.
  * @param senha Senha da rede Wi-Fi.
  * @param setPoint Valor do setpoint de temperatura.
- * @param intervalo Intervalo de tempo entre leituras (em microssegundos).
+ * @param intervalo Intervalo de tempo entre leituras(minutos).
  */
-void SalvaConfig(String wifi, String senha, float setPoint, uint32_t intervalo);
+void SalvaConfig(String wifi, String senha, float setPoint, uint32_t intervalo, String numero);
 
 /**
  * @brief Carrega as configurações armazenadas na NVS.

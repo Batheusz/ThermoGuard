@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ThermoGuard: Referência ao ficheiro funcoes.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ThermoGuard
+   </div>
+   <div id="projectbrief">Documentação do projeto ThermoGuard - Monitoramento de Temperatura BLE</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('funcoes_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle"><div class="title">Referência ao ficheiro funcoes.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Declarações de funções auxiliares para o projeto ThermoGuard ESP32.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &lt;WiFi.h&gt;</code><br />
+<code>#include &lt;WiFiClient.h&gt;</code><br />
+<code>#include &lt;HTTPClient.h&gt;</code><br />
+<code>#include &lt;UrlEncode.h&gt;</code><br />
+<code>#include &lt;Preferences.h&gt;</code><br />
+</div>
+<p><a href="funcoes_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:aab7876312534d1d5cb2b52368d8a66aa" id="r_aab7876312534d1d5cb2b52368d8a66aa"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab7876312534d1d5cb2b52368d8a66aa">EnviarWhats</a> (String mensagem)</td></tr>
+<tr class="memdesc:aab7876312534d1d5cb2b52368d8a66aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia uma mensagem via WhatsApp usando CallMeBot API.  <br /></td></tr>
+<tr class="separator:aab7876312534d1d5cb2b52368d8a66aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a496d1413601446647f4f6e259120b832" id="r_a496d1413601446647f4f6e259120b832"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a496d1413601446647f4f6e259120b832">EnviarWeb</a> (float valor)</td></tr>
+<tr class="memdesc:a496d1413601446647f4f6e259120b832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envia um valor numérico para ThingSpeak via HTTP GET.  <br /></td></tr>
+<tr class="separator:a496d1413601446647f4f6e259120b832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a420a08393185ceba2855a2de10715128" id="r_a420a08393185ceba2855a2de10715128"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a420a08393185ceba2855a2de10715128">ConectaWifi</a> (String nome, String senha)</td></tr>
+<tr class="memdesc:a420a08393185ceba2855a2de10715128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conecta o ESP32 à rede Wi-Fi especificada.  <br /></td></tr>
+<tr class="separator:a420a08393185ceba2855a2de10715128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0864cde0bddc4d52913c6a7215a85c8" id="r_ac0864cde0bddc4d52913c6a7215a85c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0864cde0bddc4d52913c6a7215a85c8">DesconectaWifi</a> ()</td></tr>
+<tr class="memdesc:ac0864cde0bddc4d52913c6a7215a85c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desconecta o ESP32 da rede Wi-Fi e desativa o Wi-Fi.  <br /></td></tr>
+<tr class="separator:ac0864cde0bddc4d52913c6a7215a85c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c0866444677cfc520f43e52f3b763a" id="r_a10c0866444677cfc520f43e52f3b763a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10c0866444677cfc520f43e52f3b763a">SalvaConfig</a> (String wifi, String senha, float setPoint, uint32_t intervalo)</td></tr>
+<tr class="memdesc:a10c0866444677cfc520f43e52f3b763a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS.  <br /></td></tr>
+<tr class="separator:a10c0866444677cfc520f43e52f3b763a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae37aeb6cc3ac00302fef48cad121e04a" id="r_ae37aeb6cc3ac00302fef48cad121e04a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae37aeb6cc3ac00302fef48cad121e04a">CarregarConfig</a> ()</td></tr>
+<tr class="memdesc:ae37aeb6cc3ac00302fef48cad121e04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega as configurações armazenadas na NVS.  <br /></td></tr>
+<tr class="separator:ae37aeb6cc3ac00302fef48cad121e04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:ae5f1bf82db9796145db3a408488ecefd" id="r_ae5f1bf82db9796145db3a408488ecefd"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5f1bf82db9796145db3a408488ecefd">numCelular</a></td></tr>
+<tr class="separator:ae5f1bf82db9796145db3a408488ecefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2178705e4b75e3811fb805ea29271cd6" id="r_a2178705e4b75e3811fb805ea29271cd6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2178705e4b75e3811fb805ea29271cd6">apiWhats</a></td></tr>
+<tr class="separator:a2178705e4b75e3811fb805ea29271cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1985d05d19fdca8123f77df57639188f" id="r_a1985d05d19fdca8123f77df57639188f"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1985d05d19fdca8123f77df57639188f">nomeWifi</a></td></tr>
+<tr class="memdesc:a1985d05d19fdca8123f77df57639188f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome da rede Wi-Fi para conexão.  <br /></td></tr>
+<tr class="separator:a1985d05d19fdca8123f77df57639188f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b53c380928d42395504a2470d0e10e6" id="r_a2b53c380928d42395504a2470d0e10e6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a></td></tr>
+<tr class="memdesc:a2b53c380928d42395504a2470d0e10e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Senha da rede Wi-Fi.  <br /></td></tr>
+<tr class="separator:a2b53c380928d42395504a2470d0e10e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abafd9aa183f18bceec5da61aa1f93a87" id="r_abafd9aa183f18bceec5da61aa1f93a87"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abafd9aa183f18bceec5da61aa1f93a87">apiKey</a></td></tr>
+<tr class="memdesc:abafd9aa183f18bceec5da61aa1f93a87"><td class="mdescLeft">&#160;</td><td class="mdescRight">API key de acesso ao ThingSpeak.  <br /></td></tr>
+<tr class="separator:abafd9aa183f18bceec5da61aa1f93a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cfa213c7b6b7e5a1788f5bf87b423d8" id="r_a4cfa213c7b6b7e5a1788f5bf87b423d8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cfa213c7b6b7e5a1788f5bf87b423d8">server</a></td></tr>
+<tr class="memdesc:a4cfa213c7b6b7e5a1788f5bf87b423d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">URL do servidor ThingSpeak para envio de dados.  <br /></td></tr>
+<tr class="separator:a4cfa213c7b6b7e5a1788f5bf87b423d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add1d9118be43175094da2653b50c9f78" id="r_add1d9118be43175094da2653b50c9f78"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add1d9118be43175094da2653b50c9f78">setpointTemp</a></td></tr>
+<tr class="separator:add1d9118be43175094da2653b50c9f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0410997c46ed3194dd285765f7f31860" id="r_a0410997c46ed3194dd285765f7f31860"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a></td></tr>
+<tr class="separator:a0410997c46ed3194dd285765f7f31860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77f70a9d88156f5f7dbdd99bfaaee64e" id="r_a77f70a9d88156f5f7dbdd99bfaaee64e"><td class="memItemLeft" align="right" valign="top">Preferences&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a></td></tr>
+<tr class="separator:a77f70a9d88156f5f7dbdd99bfaaee64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Declarações de funções auxiliares para o projeto ThermoGuard ESP32. </p>
+<p>Contém as funções para:</p><ul>
+<li>Envio de dados via HTTP para WhatsApp e ThingSpeak</li>
+<li>Gerenciamento da conexão Wi-Fi</li>
+<li>Armazenamento e recuperação de configurações na NVS</li>
+<li>Tratamento de interrupções para BLE</li>
+</ul>
+<dl class="section author"><dt>Autor</dt><dd>Matheus Orsini </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2025-04-26 </dd></dl>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="ae37aeb6cc3ac00302fef48cad121e04a" name="ae37aeb6cc3ac00302fef48cad121e04a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae37aeb6cc3ac00302fef48cad121e04a">&#9670;&#160;</a></span>CarregarConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CarregarConfig </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Carrega as configurações armazenadas na NVS. </p>
+<p>Carrega as configurações armazenadas na NVS.</p>
+<p>Lê o nome do Wi-Fi, senha, setpoint de temperatura e intervalo de leitura, restaurando os valores padrão caso ainda não existam. </p>
+
+</div>
+</div>
+<a id="a420a08393185ceba2855a2de10715128" name="a420a08393185ceba2855a2de10715128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a420a08393185ceba2855a2de10715128">&#9670;&#160;</a></span>ConectaWifi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ConectaWifi </td>
+          <td>(</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>nome</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>senha</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Conecta o ESP32 à rede Wi-Fi especificada. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>Nome (SSID) da rede Wi-Fi. </td></tr>
+    <tr><td class="paramname">senha</td><td>Senha da rede Wi-Fi. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>uint8_t </dd></dl>
+<dl class="retval"><dt>Valores retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>Sucesso </td></tr>
+    <tr><td class="paramname">0</td><td>Falha</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Conecta o ESP32 à rede Wi-Fi especificada. </p>
+
+</div>
+</div>
+<a id="ac0864cde0bddc4d52913c6a7215a85c8" name="ac0864cde0bddc4d52913c6a7215a85c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0864cde0bddc4d52913c6a7215a85c8">&#9670;&#160;</a></span>DesconectaWifi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DesconectaWifi </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desconecta o ESP32 da rede Wi-Fi e desativa o Wi-Fi. </p>
+<p>Desconecta o ESP32 da rede Wi-Fi e desativa o Wi-Fi. </p>
+
+</div>
+</div>
+<a id="a496d1413601446647f4f6e259120b832" name="a496d1413601446647f4f6e259120b832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496d1413601446647f4f6e259120b832">&#9670;&#160;</a></span>EnviarWeb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EnviarWeb </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>valor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envia um valor numérico para ThingSpeak via HTTP GET. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>Valor float a ser enviado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>uint8_t </dd></dl>
+<dl class="retval"><dt>Valores retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>Sucesso (HTTP 200) </td></tr>
+    <tr><td class="paramname">0</td><td>Falha na requisição </td></tr>
+    <tr><td class="paramname">2</td><td>Wi-Fi não conectado</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Envia um valor numérico para ThingSpeak via HTTP GET. </p>
+
+</div>
+</div>
+<a id="aab7876312534d1d5cb2b52368d8a66aa" name="aab7876312534d1d5cb2b52368d8a66aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab7876312534d1d5cb2b52368d8a66aa">&#9670;&#160;</a></span>EnviarWhats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t EnviarWhats </td>
+          <td>(</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>mensagem</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envia uma mensagem via WhatsApp usando CallMeBot API. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mensagem</td><td>Texto da mensagem a ser enviada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>uint8_t </dd></dl>
+<dl class="retval"><dt>Valores retornados</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>Sucesso (HTTP 200) </td></tr>
+    <tr><td class="paramname">0</td><td>Falha na requisição </td></tr>
+    <tr><td class="paramname">2</td><td>Wi-Fi não conectado</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Envia uma mensagem via WhatsApp usando CallMeBot API. </p>
+
+</div>
+</div>
+<a id="a10c0866444677cfc520f43e52f3b763a" name="a10c0866444677cfc520f43e52f3b763a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c0866444677cfc520f43e52f3b763a">&#9670;&#160;</a></span>SalvaConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SalvaConfig </td>
+          <td>(</td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>wifi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>senha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>setPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>intervalo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wifi</td><td>Nome da rede Wi-Fi. </td></tr>
+    <tr><td class="paramname">senha</td><td>Senha da rede Wi-Fi. </td></tr>
+    <tr><td class="paramname">setPoint</td><td>Valor do setpoint de temperatura. </td></tr>
+    <tr><td class="paramname">intervalo</td><td>Intervalo de tempo entre leituras (em microssegundos).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das variáveis</h2>
+<a id="abafd9aa183f18bceec5da61aa1f93a87" name="abafd9aa183f18bceec5da61aa1f93a87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abafd9aa183f18bceec5da61aa1f93a87">&#9670;&#160;</a></span>apiKey</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String apiKey</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>API key de acesso ao ThingSpeak. </p>
+
+</div>
+</div>
+<a id="a2178705e4b75e3811fb805ea29271cd6" name="a2178705e4b75e3811fb805ea29271cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2178705e4b75e3811fb805ea29271cd6">&#9670;&#160;</a></span>apiWhats</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String apiWhats</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0410997c46ed3194dd285765f7f31860" name="a0410997c46ed3194dd285765f7f31860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0410997c46ed3194dd285765f7f31860">&#9670;&#160;</a></span>intervaloTemp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t intervaloTemp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1985d05d19fdca8123f77df57639188f" name="a1985d05d19fdca8123f77df57639188f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1985d05d19fdca8123f77df57639188f">&#9670;&#160;</a></span>nomeWifi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String nomeWifi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nome da rede Wi-Fi para conexão. </p>
+
+</div>
+</div>
+<a id="ae5f1bf82db9796145db3a408488ecefd" name="ae5f1bf82db9796145db3a408488ecefd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f1bf82db9796145db3a408488ecefd">&#9670;&#160;</a></span>numCelular</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String numCelular</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77f70a9d88156f5f7dbdd99bfaaee64e" name="a77f70a9d88156f5f7dbdd99bfaaee64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f70a9d88156f5f7dbdd99bfaaee64e">&#9670;&#160;</a></span>prefs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Preferences prefs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b53c380928d42395504a2470d0e10e6" name="a2b53c380928d42395504a2470d0e10e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b53c380928d42395504a2470d0e10e6">&#9670;&#160;</a></span>senhaWifi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String senhaWifi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Senha da rede Wi-Fi. </p>
+
+</div>
+</div>
+<a id="a4cfa213c7b6b7e5a1788f5bf87b423d8" name="a4cfa213c7b6b7e5a1788f5bf87b423d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cfa213c7b6b7e5a1788f5bf87b423d8">&#9670;&#160;</a></span>server</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String server</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>URL do servidor ThingSpeak para envio de dados. </p>
+
+</div>
+</div>
+<a id="add1d9118be43175094da2653b50c9f78" name="add1d9118be43175094da2653b50c9f78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add1d9118be43175094da2653b50c9f78">&#9670;&#160;</a></span>setpointTemp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float setpointTemp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_72c0ad3dd1040c7c67ea35fcd762f3f6.html">funcoes</a></li><li class="navelem"><a class="el" href="funcoes_8h.html">funcoes.h</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

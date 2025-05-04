@@ -1,0 +1,268 @@
+\doxysection{Referência ao ficheiro funcoes.\+h}
+\hypertarget{funcoes_8h}{}\label{funcoes_8h}\index{funcoes.h@{funcoes.h}}
+
+
+Declarações de funções auxiliares para o projeto Thermo\+Guard ESP32.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$Wi\+Fi\+Client.\+h$>$}\newline
+{\ttfamily \#include $<$HTTPClient.\+h$>$}\newline
+{\ttfamily \#include $<$Url\+Encode.\+h$>$}\newline
+{\ttfamily \#include $<$Preferences.\+h$>$}\newline
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{funcoes_8h_aab7876312534d1d5cb2b52368d8a66aa}{Enviar\+Whats}} (String mensagem)
+\begin{DoxyCompactList}\small\item\em Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{funcoes_8h_a496d1413601446647f4f6e259120b832}{Enviar\+Web}} (float valor)
+\begin{DoxyCompactList}\small\item\em Envia um valor numérico para Thing\+Speak via HTTP GET. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{funcoes_8h_a420a08393185ceba2855a2de10715128}{Conecta\+Wifi}} (String nome, String senha)
+\begin{DoxyCompactList}\small\item\em Conecta o ESP32 à rede Wi-\/\+Fi especificada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8h_ac0864cde0bddc4d52913c6a7215a85c8}{Desconecta\+Wifi}} ()
+\begin{DoxyCompactList}\small\item\em Desconecta o ESP32 da rede Wi-\/\+Fi e desativa o Wi-\/\+Fi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8h_a10c0866444677cfc520f43e52f3b763a}{Salva\+Config}} (String wifi, String senha, float set\+Point, uint32\+\_\+t intervalo)
+\begin{DoxyCompactList}\small\item\em Salva as configurações recebidas (Wi-\/\+Fi, senha, setpoint e intervalo) na NVS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8h_ae37aeb6cc3ac00302fef48cad121e04a}{Carregar\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Carrega as configurações armazenadas na NVS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{funcoes_8h_ae5f1bf82db9796145db3a408488ecefd}{num\+Celular}}
+\item 
+String \mbox{\hyperlink{funcoes_8h_a2178705e4b75e3811fb805ea29271cd6}{api\+Whats}}
+\item 
+String \mbox{\hyperlink{funcoes_8h_a1985d05d19fdca8123f77df57639188f}{nome\+Wifi}}
+\begin{DoxyCompactList}\small\item\em Nome da rede Wi-\/\+Fi para conexão. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{funcoes_8h_a2b53c380928d42395504a2470d0e10e6}{senha\+Wifi}}
+\begin{DoxyCompactList}\small\item\em Senha da rede Wi-\/\+Fi. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{funcoes_8h_abafd9aa183f18bceec5da61aa1f93a87}{api\+Key}}
+\begin{DoxyCompactList}\small\item\em API key de acesso ao Thing\+Speak. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{funcoes_8h_a4cfa213c7b6b7e5a1788f5bf87b423d8}{server}}
+\begin{DoxyCompactList}\small\item\em URL do servidor Thing\+Speak para envio de dados. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{funcoes_8h_add1d9118be43175094da2653b50c9f78}{setpoint\+Temp}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{funcoes_8h_a0410997c46ed3194dd285765f7f31860}{intervalo\+Temp}}
+\item 
+Preferences \mbox{\hyperlink{funcoes_8h_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declarações de funções auxiliares para o projeto Thermo\+Guard ESP32. 
+
+Contém as funções para\+:
+\begin{DoxyItemize}
+\item Envio de dados via HTTP para Whats\+App e Thing\+Speak
+\item Gerenciamento da conexão Wi-\/\+Fi
+\item Armazenamento e recuperação de configurações na NVS
+\item Tratamento de interrupções para BLE
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Autor}
+Matheus Orsini 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+2025-\/04-\/26 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{funcoes_8h_ae37aeb6cc3ac00302fef48cad121e04a}\index{funcoes.h@{funcoes.h}!CarregarConfig@{CarregarConfig}}
+\index{CarregarConfig@{CarregarConfig}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{CarregarConfig()}{CarregarConfig()}}
+{\footnotesize\ttfamily \label{funcoes_8h_ae37aeb6cc3ac00302fef48cad121e04a} 
+void Carregar\+Config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carrega as configurações armazenadas na NVS. 
+
+Carrega as configurações armazenadas na NVS.
+
+Lê o nome do Wi-\/\+Fi, senha, setpoint de temperatura e intervalo de leitura, restaurando os valores padrão caso ainda não existam. \Hypertarget{funcoes_8h_a420a08393185ceba2855a2de10715128}\index{funcoes.h@{funcoes.h}!ConectaWifi@{ConectaWifi}}
+\index{ConectaWifi@{ConectaWifi}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{ConectaWifi()}{ConectaWifi()}}
+{\footnotesize\ttfamily \label{funcoes_8h_a420a08393185ceba2855a2de10715128} 
+uint8\+\_\+t Conecta\+Wifi (\begin{DoxyParamCaption}\item[{String}]{nome}{, }\item[{String}]{senha}{}\end{DoxyParamCaption})}
+
+
+
+Conecta o ESP32 à rede Wi-\/\+Fi especificada. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nome} & Nome (SSID) da rede Wi-\/\+Fi. \\
+\hline
+{\em senha} & Senha da rede Wi-\/\+Fi. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores retornados}
+{\em 1} & Sucesso \\
+\hline
+{\em 0} & Falha\\
+\hline
+\end{DoxyRetVals}
+Conecta o ESP32 à rede Wi-\/\+Fi especificada. \Hypertarget{funcoes_8h_ac0864cde0bddc4d52913c6a7215a85c8}\index{funcoes.h@{funcoes.h}!DesconectaWifi@{DesconectaWifi}}
+\index{DesconectaWifi@{DesconectaWifi}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{DesconectaWifi()}{DesconectaWifi()}}
+{\footnotesize\ttfamily \label{funcoes_8h_ac0864cde0bddc4d52913c6a7215a85c8} 
+void Desconecta\+Wifi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Desconecta o ESP32 da rede Wi-\/\+Fi e desativa o Wi-\/\+Fi. 
+
+Desconecta o ESP32 da rede Wi-\/\+Fi e desativa o Wi-\/\+Fi. \Hypertarget{funcoes_8h_a496d1413601446647f4f6e259120b832}\index{funcoes.h@{funcoes.h}!EnviarWeb@{EnviarWeb}}
+\index{EnviarWeb@{EnviarWeb}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{EnviarWeb()}{EnviarWeb()}}
+{\footnotesize\ttfamily \label{funcoes_8h_a496d1413601446647f4f6e259120b832} 
+uint8\+\_\+t Enviar\+Web (\begin{DoxyParamCaption}\item[{float}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Envia um valor numérico para Thing\+Speak via HTTP GET. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em valor} & Valor float a ser enviado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores retornados}
+{\em 1} & Sucesso (HTTP 200) \\
+\hline
+{\em 0} & Falha na requisição \\
+\hline
+{\em 2} & Wi-\/\+Fi não conectado\\
+\hline
+\end{DoxyRetVals}
+Envia um valor numérico para Thing\+Speak via HTTP GET. \Hypertarget{funcoes_8h_aab7876312534d1d5cb2b52368d8a66aa}\index{funcoes.h@{funcoes.h}!EnviarWhats@{EnviarWhats}}
+\index{EnviarWhats@{EnviarWhats}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{EnviarWhats()}{EnviarWhats()}}
+{\footnotesize\ttfamily \label{funcoes_8h_aab7876312534d1d5cb2b52368d8a66aa} 
+uint8\+\_\+t Enviar\+Whats (\begin{DoxyParamCaption}\item[{String}]{mensagem}{}\end{DoxyParamCaption})}
+
+
+
+Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em mensagem} & Texto da mensagem a ser enviada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores retornados}
+{\em 1} & Sucesso (HTTP 200) \\
+\hline
+{\em 0} & Falha na requisição \\
+\hline
+{\em 2} & Wi-\/\+Fi não conectado\\
+\hline
+\end{DoxyRetVals}
+Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. \Hypertarget{funcoes_8h_a10c0866444677cfc520f43e52f3b763a}\index{funcoes.h@{funcoes.h}!SalvaConfig@{SalvaConfig}}
+\index{SalvaConfig@{SalvaConfig}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{SalvaConfig()}{SalvaConfig()}}
+{\footnotesize\ttfamily \label{funcoes_8h_a10c0866444677cfc520f43e52f3b763a} 
+void Salva\+Config (\begin{DoxyParamCaption}\item[{String}]{wifi}{, }\item[{String}]{senha}{, }\item[{float}]{set\+Point}{, }\item[{uint32\+\_\+t}]{intervalo}{}\end{DoxyParamCaption})}
+
+
+
+Salva as configurações recebidas (Wi-\/\+Fi, senha, setpoint e intervalo) na NVS. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em wifi} & Nome da rede Wi-\/\+Fi. \\
+\hline
+{\em senha} & Senha da rede Wi-\/\+Fi. \\
+\hline
+{\em set\+Point} & Valor do setpoint de temperatura. \\
+\hline
+{\em intervalo} & Intervalo de tempo entre leituras (em microssegundos).\\
+\hline
+\end{DoxyParams}
+Salva as configurações recebidas (Wi-\/\+Fi, senha, setpoint e intervalo) na NVS. 
+
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{funcoes_8h_abafd9aa183f18bceec5da61aa1f93a87}\index{funcoes.h@{funcoes.h}!apiKey@{apiKey}}
+\index{apiKey@{apiKey}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{apiKey}{apiKey}}
+{\footnotesize\ttfamily \label{funcoes_8h_abafd9aa183f18bceec5da61aa1f93a87} 
+String api\+Key\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+API key de acesso ao Thing\+Speak. 
+
+\Hypertarget{funcoes_8h_a2178705e4b75e3811fb805ea29271cd6}\index{funcoes.h@{funcoes.h}!apiWhats@{apiWhats}}
+\index{apiWhats@{apiWhats}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{apiWhats}{apiWhats}}
+{\footnotesize\ttfamily \label{funcoes_8h_a2178705e4b75e3811fb805ea29271cd6} 
+String api\+Whats\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{funcoes_8h_a0410997c46ed3194dd285765f7f31860}\index{funcoes.h@{funcoes.h}!intervaloTemp@{intervaloTemp}}
+\index{intervaloTemp@{intervaloTemp}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{intervaloTemp}{intervaloTemp}}
+{\footnotesize\ttfamily \label{funcoes_8h_a0410997c46ed3194dd285765f7f31860} 
+uint32\+\_\+t intervalo\+Temp\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{funcoes_8h_a1985d05d19fdca8123f77df57639188f}\index{funcoes.h@{funcoes.h}!nomeWifi@{nomeWifi}}
+\index{nomeWifi@{nomeWifi}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{nomeWifi}{nomeWifi}}
+{\footnotesize\ttfamily \label{funcoes_8h_a1985d05d19fdca8123f77df57639188f} 
+String nome\+Wifi\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Nome da rede Wi-\/\+Fi para conexão. 
+
+\Hypertarget{funcoes_8h_ae5f1bf82db9796145db3a408488ecefd}\index{funcoes.h@{funcoes.h}!numCelular@{numCelular}}
+\index{numCelular@{numCelular}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{numCelular}{numCelular}}
+{\footnotesize\ttfamily \label{funcoes_8h_ae5f1bf82db9796145db3a408488ecefd} 
+String num\+Celular\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{funcoes_8h_a77f70a9d88156f5f7dbdd99bfaaee64e}\index{funcoes.h@{funcoes.h}!prefs@{prefs}}
+\index{prefs@{prefs}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{prefs}{prefs}}
+{\footnotesize\ttfamily \label{funcoes_8h_a77f70a9d88156f5f7dbdd99bfaaee64e} 
+Preferences prefs\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{funcoes_8h_a2b53c380928d42395504a2470d0e10e6}\index{funcoes.h@{funcoes.h}!senhaWifi@{senhaWifi}}
+\index{senhaWifi@{senhaWifi}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{senhaWifi}{senhaWifi}}
+{\footnotesize\ttfamily \label{funcoes_8h_a2b53c380928d42395504a2470d0e10e6} 
+String senha\+Wifi\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Senha da rede Wi-\/\+Fi. 
+
+\Hypertarget{funcoes_8h_a4cfa213c7b6b7e5a1788f5bf87b423d8}\index{funcoes.h@{funcoes.h}!server@{server}}
+\index{server@{server}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{server}{server}}
+{\footnotesize\ttfamily \label{funcoes_8h_a4cfa213c7b6b7e5a1788f5bf87b423d8} 
+String server\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+URL do servidor Thing\+Speak para envio de dados. 
+
+\Hypertarget{funcoes_8h_add1d9118be43175094da2653b50c9f78}\index{funcoes.h@{funcoes.h}!setpointTemp@{setpointTemp}}
+\index{setpointTemp@{setpointTemp}!funcoes.h@{funcoes.h}}
+\doxysubsubsection{\texorpdfstring{setpointTemp}{setpointTemp}}
+{\footnotesize\ttfamily \label{funcoes_8h_add1d9118be43175094da2653b50c9f78} 
+float setpoint\+Temp\hspace{0.3cm}{\ttfamily [extern]}}
+

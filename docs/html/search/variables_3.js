@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['flagble_0',['flagBle',['../main_8cpp.html#adf204609b938686fca6dcd5c6b7145f9',1,'main.cpp']]]
+  ['nomewifi_0',['nomeWifi',['../funcoes_8h.html#a1985d05d19fdca8123f77df57639188f',1,'nomeWifi:&#160;main.cpp'],['../main_8cpp.html#a1985d05d19fdca8123f77df57639188f',1,'nomeWifi:&#160;main.cpp']]],
+  ['numcelular_1',['numCelular',['../funcoes_8h.html#ae5f1bf82db9796145db3a408488ecefd',1,'numCelular:&#160;main.cpp'],['../main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd',1,'numCelular:&#160;main.cpp']]]
 ];

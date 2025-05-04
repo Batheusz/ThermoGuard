@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ThermoGuard: Código-Fonte de funcoes.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ThermoGuard
+   </div>
+   <div id="projectbrief">Documentação do projeto ThermoGuard - Monitoramento de Temperatura BLE</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('funcoes_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">funcoes.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="funcoes_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifndef FUNCOES_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define FUNCOES_H</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;WiFi.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;WiFiClient.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;HTTPClient.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;UrlEncode.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;Preferences.h&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> String <a class="code hl_variable" href="funcoes_8h.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> String <a class="code hl_variable" href="funcoes_8h.html#a2178705e4b75e3811fb805ea29271cd6">apiWhats</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> String <a class="code hl_variable" href="funcoes_8h.html#a1985d05d19fdca8123f77df57639188f">nomeWifi</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">extern</span> String <a class="code hl_variable" href="funcoes_8h.html#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> String <a class="code hl_variable" href="funcoes_8h.html#abafd9aa183f18bceec5da61aa1f93a87">apiKey</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">extern</span> String <a class="code hl_variable" href="funcoes_8h.html#a4cfa213c7b6b7e5a1788f5bf87b423d8">server</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="funcoes_8h.html#add1d9118be43175094da2653b50c9f78">setpointTemp</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> uint32_t <a class="code hl_variable" href="funcoes_8h.html#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> Preferences <a class="code hl_variable" href="funcoes_8h.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>uint8_t <a class="code hl_function" href="funcoes_8h.html#aab7876312534d1d5cb2b52368d8a66aa">EnviarWhats</a>(String mensagem);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>uint8_t <a class="code hl_function" href="funcoes_8h.html#a496d1413601446647f4f6e259120b832">EnviarWeb</a>(<span class="keywordtype">float</span> valor);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>uint8_t <a class="code hl_function" href="funcoes_8h.html#a420a08393185ceba2855a2de10715128">ConectaWifi</a>(String nome, String senha);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="funcoes_8h.html#ac0864cde0bddc4d52913c6a7215a85c8">DesconectaWifi</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> <a class="code hl_function" href="funcoes_8h.html#a10c0866444677cfc520f43e52f3b763a">SalvaConfig</a>(String wifi, String senha, <span class="keywordtype">float</span> setPoint, uint32_t intervalo);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> <a class="code hl_function" href="funcoes_8h.html#ae37aeb6cc3ac00302fef48cad121e04a">CarregarConfig</a>();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#endif </span><span class="comment">// FUNCOES_H</span></div>
+<div class="ttc" id="afuncoes_8h_html_a0410997c46ed3194dd285765f7f31860"><div class="ttname"><a href="funcoes_8h.html#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a></div><div class="ttdeci">uint32_t intervaloTemp</div><div class="ttdef"><b>Definição</b> main.cpp:38</div></div>
+<div class="ttc" id="afuncoes_8h_html_a10c0866444677cfc520f43e52f3b763a"><div class="ttname"><a href="funcoes_8h.html#a10c0866444677cfc520f43e52f3b763a">SalvaConfig</a></div><div class="ttdeci">void SalvaConfig(String wifi, String senha, float setPoint, uint32_t intervalo)</div><div class="ttdoc">Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS.</div><div class="ttdef"><b>Definição</b> funcoes.cpp:77</div></div>
+<div class="ttc" id="afuncoes_8h_html_a1985d05d19fdca8123f77df57639188f"><div class="ttname"><a href="funcoes_8h.html#a1985d05d19fdca8123f77df57639188f">nomeWifi</a></div><div class="ttdeci">String nomeWifi</div><div class="ttdoc">Nome da rede Wi-Fi para conexão.</div><div class="ttdef"><b>Definição</b> main.cpp:26</div></div>
+<div class="ttc" id="afuncoes_8h_html_a2178705e4b75e3811fb805ea29271cd6"><div class="ttname"><a href="funcoes_8h.html#a2178705e4b75e3811fb805ea29271cd6">apiWhats</a></div><div class="ttdeci">String apiWhats</div><div class="ttdef"><b>Definição</b> main.cpp:23</div></div>
+<div class="ttc" id="afuncoes_8h_html_a2b53c380928d42395504a2470d0e10e6"><div class="ttname"><a href="funcoes_8h.html#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a></div><div class="ttdeci">String senhaWifi</div><div class="ttdoc">Senha da rede Wi-Fi.</div><div class="ttdef"><b>Definição</b> main.cpp:28</div></div>
+<div class="ttc" id="afuncoes_8h_html_a420a08393185ceba2855a2de10715128"><div class="ttname"><a href="funcoes_8h.html#a420a08393185ceba2855a2de10715128">ConectaWifi</a></div><div class="ttdeci">uint8_t ConectaWifi(String nome, String senha)</div><div class="ttdoc">Conecta o ESP32 à rede Wi-Fi especificada.</div><div class="ttdef"><b>Definição</b> funcoes.cpp:54</div></div>
+<div class="ttc" id="afuncoes_8h_html_a496d1413601446647f4f6e259120b832"><div class="ttname"><a href="funcoes_8h.html#a496d1413601446647f4f6e259120b832">EnviarWeb</a></div><div class="ttdeci">uint8_t EnviarWeb(float valor)</div><div class="ttdoc">Envia um valor numérico para ThingSpeak via HTTP GET.</div><div class="ttdef"><b>Definição</b> funcoes.cpp:33</div></div>
+<div class="ttc" id="afuncoes_8h_html_a4cfa213c7b6b7e5a1788f5bf87b423d8"><div class="ttname"><a href="funcoes_8h.html#a4cfa213c7b6b7e5a1788f5bf87b423d8">server</a></div><div class="ttdeci">String server</div><div class="ttdoc">URL do servidor ThingSpeak para envio de dados.</div><div class="ttdef"><b>Definição</b> main.cpp:32</div></div>
+<div class="ttc" id="afuncoes_8h_html_a77f70a9d88156f5f7dbdd99bfaaee64e"><div class="ttname"><a href="funcoes_8h.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a></div><div class="ttdeci">Preferences prefs</div><div class="ttdef"><b>Definição</b> main.cpp:47</div></div>
+<div class="ttc" id="afuncoes_8h_html_aab7876312534d1d5cb2b52368d8a66aa"><div class="ttname"><a href="funcoes_8h.html#aab7876312534d1d5cb2b52368d8a66aa">EnviarWhats</a></div><div class="ttdeci">uint8_t EnviarWhats(String mensagem)</div><div class="ttdoc">Envia uma mensagem via WhatsApp usando CallMeBot API.</div><div class="ttdef"><b>Definição</b> funcoes.cpp:11</div></div>
+<div class="ttc" id="afuncoes_8h_html_abafd9aa183f18bceec5da61aa1f93a87"><div class="ttname"><a href="funcoes_8h.html#abafd9aa183f18bceec5da61aa1f93a87">apiKey</a></div><div class="ttdeci">String apiKey</div><div class="ttdoc">API key de acesso ao ThingSpeak.</div><div class="ttdef"><b>Definição</b> main.cpp:34</div></div>
+<div class="ttc" id="afuncoes_8h_html_ac0864cde0bddc4d52913c6a7215a85c8"><div class="ttname"><a href="funcoes_8h.html#ac0864cde0bddc4d52913c6a7215a85c8">DesconectaWifi</a></div><div class="ttdeci">void DesconectaWifi()</div><div class="ttdoc">Desconecta o ESP32 da rede Wi-Fi e desativa o Wi-Fi.</div><div class="ttdef"><b>Definição</b> funcoes.cpp:69</div></div>
+<div class="ttc" id="afuncoes_8h_html_add1d9118be43175094da2653b50c9f78"><div class="ttname"><a href="funcoes_8h.html#add1d9118be43175094da2653b50c9f78">setpointTemp</a></div><div class="ttdeci">float setpointTemp</div><div class="ttdef"><b>Definição</b> main.cpp:37</div></div>
+<div class="ttc" id="afuncoes_8h_html_ae37aeb6cc3ac00302fef48cad121e04a"><div class="ttname"><a href="funcoes_8h.html#ae37aeb6cc3ac00302fef48cad121e04a">CarregarConfig</a></div><div class="ttdeci">void CarregarConfig()</div><div class="ttdoc">Carrega as configurações armazenadas na NVS.</div><div class="ttdef"><b>Definição</b> funcoes.cpp:92</div></div>
+<div class="ttc" id="afuncoes_8h_html_ae5f1bf82db9796145db3a408488ecefd"><div class="ttname"><a href="funcoes_8h.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a></div><div class="ttdeci">String numCelular</div><div class="ttdef"><b>Definição</b> main.cpp:22</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_72c0ad3dd1040c7c67ea35fcd762f3f6.html">funcoes</a></li><li class="navelem"><a class="el" href="funcoes_8h.html">funcoes.h</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

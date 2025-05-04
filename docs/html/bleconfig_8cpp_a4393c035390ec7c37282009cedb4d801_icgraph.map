@@ -1,0 +1,7 @@
+<map id="WifiSenhaDesc" name="WifiSenhaDesc">
+<area shape="rect" id="Node000001" title=" " alt="" coords="236,5,348,32"/>
+<area shape="rect" id="Node000002" href="$bleconfig_8cpp.html#a5c0efe429f3a4ddda46992fd1c9e08fc" title="Inicializa o Bluetooth Low Energy (BLE)." alt="" coords="107,5,188,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,21,188,21,188,16,220,16"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>

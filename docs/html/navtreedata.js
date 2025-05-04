@@ -25,12 +25,22 @@
 var NAVTREE =
 [
   [ "ThermoGuard", "index.html", [
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ]
+    [ "Classes", "annotated.html", [
+      [ "Lista de componentes", "annotated.html", "annotated_dup" ],
+      [ "Índice dos componentes", "classes.html", null ],
+      [ "Hierarquia de classes", "hierarchy.html", "hierarchy" ],
+      [ "Componentes membro", "functions.html", [
+        [ "Tudo", "functions.html", null ],
+        [ "Funções", "functions_func.html", null ]
+      ] ]
+    ] ],
+    [ "Ficheiros", "files.html", [
+      [ "Lista de ficheiros", "files.html", "files_dup" ],
+      [ "Membros dos Ficheiros", "globals.html", [
+        [ "Tudo", "globals.html", null ],
+        [ "Funções", "globals_func.html", null ],
+        [ "Variáveis", "globals_vars.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -38,8 +48,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"files.html"
+"annotated.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
+var SYNCONMSG = 'clique para desativar a sincronização do painel';
+var SYNCOFFMSG = 'clique para ativar a sincronização do painel';

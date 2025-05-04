@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pinonewire_0',['PinOneWire',['../main_8cpp.html#a150087f953fda6915d3f1a40555feb3f',1,'main.cpp']]]
+  ['onconnect_0',['onConnect',['../class_my_server_callbacks.html#a9a864448a2836d4381e1bdb6785ba415',1,'MyServerCallbacks']]],
+  ['ondisconnect_1',['onDisconnect',['../class_my_server_callbacks.html#aa0f35b6d22a036789bd40bf433f86e0d',1,'MyServerCallbacks']]]
 ];

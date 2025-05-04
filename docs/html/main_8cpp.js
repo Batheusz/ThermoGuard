@@ -1,23 +1,19 @@
 var main_8cpp =
 [
-    [ "botaoISR", "main_8cpp.html#a98f1875fb179306f570060a93476cf21", null ],
-    [ "ConectaWifi", "main_8cpp.html#a372f1dc3a11e87529e474072a031d170", null ],
-    [ "DesconectaWifi", "main_8cpp.html#ac0864cde0bddc4d52913c6a7215a85c8", null ],
-    [ "EnviarWeb", "main_8cpp.html#a496d1413601446647f4f6e259120b832", null ],
-    [ "EnviarWhats", "main_8cpp.html#a9b1f12a605df8c8ef437a1da1ee8c7e6", null ],
     [ "loop", "main_8cpp.html#afe461d27b9c48d5921c00d521181f12f", null ],
     [ "PinOneWire", "main_8cpp.html#a150087f953fda6915d3f1a40555feb3f", null ],
     [ "setup", "main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d", null ],
     [ "apiKey", "main_8cpp.html#abafd9aa183f18bceec5da61aa1f93a87", null ],
     [ "apiWhats", "main_8cpp.html#a2178705e4b75e3811fb805ea29271cd6", null ],
-    [ "botaoLastTime", "main_8cpp.html#aea6cbc4ff8e3879ccf35d8f8d5f7ad7d", null ],
-    [ "botaoTime", "main_8cpp.html#ac8b87eeeb2a6a065bbfb0fd654328442", null ],
-    [ "count", "main_8cpp.html#ad43c3812e6d13e0518d9f8b8f463ffcf", null ],
-    [ "flagBle", "main_8cpp.html#adf204609b938686fca6dcd5c6b7145f9", null ],
-    [ "nomeWifi", "main_8cpp.html#a45d8b9f93a42bef3502195e87ccbd517", null ],
+    [ "deviceConnected", "main_8cpp.html#a5affc02c6814932fa2696bac53bc2598", null ],
+    [ "intervaloTemp", "main_8cpp.html#a0410997c46ed3194dd285765f7f31860", null ],
+    [ "nomeWifi", "main_8cpp.html#a1985d05d19fdca8123f77df57639188f", null ],
     [ "numCelular", "main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd", null ],
     [ "PinOneWire", "main_8cpp.html#a2281c25ce20f336862c9efd9b1cb272b", null ],
-    [ "senhaWifi", "main_8cpp.html#a3a07fc26007cccbce56d5b8b1c22857a", null ],
-    [ "server", "main_8cpp.html#ab68b888c3d204a4403af6d1b22f6d07c", null ],
-    [ "wakeCount", "main_8cpp.html#af1077fd2d9e4f28598b09a829ca27077", null ]
+    [ "prefs", "main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e", null ],
+    [ "senhaWifi", "main_8cpp.html#a2b53c380928d42395504a2470d0e10e6", null ],
+    [ "server", "main_8cpp.html#a4cfa213c7b6b7e5a1788f5bf87b423d8", null ],
+    [ "setpointTemp", "main_8cpp.html#add1d9118be43175094da2653b50c9f78", null ],
+    [ "TemperaturaChar", "main_8cpp.html#addaafdcebe086b82f5e22ac3ba9b50e2", null ],
+    [ "ultimaTemp", "main_8cpp.html#a88c6be4f27423cb49670a683b86f1685", null ]
 ];

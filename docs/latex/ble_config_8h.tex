@@ -1,0 +1,90 @@
+\doxysection{Referência ao ficheiro ble\+Config.\+h}
+\hypertarget{ble_config_8h}{}\label{ble_config_8h}\index{bleConfig.h@{bleConfig.h}}
+
+
+Declarações para configuração do Bluetooth Low Energy (BLE).  
+
+
+{\ttfamily \#include $<$BLEDevice.\+h$>$}\newline
+{\ttfamily \#include $<$BLEUtils.\+h$>$}\newline
+{\ttfamily \#include $<$BLEServer.\+h$>$}\newline
+{\ttfamily \#include $<$BLE2902.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ble_config_8h_a4bbd173ed413764eacf17c52a5b4e774}{BLECONFIGS\+\_\+H}}
+\item 
+\#define \mbox{\hyperlink{ble_config_8h_a445125ee8c34695376c85f10b38844d6}{SERVICE\+\_\+\+UUID}}~BLEUUID((uint16\+\_\+t)0x1809)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ble_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc}{Iniciar\+BLE}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa o Bluetooth Low Energy (BLE). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ble_config_8h_a9f566969550d007df837c1490bb6316b}{Encerrar\+BLE}} ()
+\begin{DoxyCompactList}\small\item\em Encerra o Bluetooth Low Energy (BLE). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+volatile bool \mbox{\hyperlink{ble_config_8h_a5affc02c6814932fa2696bac53bc2598}{device\+Connected}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Declarações para configuração do Bluetooth Low Energy (BLE). 
+
+Define o UUID do serviço BLE e declara as funções públicas para iniciar e encerrar o BLE.
+
+\begin{DoxyAuthor}{Autor}
+Matheus Orsini 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+2025-\/04-\/26 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentação das macros}
+\Hypertarget{ble_config_8h_a4bbd173ed413764eacf17c52a5b4e774}\index{bleConfig.h@{bleConfig.h}!BLECONFIGS\_H@{BLECONFIGS\_H}}
+\index{BLECONFIGS\_H@{BLECONFIGS\_H}!bleConfig.h@{bleConfig.h}}
+\doxysubsubsection{\texorpdfstring{BLECONFIGS\_H}{BLECONFIGS\_H}}
+{\footnotesize\ttfamily \label{ble_config_8h_a4bbd173ed413764eacf17c52a5b4e774} 
+\#define BLECONFIGS\+\_\+H}
+
+\Hypertarget{ble_config_8h_a445125ee8c34695376c85f10b38844d6}\index{bleConfig.h@{bleConfig.h}!SERVICE\_UUID@{SERVICE\_UUID}}
+\index{SERVICE\_UUID@{SERVICE\_UUID}!bleConfig.h@{bleConfig.h}}
+\doxysubsubsection{\texorpdfstring{SERVICE\_UUID}{SERVICE\_UUID}}
+{\footnotesize\ttfamily \label{ble_config_8h_a445125ee8c34695376c85f10b38844d6} 
+\#define SERVICE\+\_\+\+UUID~BLEUUID((uint16\+\_\+t)0x1809)}
+
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{ble_config_8h_a9f566969550d007df837c1490bb6316b}\index{bleConfig.h@{bleConfig.h}!EncerrarBLE@{EncerrarBLE}}
+\index{EncerrarBLE@{EncerrarBLE}!bleConfig.h@{bleConfig.h}}
+\doxysubsubsection{\texorpdfstring{EncerrarBLE()}{EncerrarBLE()}}
+{\footnotesize\ttfamily \label{ble_config_8h_a9f566969550d007df837c1490bb6316b} 
+void Encerrar\+BLE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Encerra o Bluetooth Low Energy (BLE). 
+
+Finaliza o serviço BLE e libera os recursos alocados. \Hypertarget{ble_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc}\index{bleConfig.h@{bleConfig.h}!IniciarBLE@{IniciarBLE}}
+\index{IniciarBLE@{IniciarBLE}!bleConfig.h@{bleConfig.h}}
+\doxysubsubsection{\texorpdfstring{IniciarBLE()}{IniciarBLE()}}
+{\footnotesize\ttfamily \label{ble_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc} 
+void Iniciar\+BLE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa o Bluetooth Low Energy (BLE). 
+
+Configura o servidor BLE, cria as características e descritores para temperatura, intervalo de leitura e dados de Wi-\/\+Fi, e inicia a propaganda BLE. 
+
+\doxysubsection{Documentação das variáveis}
+\Hypertarget{ble_config_8h_a5affc02c6814932fa2696bac53bc2598}\index{bleConfig.h@{bleConfig.h}!deviceConnected@{deviceConnected}}
+\index{deviceConnected@{deviceConnected}!bleConfig.h@{bleConfig.h}}
+\doxysubsubsection{\texorpdfstring{deviceConnected}{deviceConnected}}
+{\footnotesize\ttfamily \label{ble_config_8h_a5affc02c6814932fa2696bac53bc2598} 
+volatile bool device\+Connected\hspace{0.3cm}{\ttfamily [extern]}}
+

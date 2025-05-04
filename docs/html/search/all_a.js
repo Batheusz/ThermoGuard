@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['senhawifi_0',['senhaWifi',['../main_8cpp.html#a3a07fc26007cccbce56d5b8b1c22857a',1,'main.cpp']]],
-  ['server_1',['server',['../main_8cpp.html#ab68b888c3d204a4403af6d1b22f6d07c',1,'main.cpp']]],
-  ['setup_2',['setup',['../main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'main.cpp']]]
+  ['onconnect_0',['onConnect',['../class_my_server_callbacks.html#a9a864448a2836d4381e1bdb6785ba415',1,'MyServerCallbacks']]],
+  ['ondisconnect_1',['onDisconnect',['../class_my_server_callbacks.html#aa0f35b6d22a036789bd40bf433f86e0d',1,'MyServerCallbacks']]]
 ];

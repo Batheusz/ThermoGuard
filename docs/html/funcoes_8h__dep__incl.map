@@ -1,0 +1,7 @@
+<map id="funcoes.h" name="funcoes.h">
+<area shape="rect" id="Node000001" title="Declarações de funções auxiliares para o projeto ThermoGuard ESP32." alt="" coords="66,5,144,32"/>
+<area shape="rect" id="Node000002" href="$funcoes_8cpp.html" title="Implementação das funções auxiliares para o projeto ThermoGuard ESP32." alt="" coords="5,80,98,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,46,63,81,59,78,84,43"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Projeto de monitoramento de temperatura e envio de alertas via WhatsApp e ThingSpeak usando ESP32." alt="" coords="122,80,197,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,43,152,78,148,81,122,46"/>
+</map>

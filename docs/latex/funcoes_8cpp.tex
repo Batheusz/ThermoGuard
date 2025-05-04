@@ -1,0 +1,94 @@
+\doxysection{Referência ao ficheiro funcoes.\+cpp}
+\hypertarget{funcoes_8cpp}{}\label{funcoes_8cpp}\index{funcoes.cpp@{funcoes.cpp}}
+
+
+Implementação das funções auxiliares para o projeto Thermo\+Guard ESP32.  
+
+
+{\ttfamily \#include "{}funcoes.\+h"{}}\newline
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa}{Enviar\+Whats}} (String mensagem)
+\begin{DoxyCompactList}\small\item\em Envia mensagem Whats\+App via Call\+Me\+Bot API. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{funcoes_8cpp_a496d1413601446647f4f6e259120b832}{Enviar\+Web}} (float valor)
+\begin{DoxyCompactList}\small\item\em Envia valor ao Thing\+Speak. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{funcoes_8cpp_a420a08393185ceba2855a2de10715128}{Conecta\+Wifi}} (String nome, String senha)
+\begin{DoxyCompactList}\small\item\em Conecta o ESP32 à rede Wi-\/\+Fi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}{Desconecta\+Wifi}} ()
+\begin{DoxyCompactList}\small\item\em Desconecta e desativa o Wi-\/\+Fi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8cpp_a10c0866444677cfc520f43e52f3b763a}{Salva\+Config}} (String wifi, String senha, float set\+Point, uint32\+\_\+t intervalo)
+\begin{DoxyCompactList}\small\item\em Salva configurações na NVS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8cpp_ae37aeb6cc3ac00302fef48cad121e04a}{Carregar\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Carrega configurações armazenadas na memória NVS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Implementação das funções auxiliares para o projeto Thermo\+Guard ESP32. 
+
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{funcoes_8cpp_ae37aeb6cc3ac00302fef48cad121e04a}\index{funcoes.cpp@{funcoes.cpp}!CarregarConfig@{CarregarConfig}}
+\index{CarregarConfig@{CarregarConfig}!funcoes.cpp@{funcoes.cpp}}
+\doxysubsubsection{\texorpdfstring{CarregarConfig()}{CarregarConfig()}}
+{\footnotesize\ttfamily \label{funcoes_8cpp_ae37aeb6cc3ac00302fef48cad121e04a} 
+void Carregar\+Config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carrega configurações armazenadas na memória NVS. 
+
+Carrega as configurações armazenadas na NVS.
+
+Lê o nome do Wi-\/\+Fi, senha, setpoint de temperatura e intervalo de leitura, restaurando os valores padrão caso ainda não existam. \Hypertarget{funcoes_8cpp_a420a08393185ceba2855a2de10715128}\index{funcoes.cpp@{funcoes.cpp}!ConectaWifi@{ConectaWifi}}
+\index{ConectaWifi@{ConectaWifi}!funcoes.cpp@{funcoes.cpp}}
+\doxysubsubsection{\texorpdfstring{ConectaWifi()}{ConectaWifi()}}
+{\footnotesize\ttfamily \label{funcoes_8cpp_a420a08393185ceba2855a2de10715128} 
+uint8\+\_\+t Conecta\+Wifi (\begin{DoxyParamCaption}\item[{String}]{nome}{, }\item[{String}]{senha}{}\end{DoxyParamCaption})}
+
+
+
+Conecta o ESP32 à rede Wi-\/\+Fi. 
+
+Conecta o ESP32 à rede Wi-\/\+Fi especificada. \Hypertarget{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}\index{funcoes.cpp@{funcoes.cpp}!DesconectaWifi@{DesconectaWifi}}
+\index{DesconectaWifi@{DesconectaWifi}!funcoes.cpp@{funcoes.cpp}}
+\doxysubsubsection{\texorpdfstring{DesconectaWifi()}{DesconectaWifi()}}
+{\footnotesize\ttfamily \label{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8} 
+void Desconecta\+Wifi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Desconecta e desativa o Wi-\/\+Fi. 
+
+Desconecta o ESP32 da rede Wi-\/\+Fi e desativa o Wi-\/\+Fi. \Hypertarget{funcoes_8cpp_a496d1413601446647f4f6e259120b832}\index{funcoes.cpp@{funcoes.cpp}!EnviarWeb@{EnviarWeb}}
+\index{EnviarWeb@{EnviarWeb}!funcoes.cpp@{funcoes.cpp}}
+\doxysubsubsection{\texorpdfstring{EnviarWeb()}{EnviarWeb()}}
+{\footnotesize\ttfamily \label{funcoes_8cpp_a496d1413601446647f4f6e259120b832} 
+uint8\+\_\+t Enviar\+Web (\begin{DoxyParamCaption}\item[{float}]{valor}{}\end{DoxyParamCaption})}
+
+
+
+Envia valor ao Thing\+Speak. 
+
+Envia um valor numérico para Thing\+Speak via HTTP GET. \Hypertarget{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa}\index{funcoes.cpp@{funcoes.cpp}!EnviarWhats@{EnviarWhats}}
+\index{EnviarWhats@{EnviarWhats}!funcoes.cpp@{funcoes.cpp}}
+\doxysubsubsection{\texorpdfstring{EnviarWhats()}{EnviarWhats()}}
+{\footnotesize\ttfamily \label{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa} 
+uint8\+\_\+t Enviar\+Whats (\begin{DoxyParamCaption}\item[{String}]{mensagem}{}\end{DoxyParamCaption})}
+
+
+
+Envia mensagem Whats\+App via Call\+Me\+Bot API. 
+
+Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. \Hypertarget{funcoes_8cpp_a10c0866444677cfc520f43e52f3b763a}\index{funcoes.cpp@{funcoes.cpp}!SalvaConfig@{SalvaConfig}}
+\index{SalvaConfig@{SalvaConfig}!funcoes.cpp@{funcoes.cpp}}
+\doxysubsubsection{\texorpdfstring{SalvaConfig()}{SalvaConfig()}}
+{\footnotesize\ttfamily \label{funcoes_8cpp_a10c0866444677cfc520f43e52f3b763a} 
+void Salva\+Config (\begin{DoxyParamCaption}\item[{String}]{wifi}{, }\item[{String}]{senha}{, }\item[{float}]{set\+Point}{, }\item[{uint32\+\_\+t}]{intervalo}{}\end{DoxyParamCaption})}
+
+
+
+Salva configurações na NVS. 
+
+Salva as configurações recebidas (Wi-\/\+Fi, senha, setpoint e intervalo) na NVS. 

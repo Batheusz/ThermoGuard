@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['conectawifi_0',['ConectaWifi',['../main_8cpp.html#a372f1dc3a11e87529e474072a031d170',1,'main.cpp']]]
+  ['desconectawifi_0',['DesconectaWifi',['../funcoes_8cpp.html#ac0864cde0bddc4d52913c6a7215a85c8',1,'DesconectaWifi():&#160;funcoes.cpp'],['../funcoes_8h.html#ac0864cde0bddc4d52913c6a7215a85c8',1,'DesconectaWifi():&#160;funcoes.cpp']]]
 ];

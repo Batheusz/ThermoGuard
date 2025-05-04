@@ -1,0 +1,45 @@
+\doxysection{Referência à classe My\+Server\+Callbacks}
+\hypertarget{class_my_server_callbacks}{}\label{class_my_server_callbacks}\index{MyServerCallbacks@{MyServerCallbacks}}
+
+
+Classe de callback para eventos de conexão/desconexão BLE.  
+
+
+Diagrama de heranças da classe My\+Server\+Callbacks\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_my_server_callbacks}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_my_server_callbacks_a9a864448a2836d4381e1bdb6785ba415}{on\+Connect}} (BLEServer \texorpdfstring{$\ast$}{*}p\+Server)
+\item 
+void \mbox{\hyperlink{class_my_server_callbacks_aa0f35b6d22a036789bd40bf433f86e0d}{on\+Disconnect}} (BLEServer \texorpdfstring{$\ast$}{*}p\+Server)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Classe de callback para eventos de conexão/desconexão BLE. 
+
+Atualiza a variável global device\+Connected ao detectar mudanças de conexão BLE. 
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{class_my_server_callbacks_a9a864448a2836d4381e1bdb6785ba415}\index{MyServerCallbacks@{MyServerCallbacks}!onConnect@{onConnect}}
+\index{onConnect@{onConnect}!MyServerCallbacks@{MyServerCallbacks}}
+\doxysubsubsection{\texorpdfstring{onConnect()}{onConnect()}}
+{\footnotesize\ttfamily \label{class_my_server_callbacks_a9a864448a2836d4381e1bdb6785ba415} 
+void My\+Server\+Callbacks\+::on\+Connect (\begin{DoxyParamCaption}\item[{BLEServer \texorpdfstring{$\ast$}{*}}]{p\+Server}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_my_server_callbacks_aa0f35b6d22a036789bd40bf433f86e0d}\index{MyServerCallbacks@{MyServerCallbacks}!onDisconnect@{onDisconnect}}
+\index{onDisconnect@{onDisconnect}!MyServerCallbacks@{MyServerCallbacks}}
+\doxysubsubsection{\texorpdfstring{onDisconnect()}{onDisconnect()}}
+{\footnotesize\ttfamily \label{class_my_server_callbacks_aa0f35b6d22a036789bd40bf433f86e0d} 
+void My\+Server\+Callbacks\+::on\+Disconnect (\begin{DoxyParamCaption}\item[{BLEServer \texorpdfstring{$\ast$}{*}}]{p\+Server}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+A documentação para esta classe foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bleconfig_8cpp}{bleconfig.\+cpp}}\end{DoxyCompactItemize}

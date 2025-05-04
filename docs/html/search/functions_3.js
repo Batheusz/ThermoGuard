@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['enviarweb_0',['EnviarWeb',['../main_8cpp.html#a496d1413601446647f4f6e259120b832',1,'main.cpp']]],
-  ['enviarwhats_1',['EnviarWhats',['../main_8cpp.html#a9b1f12a605df8c8ef437a1da1ee8c7e6',1,'main.cpp']]]
+  ['iniciarble_0',['IniciarBLE',['../bleconfig_8cpp.html#a5c0efe429f3a4ddda46992fd1c9e08fc',1,'IniciarBLE():&#160;bleconfig.cpp'],['../ble_config_8h.html#a5c0efe429f3a4ddda46992fd1c9e08fc',1,'IniciarBLE():&#160;bleconfig.cpp']]],
+  ['intervalochar_1',['IntervaloChar',['../bleconfig_8cpp.html#a28d7460209c71220475c726e58b7d90b',1,'bleconfig.cpp']]],
+  ['intervalodesc_2',['IntervaloDesc',['../bleconfig_8cpp.html#a6631abdf9342c486ac682344cdb0baba',1,'bleconfig.cpp']]]
 ];
