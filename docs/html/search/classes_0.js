@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['myservercallbacks_0',['MyServerCallbacks',['../class_my_server_callbacks.html',1,'']]]
+  ['charcallback_0',['CharCallback',['../class_char_callback.html',1,'']]]
 ];

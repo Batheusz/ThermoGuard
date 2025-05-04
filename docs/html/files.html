@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ThermoGuard
+   <div id="projectname">ThermoGuard<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Documentação do projeto ThermoGuard - Monitoramento de Temperatura BLE</div>
+   <div id="projectbrief">Monitoramento de Temperatura e Notificação via WhatsApp e ThingSpeak usando ESP32</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -110,13 +110,12 @@ $(function(){initNavTree('files.html',''); initResizable(true); });
 <div class="levels">[nível de detalhes <span onclick="javascript:dynsection.toggleLevel(1);">1</span><span onclick="javascript:dynsection.toggleLevel(2);">2</span><span onclick="javascript:dynsection.toggleLevel(3);">3</span>]</div><table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="dynsection.toggleFolder('0_')">&#9660;</span><span id="img_0_" class="iconfopen" onclick="dynsection.toggleFolder('0_')">&#160;</span><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html" target="_self">lib</a></td><td class="desc"></td></tr>
 <tr id="row_0_0_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_0_" class="arrow" onclick="dynsection.toggleFolder('0_0_')">&#9660;</span><span id="img_0_0_" class="iconfopen" onclick="dynsection.toggleFolder('0_0_')">&#160;</span><a class="el" href="dir_84d1f1409e117355e43a685a55bc6a9d.html" target="_self">bleConfig</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="bleconfig_8cpp.html" target="_self">bleconfig.cpp</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_1_" class="odd"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="ble_config_8h_source.html"><span class="icondoc"></span></a><a class="el" href="ble_config_8h.html" target="_self">bleConfig.h</a></td><td class="desc">Declarações para configuração do Bluetooth Low Energy (BLE) </td></tr>
+<tr id="row_0_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="bleconfig_8cpp.html" target="_self">bleconfig.cpp</a></td><td class="desc">Implementação da configuração BLE do ESP32 </td></tr>
+<tr id="row_0_0_1_" class="odd"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="ble_config_8h_source.html"><span class="icondoc"></span></a><a class="el" href="ble_config_8h.html" target="_self">bleConfig.h</a></td><td class="desc">Declarações relacionadas à configuração do BLE no ESP32 </td></tr>
 <tr id="row_0_1_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_1_" class="arrow" onclick="dynsection.toggleFolder('0_1_')">&#9660;</span><span id="img_0_1_" class="iconfopen" onclick="dynsection.toggleFolder('0_1_')">&#160;</span><a class="el" href="dir_72c0ad3dd1040c7c67ea35fcd762f3f6.html" target="_self">funcoes</a></td><td class="desc"></td></tr>
-<tr id="row_0_1_0_" class="odd"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="funcoes_8cpp.html" target="_self">funcoes.cpp</a></td><td class="desc">Implementação das funções auxiliares para o projeto ThermoGuard ESP32 </td></tr>
-<tr id="row_0_1_1_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="funcoes_8h_source.html"><span class="icondoc"></span></a><a class="el" href="funcoes_8h.html" target="_self">funcoes.h</a></td><td class="desc">Declarações de funções auxiliares para o projeto ThermoGuard ESP32 </td></tr>
-<tr id="row_1_" class="odd"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="dynsection.toggleFolder('1_')">&#9660;</span><span id="img_1_" class="iconfopen" onclick="dynsection.toggleFolder('1_')">&#160;</span><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" target="_self">src</a></td><td class="desc"></td></tr>
-<tr id="row_1_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="main_8cpp.html" target="_self">main.cpp</a></td><td class="desc">Projeto de monitoramento de temperatura e envio de alertas via WhatsApp e ThingSpeak usando ESP32 </td></tr>
+<tr id="row_0_1_0_" class="odd"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="funcoes_8cpp.html" target="_self">funcoes.cpp</a></td><td class="desc">Implementação das funções auxiliares para envio de dados e armazenamento </td></tr>
+<tr id="row_0_1_1_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="funcoes_8h_source.html"><span class="icondoc"></span></a><a class="el" href="funcoes_8h.html" target="_self">funcoes.h</a></td><td class="desc">Declaração das funções auxiliares para comunicação Wi-Fi e armazenamento </td></tr>
+<tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="main_8cpp.html" target="_self">main.cpp</a></td><td class="desc">Loop principal do sistema de monitoramento de temperatura com ESP32 </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

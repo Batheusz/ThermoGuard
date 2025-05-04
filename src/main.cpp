@@ -1,14 +1,19 @@
 /**
  * @file main.cpp
- * @brief Projeto de monitoramento de temperatura e envio de alertas via WhatsApp e ThingSpeak usando ESP32.
+ * @brief Loop principal do sistema de monitoramento de temperatura com ESP32.
  *
  * @details
- * - Leitura de temperatura com DS18B20.
+ * - Leitura de temperatura via sensor DS18B20.
  * - Envio de dados para ThingSpeak.
- * - Envio de mensagens de alerta via WhatsApp API (CallMeBot).
- * 
- * @author Matheus Orsini
- * @date 2025-04-26
+ * - Envio de alerta via WhatsApp (CallMeBot).
+ * - Comunicação BLE para leitura e configuração de parâmetros (setpoint, Wi-Fi, telefone).
+ * - Alterna entre modo Wi-Fi (temporizado) e BLE (botão físico).
+ * - Persistência de dados com Preferences e RTC_DATA_ATTR.
+ *
+ * @author
+ * Matheus Orsini
+ * @date
+ * 2025-04-26
  */
 
 #include <OneWire.h>
@@ -31,7 +36,7 @@ String senhaWifi = "";
 /** @brief URL do servidor ThingSpeak para envio de dados. */
 String server = "http://api.thingspeak.com/update";
 /** @brief API key de acesso ao ThingSpeak. */
-String apiKey = "";
+String apiKey = "J7NA0N95H2SGO68W";
 
 // Sensor de temp
 float setPointTemp = 0.0;
@@ -91,7 +96,7 @@ void setup() {
         if (ultimaTemp >= setPointTemp){
           EnviarWhats("ALERTA!!\nTemperatura acima da configurada!\nVerifique o paciente!!");
         }
-        if(EnviarWeb(ultimaTemp)){
+        if(EnviarWeb(ultimaTemp) == 1){
           Serial.println("Enviado com sucesso");
         }else{
           Serial.println("Falha ao enviar");

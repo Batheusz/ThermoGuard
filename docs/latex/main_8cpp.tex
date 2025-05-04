@@ -2,7 +2,7 @@
 \hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
 
 
-Projeto de monitoramento de temperatura e envio de alertas via Whats\+App e Thing\+Speak usando ESP32.  
+Loop principal do sistema de monitoramento de temperatura com ESP32.  
 
 
 {\ttfamily \#include $<$One\+Wire.\+h$>$}\newline
@@ -11,6 +11,13 @@ Projeto de monitoramento de temperatura e envio de alertas via Whats\+App e Thin
 {\ttfamily \#include $<$esp\+\_\+sleep.\+h$>$}\newline
 {\ttfamily \#include "{}funcoes.\+h"{}}\newline
 {\ttfamily \#include "{}ble\+Config.\+h"{}}\newline
+Diagrama de dependências de inclusão para main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,21 +30,21 @@ void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
 \doxysubsubsection*{Variáveis}
 \begin{DoxyCompactItemize}
 \item 
-String \mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{num\+Celular}} = "{}+5541936186740"{}
+String \mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{num\+Celular}} = "{}"{}
 \item 
 String \mbox{\hyperlink{main_8cpp_a2178705e4b75e3811fb805ea29271cd6}{api\+Whats}} = "{}6043662"{}
 \item 
-String \mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nome\+Wifi}} = "{}Tebas"{}
+String \mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nome\+Wifi}} = "{}"{}
 \begin{DoxyCompactList}\small\item\em Nome da rede Wi-\/\+Fi para conexão. \end{DoxyCompactList}\item 
-String \mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senha\+Wifi}} = "{}109025300"{}
+String \mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senha\+Wifi}} = "{}"{}
 \begin{DoxyCompactList}\small\item\em Senha da rede Wi-\/\+Fi. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{main_8cpp_a4cfa213c7b6b7e5a1788f5bf87b423d8}{server}} = "{}http\+://api.\+thingspeak.\+com/update"{}
 \begin{DoxyCompactList}\small\item\em URL do servidor Thing\+Speak para envio de dados. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{main_8cpp_abafd9aa183f18bceec5da61aa1f93a87}{api\+Key}} = "{}J7\+NA0\+N95\+H2\+SGO68\+W"{}
 \begin{DoxyCompactList}\small\item\em API key de acesso ao Thing\+Speak. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{main_8cpp_add1d9118be43175094da2653b50c9f78}{setpoint\+Temp}}
+float \mbox{\hyperlink{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}{set\+Point\+Temp}} = 0.\+0
 \item 
-uint32\+\_\+t \mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervalo\+Temp}} = 60
+uint32\+\_\+t \mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervalo\+Temp}} = 15
 \item 
 Dallas\+Temperature Temp\+Sensor \& \mbox{\hyperlink{main_8cpp_a2281c25ce20f336862c9efd9b1cb272b}{Pin\+One\+Wire}}
 \begin{DoxyCompactList}\small\item\em Instância do sensor de temperatura Dallas\+Temperature. \end{DoxyCompactList}\item 
@@ -48,17 +55,30 @@ Preferences \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}
 volatile bool \mbox{\hyperlink{main_8cpp_a5affc02c6814932fa2696bac53bc2598}{device\+Connected}} = false
 \item 
 BLECharacteristic \mbox{\hyperlink{main_8cpp_addaafdcebe086b82f5e22ac3ba9b50e2}{Temperatura\+Char}}
+\item 
+BLECharacteristic \mbox{\hyperlink{main_8cpp_a63b383dcaea1a05aba0d547ed00be2c5}{Set\+Point\+Char}}
+\item 
+BLECharacteristic \mbox{\hyperlink{main_8cpp_a3811803b51148d50b73aa58696bc9445}{Intervalo\+Char}}
+\item 
+BLECharacteristic \mbox{\hyperlink{main_8cpp_a9c75ccaf0b3424e327cd58ed3bdcdd5c}{Wifi\+Nome\+Char}}
+\item 
+BLECharacteristic \mbox{\hyperlink{main_8cpp_a84b6c8c5171c5c7911a016cd906ead76}{Wifi\+Senha\+Char}}
+\item 
+BLECharacteristic \mbox{\hyperlink{main_8cpp_a11cbedf7d36e986b5fc9d9388bbe7784}{Telefone\+Char}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Descrição detalhada}
-Projeto de monitoramento de temperatura e envio de alertas via Whats\+App e Thing\+Speak usando ESP32. 
+Loop principal do sistema de monitoramento de temperatura com ESP32. 
 
 
 \begin{DoxyItemize}
-\item Leitura de temperatura com DS18\+B20.
+\item Leitura de temperatura via sensor DS18\+B20.
 \item Envio de dados para Thing\+Speak.
-\item Envio de mensagens de alerta via Whats\+App API (Call\+Me\+Bot).
+\item Envio de alerta via Whats\+App (Call\+Me\+Bot).
+\item Comunicação BLE para leitura e configuração de parâmetros (setpoint, Wi-\/\+Fi, telefone).
+\item Alterna entre modo Wi-\/\+Fi (temporizado) e BLE (botão físico).
+\item Persistência de dados com Preferences e RTC\+\_\+\+DATA\+\_\+\+ATTR.
 \end{DoxyItemize}
 
 \begin{DoxyAuthor}{Autor}
@@ -76,6 +96,14 @@ Matheus Orsini
 {\footnotesize\ttfamily \label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
 void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ Serial.println(\textcolor{stringliteral}{"{}Nunca\ Roda"{}});}
+\DoxyCodeLine{00158\ \ \ \textcolor{comment}{//\ put\ your\ main\ code\ here,\ to\ run\ repeatedly:}}
+\DoxyCodeLine{00159\ \}}
+
+\end{DoxyCode}
 \Hypertarget{main_8cpp_a150087f953fda6915d3f1a40555feb3f}\index{main.cpp@{main.cpp}!PinOneWire@{PinOneWire}}
 \index{PinOneWire@{PinOneWire}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{PinOneWire()}{PinOneWire()}}
@@ -102,6 +130,100 @@ Inicializa o monitor serial, configura o sensor de temperatura, define as causas
 \item Botão\+: inicia o servidor BLE para envio de dados via Bluetooth.
 \item Outro\+: apenas imprime mensagem no console. 
 \end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{funcoes_8cpp_ae37aeb6cc3ac00302fef48cad121e04a}{CarregarConfig}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ Serial.begin(115200);}
+\DoxyCodeLine{00076\ \ \ }
+\DoxyCodeLine{00077\ \ \ esp\_sleep\_enable\_ext0\_wakeup(GPIO\_NUM\_15,\ 1);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ esp\_sleep\_enable\_timer\_wakeup(\mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervaloTemp}}\ *\ 1000000ULL);}
+\DoxyCodeLine{00080\ \ \ }
+\DoxyCodeLine{00081\ \ \ Serial.print(\textcolor{stringliteral}{"{}ultima\ temperatura\ lida:"{}});\ Serial.println(\mbox{\hyperlink{main_8cpp_a88c6be4f27423cb49670a683b86f1685}{ultimaTemp}});}
+\DoxyCodeLine{00082\ \ \ Serial.print(\textcolor{stringliteral}{"{}set\ point\ lidos:"{}});\ Serial.println(\mbox{\hyperlink{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}{setPointTemp}});}
+\DoxyCodeLine{00083\ \ \ Serial.print(\textcolor{stringliteral}{"{}intervalo\ lidos:"{}});\ Serial.println(\mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervaloTemp}});}
+\DoxyCodeLine{00084\ \ \ Serial.print(\textcolor{stringliteral}{"{}wifi\ nome\ lidos:"{}});\ Serial.println(\mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nomeWifi}});}
+\DoxyCodeLine{00085\ \ \ Serial.print(\textcolor{stringliteral}{"{}wifi\ senha\ lidos:"{}});\ Serial.println(\mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senhaWifi}});}
+\DoxyCodeLine{00086\ \ \ Serial.print(\textcolor{stringliteral}{"{}telefone\ lido:"{}});\ Serial.println(\mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{numCelular}});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ TempSensor.begin();}
+\DoxyCodeLine{00089\ \ \ TempSensor.requestTemperatures();}
+\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{main_8cpp_a88c6be4f27423cb49670a683b86f1685}{ultimaTemp}}\ =\ TempSensor.getTempCByIndex(0);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordflow}{switch}\ (esp\_sleep\_get\_wakeup\_cause())}
+\DoxyCodeLine{00093\ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{case}\ ESP\_SLEEP\_WAKEUP\_TIMER:\{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{funcoes_8cpp_a420a08393185ceba2855a2de10715128}{ConectaWifi}}(\mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nomeWifi}},\ \mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senhaWifi}}))\{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a88c6be4f27423cb49670a683b86f1685}{ultimaTemp}}\ >=\ \mbox{\hyperlink{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}{setPointTemp}})\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa}{EnviarWhats}}(\textcolor{stringliteral}{"{}ALERTA!!\(\backslash\)nTemperatura\ acima\ da\ configurada!\(\backslash\)nVerifique\ o\ paciente!!"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{funcoes_8cpp_a496d1413601446647f4f6e259120b832}{EnviarWeb}}(\mbox{\hyperlink{main_8cpp_a88c6be4f27423cb49670a683b86f1685}{ultimaTemp}})\ ==\ 1)\{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Enviado\ com\ sucesso"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Falha\ ao\ enviar"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}{DesconectaWifi}}();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Acordei\ pelo\ timer!"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Leitura\ de:"{}});}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ Serial.println(\mbox{\hyperlink{main_8cpp_a88c6be4f27423cb49670a683b86f1685}{ultimaTemp}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Nao\ foi\ possível\ se\ conectar\ ao\ wifi"{}});}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{case}\ ESP\_SLEEP\_WAKEUP\_EXT0:\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Acordei\ pelo\ botão!"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_a5c0efe429f3a4ddda46992fd1c9e08fc}{IniciarBLE}}();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ uint32\_t\ tempo\ =\ millis();}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (((millis()\ -\/\ tempo)\ <\ 1\ *\ 60\ *\ 1000)\ ||\ \mbox{\hyperlink{main_8cpp_a5affc02c6814932fa2696bac53bc2598}{deviceConnected}})\{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{main_8cpp_a5affc02c6814932fa2696bac53bc2598}{deviceConnected}})\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TempSensor.requestTemperatures();}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ultimaTemp\ =\ TempSensor.getTempCByIndex(0);}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ String\ tempStr\ =\ String(ultimaTemp,2);}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TemperaturaChar.setValue(tempStr.c\_str());}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TemperaturaChar.notify();}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ SetPointChar.setValue(setPointTemp);}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IntervaloChar.notify();}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IntervaloChar.setValue(intervaloTemp);}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IntervaloChar.notify();}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ WifiNomeChar.setValue(nomeWifi.c\_str());}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ WifiNomeChar.notify();}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ WifiSenhaChar.setValue(senhaWifi.c\_str());}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ WifiSenhaChar.notify();}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TelefoneChar.setValue(numCelular.c\_str());}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TelefoneChar.notify();}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_a9f566969550d007df837c1490bb6316b}{EncerrarBLE}}();}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{default}:\{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Acordei\ aleatório!"{}});}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00149\ \ \ \ \ \}\ }
+\DoxyCodeLine{00150\ \ \ \}}
+\DoxyCodeLine{00151\ \ \ Serial.println(\textcolor{stringliteral}{"{}Dormindo..."{}});}
+\DoxyCodeLine{00152\ \ \ \mbox{\hyperlink{funcoes_8cpp_a18165d9dc3d16f2b88e24905b7706472}{SalvaConfig}}(\mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nomeWifi}},\mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senhaWifi}},\mbox{\hyperlink{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}{setPointTemp}},\mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervaloTemp}},\mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{numCelular}});}
+\DoxyCodeLine{00153\ \ \ esp\_deep\_sleep\_start();}
+\DoxyCodeLine{00154\ \}}
+
+\end{DoxyCode}
+Grafo de chamadas desta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph}
+\end{center}
+\end{figure}
+
 
 \doxysubsection{Documentação das variáveis}
 \Hypertarget{main_8cpp_abafd9aa183f18bceec5da61aa1f93a87}\index{main.cpp@{main.cpp}!apiKey@{apiKey}}
@@ -126,17 +248,23 @@ String api\+Whats = "{}6043662"{}}
 {\footnotesize\ttfamily \label{main_8cpp_a5affc02c6814932fa2696bac53bc2598} 
 volatile bool device\+Connected = false}
 
+\Hypertarget{main_8cpp_a3811803b51148d50b73aa58696bc9445}\index{main.cpp@{main.cpp}!IntervaloChar@{IntervaloChar}}
+\index{IntervaloChar@{IntervaloChar}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{IntervaloChar}{IntervaloChar}}
+{\footnotesize\ttfamily \label{main_8cpp_a3811803b51148d50b73aa58696bc9445} 
+BLECharacteristic Intervalo\+Char\hspace{0.3cm}{\ttfamily [extern]}}
+
 \Hypertarget{main_8cpp_a0410997c46ed3194dd285765f7f31860}\index{main.cpp@{main.cpp}!intervaloTemp@{intervaloTemp}}
 \index{intervaloTemp@{intervaloTemp}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{intervaloTemp}{intervaloTemp}}
 {\footnotesize\ttfamily \label{main_8cpp_a0410997c46ed3194dd285765f7f31860} 
-uint32\+\_\+t intervalo\+Temp = 60}
+uint32\+\_\+t intervalo\+Temp = 15}
 
 \Hypertarget{main_8cpp_a1985d05d19fdca8123f77df57639188f}\index{main.cpp@{main.cpp}!nomeWifi@{nomeWifi}}
 \index{nomeWifi@{nomeWifi}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{nomeWifi}{nomeWifi}}
 {\footnotesize\ttfamily \label{main_8cpp_a1985d05d19fdca8123f77df57639188f} 
-String nome\+Wifi = "{}Tebas"{}}
+String nome\+Wifi = "{}"{}}
 
 
 
@@ -146,7 +274,7 @@ Nome da rede Wi-\/\+Fi para conexão.
 \index{numCelular@{numCelular}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{numCelular}{numCelular}}
 {\footnotesize\ttfamily \label{main_8cpp_ae5f1bf82db9796145db3a408488ecefd} 
-String num\+Celular = "{}+5541936186740"{}}
+String num\+Celular = "{}"{}}
 
 \Hypertarget{main_8cpp_a2281c25ce20f336862c9efd9b1cb272b}\index{main.cpp@{main.cpp}!PinOneWire@{PinOneWire}}
 \index{PinOneWire@{PinOneWire}!main.cpp@{main.cpp}}
@@ -168,7 +296,7 @@ Preferences prefs}
 \index{senhaWifi@{senhaWifi}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{senhaWifi}{senhaWifi}}
 {\footnotesize\ttfamily \label{main_8cpp_a2b53c380928d42395504a2470d0e10e6} 
-String senha\+Wifi = "{}109025300"{}}
+String senha\+Wifi = "{}"{}}
 
 
 
@@ -184,11 +312,23 @@ String server = "{}http\+://api.\+thingspeak.\+com/update"{}}
 
 URL do servidor Thing\+Speak para envio de dados. 
 
-\Hypertarget{main_8cpp_add1d9118be43175094da2653b50c9f78}\index{main.cpp@{main.cpp}!setpointTemp@{setpointTemp}}
-\index{setpointTemp@{setpointTemp}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{setpointTemp}{setpointTemp}}
-{\footnotesize\ttfamily \label{main_8cpp_add1d9118be43175094da2653b50c9f78} 
-float setpoint\+Temp}
+\Hypertarget{main_8cpp_a63b383dcaea1a05aba0d547ed00be2c5}\index{main.cpp@{main.cpp}!SetPointChar@{SetPointChar}}
+\index{SetPointChar@{SetPointChar}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPointChar}{SetPointChar}}
+{\footnotesize\ttfamily \label{main_8cpp_a63b383dcaea1a05aba0d547ed00be2c5} 
+BLECharacteristic Set\+Point\+Char\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}\index{main.cpp@{main.cpp}!setPointTemp@{setPointTemp}}
+\index{setPointTemp@{setPointTemp}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setPointTemp}{setPointTemp}}
+{\footnotesize\ttfamily \label{main_8cpp_af47a190e4ffbde81edc3918a667db8cb} 
+float set\+Point\+Temp = 0.\+0}
+
+\Hypertarget{main_8cpp_a11cbedf7d36e986b5fc9d9388bbe7784}\index{main.cpp@{main.cpp}!TelefoneChar@{TelefoneChar}}
+\index{TelefoneChar@{TelefoneChar}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{TelefoneChar}{TelefoneChar}}
+{\footnotesize\ttfamily \label{main_8cpp_a11cbedf7d36e986b5fc9d9388bbe7784} 
+BLECharacteristic Telefone\+Char\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{main_8cpp_addaafdcebe086b82f5e22ac3ba9b50e2}\index{main.cpp@{main.cpp}!TemperaturaChar@{TemperaturaChar}}
 \index{TemperaturaChar@{TemperaturaChar}!main.cpp@{main.cpp}}
@@ -201,4 +341,16 @@ BLECharacteristic Temperatura\+Char\hspace{0.3cm}{\ttfamily [extern]}}
 \doxysubsubsection{\texorpdfstring{ultimaTemp}{ultimaTemp}}
 {\footnotesize\ttfamily \label{main_8cpp_a88c6be4f27423cb49670a683b86f1685} 
 RTC\+\_\+\+DATA\+\_\+\+ATTR float ultima\+Temp = 0}
+
+\Hypertarget{main_8cpp_a9c75ccaf0b3424e327cd58ed3bdcdd5c}\index{main.cpp@{main.cpp}!WifiNomeChar@{WifiNomeChar}}
+\index{WifiNomeChar@{WifiNomeChar}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WifiNomeChar}{WifiNomeChar}}
+{\footnotesize\ttfamily \label{main_8cpp_a9c75ccaf0b3424e327cd58ed3bdcdd5c} 
+BLECharacteristic Wifi\+Nome\+Char\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8cpp_a84b6c8c5171c5c7911a016cd906ead76}\index{main.cpp@{main.cpp}!WifiSenhaChar@{WifiSenhaChar}}
+\index{WifiSenhaChar@{WifiSenhaChar}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WifiSenhaChar}{WifiSenhaChar}}
+{\footnotesize\ttfamily \label{main_8cpp_a84b6c8c5171c5c7911a016cd906ead76} 
+BLECharacteristic Wifi\+Senha\+Char\hspace{0.3cm}{\ttfamily [extern]}}
 

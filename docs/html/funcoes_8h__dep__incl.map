@@ -1,7 +1,9 @@
 <map id="funcoes.h" name="funcoes.h">
-<area shape="rect" id="Node000001" title="Declarações de funções auxiliares para o projeto ThermoGuard ESP32." alt="" coords="66,5,144,32"/>
-<area shape="rect" id="Node000002" href="$funcoes_8cpp.html" title="Implementação das funções auxiliares para o projeto ThermoGuard ESP32." alt="" coords="5,80,98,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,46,63,81,59,78,84,43"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Projeto de monitoramento de temperatura e envio de alertas via WhatsApp e ThingSpeak usando ESP32." alt="" coords="122,80,197,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,43,152,78,148,81,122,46"/>
+<area shape="rect" id="Node000001" title="Declaração das funções auxiliares para comunicação Wi&#45;Fi e armazenamento." alt="" coords="135,5,214,32"/>
+<area shape="rect" id="Node000002" href="$bleconfig_8cpp.html" title="Implementação da configuração BLE do ESP32." alt="" coords="5,80,104,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,43,77,82,74,77,139,38"/>
+<area shape="rect" id="Node000003" href="$funcoes_8cpp.html" title="Implementação das funções auxiliares para envio de dados e armazenamento." alt="" coords="128,80,221,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,48,177,80,172,80,172,48"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="Loop principal do sistema de monitoramento de temperatura com ESP32." alt="" coords="245,80,320,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="207,39,265,77,262,82,204,43"/>
 </map>

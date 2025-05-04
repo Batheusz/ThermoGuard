@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ThermoGuard
+   <div id="projectname">ThermoGuard<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Documentação do projeto ThermoGuard - Monitoramento de Temperatura BLE</div>
+   <div id="projectbrief">Monitoramento de Temperatura e Notificação via WhatsApp e ThingSpeak usando ESP32</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -111,12 +111,44 @@ $(function(){initNavTree('ble_config_8h.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>Declarações para configuração do Bluetooth Low Energy (BLE).  
+<p>Declarações relacionadas à configuração do BLE no ESP32.  
 <a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &lt;BLEDevice.h&gt;</code><br />
 <code>#include &lt;BLEUtils.h&gt;</code><br />
 <code>#include &lt;BLEServer.h&gt;</code><br />
 <code>#include &lt;BLE2902.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Diagrama de dependências de inclusão para bleConfig.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="ble_config_8h__incl.png" border="0" usemap="#able_config_8h" alt=""/></div>
+<map name="able_config_8h" id="able_config_8h">
+<area shape="rect" title="Declarações relacionadas à configuração do BLE no ESP32." alt="" coords="183,5,270,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,104,107"/>
+<area shape="poly" title=" " alt="" coords="198,35,100,76,97,71,196,30"/>
+<area shape="rect" title=" " alt="" coords="128,80,213,107"/>
+<area shape="poly" title=" " alt="" coords="219,34,191,69,187,66,215,31"/>
+<area shape="rect" title=" " alt="" coords="236,80,332,107"/>
+<area shape="poly" title=" " alt="" coords="239,31,267,66,262,69,234,34"/>
+<area shape="rect" title=" " alt="" coords="356,80,441,107"/>
+<area shape="poly" title=" " alt="" coords="257,30,356,71,353,76,255,35"/>
+</map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="ble_config_8h__dep__incl.png" border="0" usemap="#able_config_8hdep" alt=""/></div>
+<map name="able_config_8hdep" id="able_config_8hdep">
+<area shape="rect" title="Declarações relacionadas à configuração do BLE no ESP32." alt="" coords="66,5,153,32"/>
+<area shape="rect" href="bleconfig_8cpp.html" title="Implementação da configuração BLE do ESP32." alt="" coords="5,80,104,107"/>
+<area shape="poly" title=" " alt="" coords="92,46,66,81,62,78,88,43"/>
+<area shape="rect" href="main_8cpp.html" title="Loop principal do sistema de monitoramento de temperatura com ESP32." alt="" coords="128,80,202,107"/>
+<area shape="poly" title=" " alt="" coords="130,43,158,78,153,81,126,46"/>
+</map>
+</div>
 </div>
 <p><a href="ble_config_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
 <table class="memberdecls">
@@ -126,14 +158,16 @@ Macros</h2></td></tr>
 <tr class="separator:a4bbd173ed413764eacf17c52a5b4e774"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a445125ee8c34695376c85f10b38844d6" id="r_a445125ee8c34695376c85f10b38844d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a445125ee8c34695376c85f10b38844d6">SERVICE_UUID</a>&#160;&#160;&#160;BLEUUID((uint16_t)0x1809)</td></tr>
 <tr class="separator:a445125ee8c34695376c85f10b38844d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b30314274ba5ab7b26e747323ff56b" id="r_a59b30314274ba5ab7b26e747323ff56b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59b30314274ba5ab7b26e747323ff56b">SERVICE_WIFI_UUID</a>&#160;&#160;&#160;&quot;7be95774-8734-4f46-a326-573d290c1e9f&quot;</td></tr>
+<tr class="separator:a59b30314274ba5ab7b26e747323ff56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funções</h2></td></tr>
 <tr class="memitem:a5c0efe429f3a4ddda46992fd1c9e08fc" id="r_a5c0efe429f3a4ddda46992fd1c9e08fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c0efe429f3a4ddda46992fd1c9e08fc">IniciarBLE</a> ()</td></tr>
-<tr class="memdesc:a5c0efe429f3a4ddda46992fd1c9e08fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o Bluetooth Low Energy (BLE).  <br /></td></tr>
+<tr class="memdesc:a5c0efe429f3a4ddda46992fd1c9e08fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o serviço BLE com todas as características e inicia o advertising.  <br /></td></tr>
 <tr class="separator:a5c0efe429f3a4ddda46992fd1c9e08fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f566969550d007df837c1490bb6316b" id="r_a9f566969550d007df837c1490bb6316b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f566969550d007df837c1490bb6316b">EncerrarBLE</a> ()</td></tr>
-<tr class="memdesc:a9f566969550d007df837c1490bb6316b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encerra o Bluetooth Low Energy (BLE).  <br /></td></tr>
+<tr class="memdesc:a9f566969550d007df837c1490bb6316b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encerra a comunicação BLE e libera recursos.  <br /></td></tr>
 <tr class="separator:a9f566969550d007df837c1490bb6316b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -142,10 +176,8 @@ Variáveis</h2></td></tr>
 <tr class="separator:a5affc02c6814932fa2696bac53bc2598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Declarações para configuração do Bluetooth Low Energy (BLE). </p>
-<p>Define o UUID do serviço BLE e declara as funções públicas para iniciar e encerrar o BLE.</p>
-<dl class="section author"><dt>Autor</dt><dd>Matheus Orsini </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>2025-04-26 </dd></dl>
+<div class="textblock"><p>Declarações relacionadas à configuração do BLE no ESP32. </p>
+<p>Define UUIDs, variáveis globais e funções públicas para controle BLE. Contém os protótipos das funções <a class="el" href="#a5c0efe429f3a4ddda46992fd1c9e08fc" title="Inicializa o serviço BLE com todas as características e inicia o advertising.">IniciarBLE()</a> e <a class="el" href="#a9f566969550d007df837c1490bb6316b" title="Encerra a comunicação BLE e libera recursos.">EncerrarBLE()</a>. </p>
 </div><h2 class="groupheader">Documentação das macros</h2>
 <a id="a4bbd173ed413764eacf17c52a5b4e774" name="a4bbd173ed413764eacf17c52a5b4e774"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4bbd173ed413764eacf17c52a5b4e774">&#9670;&#160;</a></span>BLECONFIGS_H</h2>
@@ -175,6 +207,20 @@ Variáveis</h2></td></tr>
 
 </div>
 </div>
+<a id="a59b30314274ba5ab7b26e747323ff56b" name="a59b30314274ba5ab7b26e747323ff56b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b30314274ba5ab7b26e747323ff56b">&#9670;&#160;</a></span>SERVICE_WIFI_UUID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SERVICE_WIFI_UUID&#160;&#160;&#160;&quot;7be95774-8734-4f46-a326-573d290c1e9f&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Documentação das funções</h2>
 <a id="a9f566969550d007df837c1490bb6316b" name="a9f566969550d007df837c1490bb6316b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f566969550d007df837c1490bb6316b">&#9670;&#160;</a></span>EncerrarBLE()</h2>
@@ -191,8 +237,24 @@ Variáveis</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Encerra o Bluetooth Low Energy (BLE). </p>
+<p>Encerra a comunicação BLE e libera recursos. </p>
+<p>Encerra a comunicação BLE e libera recursos.</p>
 <p>Finaliza o serviço BLE e libera os recursos alocados. </p>
+<div class="fragment"><div class="line"><span class="lineno">  165</span>                   {</div>
+<div class="line"><span class="lineno">  166</span>    BLEDevice::deinit(<span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  167</span>}</div>
+</div><!-- fragment --><div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="ble_config_8h_a9f566969550d007df837c1490bb6316b_icgraph.png" border="0" usemap="#able_config_8h_a9f566969550d007df837c1490bb6316b_icgraph" alt=""/></div>
+<map name="able_config_8h_a9f566969550d007df837c1490bb6316b_icgraph" id="able_config_8h_a9f566969550d007df837c1490bb6316b_icgraph">
+<area shape="rect" title="Encerra a comunicação BLE e libera recursos." alt="" coords="107,5,202,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -211,8 +273,102 @@ Variáveis</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializa o Bluetooth Low Energy (BLE). </p>
-<p>Configura o servidor BLE, cria as características e descritores para temperatura, intervalo de leitura e dados de Wi-Fi, e inicia a propaganda BLE. </p>
+<p>Inicializa o serviço BLE com todas as características e inicia o advertising. </p>
+<p>Inicializa o serviço BLE com todas as características e inicia o advertising.</p>
+<p>Configura o servidor BLE, cria as características e descritores para temperatura, intervalo de leitura e dados de Wi-Fi, e inicia o advertising BLE. </p>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>                  {</div>
+<div class="line"><span class="lineno">  117</span>    BLEDevice::init(<span class="stringliteral">&quot;ThermoGuard&quot;</span>);</div>
+<div class="line"><span class="lineno">  118</span>    BLEServer *pServer = BLEDevice::createServer();</div>
+<div class="line"><span class="lineno">  119</span>    pServer-&gt;setCallbacks(<span class="keyword">new</span> <a class="code hl_class" href="class_my_server_callbacks.html">MyServerCallbacks</a>());</div>
+<div class="line"><span class="lineno">  120</span>    BLEService *pService = pServer-&gt;createService(<a class="code hl_define" href="#a445125ee8c34695376c85f10b38844d6">SERVICE_UUID</a>);</div>
+<div class="line"><span class="lineno">  121</span>    BLEService *pServiceWifi = pServer-&gt;createService(<a class="code hl_define" href="#a59b30314274ba5ab7b26e747323ff56b">SERVICE_WIFI_UUID</a>);</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>    <span class="comment">// Temperatura</span></div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="bleconfig_8cpp.html#a0962a981d8b0fee9f4d0af772bdd319e">TemperaturaDesc</a>.setValue(<span class="stringliteral">&quot;Temperatura lida do sensor em celsius&quot;</span>);</div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_variable" href="main_8cpp.html#addaafdcebe086b82f5e22ac3ba9b50e2">TemperaturaChar</a>.addDescriptor(&amp;<a class="code hl_function" href="bleconfig_8cpp.html#a0962a981d8b0fee9f4d0af772bdd319e">TemperaturaDesc</a>);</div>
+<div class="line"><span class="lineno">  126</span>    pService-&gt;addCharacteristic(&amp;<a class="code hl_variable" href="main_8cpp.html#addaafdcebe086b82f5e22ac3ba9b50e2">TemperaturaChar</a>);</div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="bleconfig_8cpp.html#ab0d48f79db265c260a47817cd61ad676">SetPointDesc</a>.setValue(<span class="stringliteral">&quot;Setpoint para alerta&quot;</span>);</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_variable" href="main_8cpp.html#a63b383dcaea1a05aba0d547ed00be2c5">SetPointChar</a>.addDescriptor(&amp;<a class="code hl_function" href="bleconfig_8cpp.html#ab0d48f79db265c260a47817cd61ad676">SetPointDesc</a>);</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_variable" href="main_8cpp.html#a63b383dcaea1a05aba0d547ed00be2c5">SetPointChar</a>.setCallbacks(<span class="keyword">new</span> <a class="code hl_class" href="class_char_callback.html">CharCallback</a>());</div>
+<div class="line"><span class="lineno">  130</span>    pService-&gt;addCharacteristic(&amp;<a class="code hl_variable" href="main_8cpp.html#a63b383dcaea1a05aba0d547ed00be2c5">SetPointChar</a>);</div>
+<div class="line"><span class="lineno">  131</span>    <span class="comment">// Intervalo</span></div>
+<div class="line"><span class="lineno">  132</span>    <a class="code hl_function" href="bleconfig_8cpp.html#a6631abdf9342c486ac682344cdb0baba">IntervaloDesc</a>.setValue(<span class="stringliteral">&quot;Tempo entre leitura em minutos&quot;</span>);</div>
+<div class="line"><span class="lineno">  133</span>    <a class="code hl_variable" href="main_8cpp.html#a3811803b51148d50b73aa58696bc9445">IntervaloChar</a>.addDescriptor(&amp;<a class="code hl_function" href="bleconfig_8cpp.html#a6631abdf9342c486ac682344cdb0baba">IntervaloDesc</a>);</div>
+<div class="line"><span class="lineno">  134</span>    <a class="code hl_variable" href="main_8cpp.html#a3811803b51148d50b73aa58696bc9445">IntervaloChar</a>.setCallbacks(<span class="keyword">new</span> <a class="code hl_class" href="class_char_callback.html">CharCallback</a>());</div>
+<div class="line"><span class="lineno">  135</span>    pService-&gt;addCharacteristic(&amp;<a class="code hl_variable" href="main_8cpp.html#a3811803b51148d50b73aa58696bc9445">IntervaloChar</a>);</div>
+<div class="line"><span class="lineno">  136</span> </div>
+<div class="line"><span class="lineno">  137</span>    <span class="comment">// Wifi</span></div>
+<div class="line"><span class="lineno">  138</span>    <a class="code hl_function" href="bleconfig_8cpp.html#a796c95a5f393a0b35df0662a34d87793">WifiNomeDesc</a>.setValue(<span class="stringliteral">&quot;Nome WiFi&quot;</span>);</div>
+<div class="line"><span class="lineno">  139</span>    <a class="code hl_variable" href="main_8cpp.html#a9c75ccaf0b3424e327cd58ed3bdcdd5c">WifiNomeChar</a>.addDescriptor(&amp;<a class="code hl_function" href="bleconfig_8cpp.html#a796c95a5f393a0b35df0662a34d87793">WifiNomeDesc</a>);</div>
+<div class="line"><span class="lineno">  140</span>    <a class="code hl_variable" href="main_8cpp.html#a9c75ccaf0b3424e327cd58ed3bdcdd5c">WifiNomeChar</a>.setCallbacks(<span class="keyword">new</span> <a class="code hl_class" href="class_char_callback.html">CharCallback</a>());</div>
+<div class="line"><span class="lineno">  141</span>    pServiceWifi-&gt;addCharacteristic(&amp;<a class="code hl_variable" href="main_8cpp.html#a9c75ccaf0b3424e327cd58ed3bdcdd5c">WifiNomeChar</a>);</div>
+<div class="line"><span class="lineno">  142</span>    <a class="code hl_function" href="bleconfig_8cpp.html#a4393c035390ec7c37282009cedb4d801">WifiSenhaDesc</a>.setValue(<span class="stringliteral">&quot;Senha WiFi&quot;</span>);</div>
+<div class="line"><span class="lineno">  143</span>    <a class="code hl_variable" href="main_8cpp.html#a84b6c8c5171c5c7911a016cd906ead76">WifiSenhaChar</a>.addDescriptor(&amp;<a class="code hl_function" href="bleconfig_8cpp.html#a4393c035390ec7c37282009cedb4d801">WifiSenhaDesc</a>);</div>
+<div class="line"><span class="lineno">  144</span>    <a class="code hl_variable" href="main_8cpp.html#a84b6c8c5171c5c7911a016cd906ead76">WifiSenhaChar</a>.setCallbacks(<span class="keyword">new</span> <a class="code hl_class" href="class_char_callback.html">CharCallback</a>());</div>
+<div class="line"><span class="lineno">  145</span>    pServiceWifi-&gt;addCharacteristic(&amp;<a class="code hl_variable" href="main_8cpp.html#a84b6c8c5171c5c7911a016cd906ead76">WifiSenhaChar</a>);</div>
+<div class="line"><span class="lineno">  146</span>    <span class="comment">// Telefone</span></div>
+<div class="line"><span class="lineno">  147</span>    <a class="code hl_function" href="bleconfig_8cpp.html#a1cbe1235606de50d263b23fd87a27f1f">TelefoneDesc</a>.setValue(<span class="stringliteral">&quot;Numero de telefone&quot;</span>);</div>
+<div class="line"><span class="lineno">  148</span>    <a class="code hl_variable" href="main_8cpp.html#a11cbedf7d36e986b5fc9d9388bbe7784">TelefoneChar</a>.addDescriptor(&amp;<a class="code hl_function" href="bleconfig_8cpp.html#a1cbe1235606de50d263b23fd87a27f1f">TelefoneDesc</a>);</div>
+<div class="line"><span class="lineno">  149</span>    <a class="code hl_variable" href="main_8cpp.html#a11cbedf7d36e986b5fc9d9388bbe7784">TelefoneChar</a>.setCallbacks(<span class="keyword">new</span> <a class="code hl_class" href="class_char_callback.html">CharCallback</a>());</div>
+<div class="line"><span class="lineno">  150</span>    pServiceWifi-&gt;addCharacteristic(&amp;<a class="code hl_variable" href="main_8cpp.html#a11cbedf7d36e986b5fc9d9388bbe7784">TelefoneChar</a>);</div>
+<div class="line"><span class="lineno">  151</span> </div>
+<div class="line"><span class="lineno">  152</span>    pService-&gt;start();</div>
+<div class="line"><span class="lineno">  153</span>    pServiceWifi-&gt;start();</div>
+<div class="line"><span class="lineno">  154</span>    BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();</div>
+<div class="line"><span class="lineno">  155</span>    pAdvertising-&gt;addServiceUUID(<a class="code hl_define" href="#a445125ee8c34695376c85f10b38844d6">SERVICE_UUID</a>);</div>
+<div class="line"><span class="lineno">  156</span>    pAdvertising-&gt;addServiceUUID(<a class="code hl_define" href="#a59b30314274ba5ab7b26e747323ff56b">SERVICE_WIFI_UUID</a>);</div>
+<div class="line"><span class="lineno">  157</span>    pServer-&gt;getAdvertising()-&gt;start();</div>
+<div class="line"><span class="lineno">  158</span>}</div>
+<div class="ttc" id="able_config_8h_html_a445125ee8c34695376c85f10b38844d6"><div class="ttname"><a href="#a445125ee8c34695376c85f10b38844d6">SERVICE_UUID</a></div><div class="ttdeci">#define SERVICE_UUID</div><div class="ttdef"><b>Definição</b> bleConfig.h:13</div></div>
+<div class="ttc" id="able_config_8h_html_a59b30314274ba5ab7b26e747323ff56b"><div class="ttname"><a href="#a59b30314274ba5ab7b26e747323ff56b">SERVICE_WIFI_UUID</a></div><div class="ttdeci">#define SERVICE_WIFI_UUID</div><div class="ttdef"><b>Definição</b> bleConfig.h:14</div></div>
+<div class="ttc" id="ableconfig_8cpp_html_a0962a981d8b0fee9f4d0af772bdd319e"><div class="ttname"><a href="bleconfig_8cpp.html#a0962a981d8b0fee9f4d0af772bdd319e">TemperaturaDesc</a></div><div class="ttdeci">BLEDescriptor TemperaturaDesc(BLEUUID((uint16_t) 0x2912))</div></div>
+<div class="ttc" id="ableconfig_8cpp_html_a1cbe1235606de50d263b23fd87a27f1f"><div class="ttname"><a href="bleconfig_8cpp.html#a1cbe1235606de50d263b23fd87a27f1f">TelefoneDesc</a></div><div class="ttdeci">BLEDescriptor TelefoneDesc(BLEUUID((uint16_t) 0x2903))</div></div>
+<div class="ttc" id="ableconfig_8cpp_html_a4393c035390ec7c37282009cedb4d801"><div class="ttname"><a href="bleconfig_8cpp.html#a4393c035390ec7c37282009cedb4d801">WifiSenhaDesc</a></div><div class="ttdeci">BLEDescriptor WifiSenhaDesc(BLEUUID((uint16_t) 0x2903))</div></div>
+<div class="ttc" id="ableconfig_8cpp_html_a6631abdf9342c486ac682344cdb0baba"><div class="ttname"><a href="bleconfig_8cpp.html#a6631abdf9342c486ac682344cdb0baba">IntervaloDesc</a></div><div class="ttdeci">BLEDescriptor IntervaloDesc(BLEUUID((uint16_t) 0x290E))</div></div>
+<div class="ttc" id="ableconfig_8cpp_html_a796c95a5f393a0b35df0662a34d87793"><div class="ttname"><a href="bleconfig_8cpp.html#a796c95a5f393a0b35df0662a34d87793">WifiNomeDesc</a></div><div class="ttdeci">BLEDescriptor WifiNomeDesc(BLEUUID((uint16_t) 0x2903))</div></div>
+<div class="ttc" id="ableconfig_8cpp_html_ab0d48f79db265c260a47817cd61ad676"><div class="ttname"><a href="bleconfig_8cpp.html#ab0d48f79db265c260a47817cd61ad676">SetPointDesc</a></div><div class="ttdeci">BLEDescriptor SetPointDesc(BLEUUID((uint16_t) 0x2903))</div></div>
+<div class="ttc" id="aclass_char_callback_html"><div class="ttname"><a href="class_char_callback.html">CharCallback</a></div><div class="ttdoc">Callback para escrita em características BLE. Atualiza variáveis globais.</div><div class="ttdef"><b>Definição</b> bleconfig.cpp:82</div></div>
+<div class="ttc" id="aclass_my_server_callbacks_html"><div class="ttname"><a href="class_my_server_callbacks.html">MyServerCallbacks</a></div><div class="ttdoc">Callback de eventos do servidor BLE. Atualiza estado da conexão.</div><div class="ttdef"><b>Definição</b> bleconfig.cpp:62</div></div>
+<div class="ttc" id="amain_8cpp_html_a11cbedf7d36e986b5fc9d9388bbe7784"><div class="ttname"><a href="main_8cpp.html#a11cbedf7d36e986b5fc9d9388bbe7784">TelefoneChar</a></div><div class="ttdeci">BLECharacteristic TelefoneChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a3811803b51148d50b73aa58696bc9445"><div class="ttname"><a href="main_8cpp.html#a3811803b51148d50b73aa58696bc9445">IntervaloChar</a></div><div class="ttdeci">BLECharacteristic IntervaloChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a63b383dcaea1a05aba0d547ed00be2c5"><div class="ttname"><a href="main_8cpp.html#a63b383dcaea1a05aba0d547ed00be2c5">SetPointChar</a></div><div class="ttdeci">BLECharacteristic SetPointChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a84b6c8c5171c5c7911a016cd906ead76"><div class="ttname"><a href="main_8cpp.html#a84b6c8c5171c5c7911a016cd906ead76">WifiSenhaChar</a></div><div class="ttdeci">BLECharacteristic WifiSenhaChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a9c75ccaf0b3424e327cd58ed3bdcdd5c"><div class="ttname"><a href="main_8cpp.html#a9c75ccaf0b3424e327cd58ed3bdcdd5c">WifiNomeChar</a></div><div class="ttdeci">BLECharacteristic WifiNomeChar</div></div>
+<div class="ttc" id="amain_8cpp_html_addaafdcebe086b82f5e22ac3ba9b50e2"><div class="ttname"><a href="main_8cpp.html#addaafdcebe086b82f5e22ac3ba9b50e2">TemperaturaChar</a></div><div class="ttdeci">BLECharacteristic TemperaturaChar</div></div>
+</div><!-- fragment --><div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Grafo de chamadas desta função:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="ble_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_cgraph.png" border="0" usemap="#able_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_cgraph" alt=""/></div>
+<map name="able_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_cgraph" id="able_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_cgraph">
+<area shape="rect" title="Inicializa o serviço BLE com todas as características e inicia o advertising." alt="" coords="5,132,87,159"/>
+<area shape="rect" href="bleconfig_8cpp.html#a6631abdf9342c486ac682344cdb0baba" title=" " alt="" coords="146,5,248,32"/>
+<area shape="poly" title=" " alt="" coords="54,130,86,87,108,63,133,42,140,37,143,42,136,46,112,67,90,91,58,133"/>
+<area shape="rect" href="bleconfig_8cpp.html#ab0d48f79db265c260a47817cd61ad676" title=" " alt="" coords="146,56,248,83"/>
+<area shape="poly" title=" " alt="" coords="68,129,133,92,145,87,147,92,136,97,71,134"/>
+<area shape="rect" href="bleconfig_8cpp.html#a1cbe1235606de50d263b23fd87a27f1f" title=" " alt="" coords="146,107,248,133"/>
+<area shape="poly" title=" " alt="" coords="87,136,130,128,131,134,87,141"/>
+<area shape="rect" href="bleconfig_8cpp.html#a0962a981d8b0fee9f4d0af772bdd319e" title=" " alt="" coords="135,157,259,184"/>
+<area shape="poly" title=" " alt="" coords="87,149,120,155,119,160,87,155"/>
+<area shape="rect" href="bleconfig_8cpp.html#a796c95a5f393a0b35df0662a34d87793" title=" " alt="" coords="142,208,252,235"/>
+<area shape="poly" title=" " alt="" coords="71,157,136,194,147,199,145,204,133,198,68,162"/>
+<area shape="rect" href="bleconfig_8cpp.html#a4393c035390ec7c37282009cedb4d801" title=" " alt="" coords="141,259,253,285"/>
+<area shape="poly" title=" " alt="" coords="58,158,90,200,112,224,136,245,143,249,140,253,133,249,108,227,86,203,54,161"/>
+</map>
+</div>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="ble_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_icgraph.png" border="0" usemap="#able_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_icgraph" alt=""/></div>
+<map name="able_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_icgraph" id="able_config_8h_a5c0efe429f3a4ddda46992fd1c9e08fc_icgraph">
+<area shape="rect" title="Inicializa o serviço BLE com todas as características e inicia o advertising." alt="" coords="107,5,188,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>

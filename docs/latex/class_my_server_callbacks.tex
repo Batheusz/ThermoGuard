@@ -2,13 +2,25 @@
 \hypertarget{class_my_server_callbacks}{}\label{class_my_server_callbacks}\index{MyServerCallbacks@{MyServerCallbacks}}
 
 
-Classe de callback para eventos de conexão/desconexão BLE.  
+Callback de eventos do servidor BLE. Atualiza estado da conexão.  
 
 
-Diagrama de heranças da classe My\+Server\+Callbacks\begin{figure}[H]
+
+
+Diagrama de heranças da classe My\+Server\+Callbacks\nopagebreak
+\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_my_server_callbacks}
+\includegraphics[width=187pt]{class_my_server_callbacks__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para My\+Server\+Callbacks\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_my_server_callbacks__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Membros privados}
@@ -21,9 +33,13 @@ void \mbox{\hyperlink{class_my_server_callbacks_aa0f35b6d22a036789bd40bf433f86e0
 
 
 \doxysubsection{Descrição detalhada}
-Classe de callback para eventos de conexão/desconexão BLE. 
+Callback de eventos do servidor BLE. Atualiza estado da conexão. 
 
-Atualiza a variável global device\+Connected ao detectar mudanças de conexão BLE. 
+
+\begin{DoxyItemize}
+\item \doxylink{class_my_server_callbacks_a9a864448a2836d4381e1bdb6785ba415}{on\+Connect()}\+: Define \textquotesingle{}device\+Connected = true\textquotesingle{}.
+\item \doxylink{class_my_server_callbacks_aa0f35b6d22a036789bd40bf433f86e0d}{on\+Disconnect()}\+: Define \textquotesingle{}device\+Connected = false\textquotesingle{}. 
+\end{DoxyItemize}
 
 \doxysubsection{Documentação das funções}
 \Hypertarget{class_my_server_callbacks_a9a864448a2836d4381e1bdb6785ba415}\index{MyServerCallbacks@{MyServerCallbacks}!onConnect@{onConnect}}
@@ -32,12 +48,28 @@ Atualiza a variável global device\+Connected ao detectar mudanças de conexão 
 {\footnotesize\ttfamily \label{class_my_server_callbacks_a9a864448a2836d4381e1bdb6785ba415} 
 void My\+Server\+Callbacks\+::on\+Connect (\begin{DoxyParamCaption}\item[{BLEServer \texorpdfstring{$\ast$}{*}}]{p\+Server}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Conectando..."{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a5affc02c6814932fa2696bac53bc2598}{deviceConnected}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00066\ \ \ \ \ \};}
+
+\end{DoxyCode}
 \Hypertarget{class_my_server_callbacks_aa0f35b6d22a036789bd40bf433f86e0d}\index{MyServerCallbacks@{MyServerCallbacks}!onDisconnect@{onDisconnect}}
 \index{onDisconnect@{onDisconnect}!MyServerCallbacks@{MyServerCallbacks}}
 \doxysubsubsection{\texorpdfstring{onDisconnect()}{onDisconnect()}}
 {\footnotesize\ttfamily \label{class_my_server_callbacks_aa0f35b6d22a036789bd40bf433f86e0d} 
 void My\+Server\+Callbacks\+::on\+Disconnect (\begin{DoxyParamCaption}\item[{BLEServer \texorpdfstring{$\ast$}{*}}]{p\+Server}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Desconectando..."{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a5affc02c6814932fa2696bac53bc2598}{deviceConnected}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+
+\end{DoxyCode}
 
 
 A documentação para esta classe foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}

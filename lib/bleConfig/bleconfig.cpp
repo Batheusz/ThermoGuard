@@ -1,3 +1,13 @@
+/**
+ * @file bleconfig.cpp
+ * @brief Implementação da configuração BLE do ESP32.
+ *
+ * @details
+ * Define as características BLE (temperatura, setpoint, intervalo, Wi-Fi e telefone).
+ * Controla os eventos de conexão e escrita nas características, atualizando as variáveis
+ * globais e salvando-as na NVS quando necessário.
+ */
+
 #include "bleConfig.h"
 #include "funcoes.h" 
 
@@ -42,10 +52,12 @@ BLECharacteristic TelefoneChar("bd96b429-e88d-4702-9450-f023c08e509c",
 BLEDescriptor TelefoneDesc(BLEUUID((uint16_t)0x2903));
 
 /**
- * @brief Classe de callback para eventos de conexão/desconexão BLE.
- * 
- * Atualiza a variável global deviceConnected ao detectar mudanças
- * de conexão BLE.
+ * @class MyServerCallbacks
+ * @brief Callback de eventos do servidor BLE. Atualiza estado da conexão.
+ *
+ * @details
+ * - onConnect(): Define 'deviceConnected = true'.
+ * - onDisconnect(): Define 'deviceConnected = false'.
  */
 class MyServerCallbacks: public BLEServerCallbacks {
     void onConnect(BLEServer* pServer) {
@@ -58,6 +70,15 @@ class MyServerCallbacks: public BLEServerCallbacks {
     }
   };
 
+/**
+ * @class CharCallback
+ * @brief Callback para escrita em características BLE. Atualiza variáveis globais.
+ *
+ * @details
+ * - Interpreta strings recebidas do App via BLE.
+ * - Atualiza variáveis globais (nome e senha do Wi-Fi, telefone, setpoint, intervalo).
+ * - Chama a função SalvaConfig() para persistência imediata na NVS.
+ */
 class CharCallback : public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic *pCharacteristic) override {
     std::string value = pCharacteristic->getValue();
@@ -90,7 +111,7 @@ class CharCallback : public BLECharacteristicCallbacks {
  * 
  * Configura o servidor BLE, cria as características e descritores
  * para temperatura, intervalo de leitura e dados de Wi-Fi, e inicia
- * a propaganda BLE.
+ * o advertising BLE.
  */
 void IniciarBLE() {
     BLEDevice::init("ThermoGuard");

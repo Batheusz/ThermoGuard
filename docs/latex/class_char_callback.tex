@@ -1,0 +1,89 @@
+\doxysection{Referência à classe Char\+Callback}
+\hypertarget{class_char_callback}{}\label{class_char_callback}\index{CharCallback@{CharCallback}}
+
+
+Callback para escrita em características BLE. Atualiza variáveis globais.  
+
+
+
+
+Diagrama de heranças da classe Char\+Callback\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{class_char_callback__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Char\+Callback\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{class_char_callback__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_char_callback_ad6447b535c05ff3bb29cdc8716824639}{on\+Write}} (BLECharacteristic \texorpdfstring{$\ast$}{*}p\+Characteristic) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Callback para escrita em características BLE. Atualiza variáveis globais. 
+
+
+\begin{DoxyItemize}
+\item Interpreta strings recebidas do App via BLE.
+\item Atualiza variáveis globais (nome e senha do Wi-\/\+Fi, telefone, setpoint, intervalo).
+\item Chama a função \doxylink{funcoes_8cpp_a18165d9dc3d16f2b88e24905b7706472}{Salva\+Config()} para persistência imediata na NVS. 
+\end{DoxyItemize}
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{class_char_callback_ad6447b535c05ff3bb29cdc8716824639}\index{CharCallback@{CharCallback}!onWrite@{onWrite}}
+\index{onWrite@{onWrite}!CharCallback@{CharCallback}}
+\doxysubsubsection{\texorpdfstring{onWrite()}{onWrite()}}
+{\footnotesize\ttfamily \label{class_char_callback_ad6447b535c05ff3bb29cdc8716824639} 
+void Char\+Callback\+::on\+Write (\begin{DoxyParamCaption}\item[{BLECharacteristic \texorpdfstring{$\ast$}{*}}]{p\+Characteristic}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ std::string\ value\ =\ pCharacteristic-\/>getValue();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (pCharacteristic\ ==\ \&\mbox{\hyperlink{main_8cpp_a9c75ccaf0b3424e327cd58ed3bdcdd5c}{WifiNomeChar}})\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nomeWifi}}\ =\ String(value.c\_str());}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Novo\ nome\ do\ WiFi\ recebido:\ "{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ Serial.println(\mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nomeWifi}});}
+\DoxyCodeLine{00089\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pCharacteristic\ ==\ \&\mbox{\hyperlink{main_8cpp_a84b6c8c5171c5c7911a016cd906ead76}{WifiSenhaChar}})\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senhaWifi}}\ =\ String(value.c\_str());}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Nova\ senha\ do\ WiFi\ recebida:\ "{}});}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ Serial.println(\mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senhaWifi}});}
+\DoxyCodeLine{00093\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pCharacteristic\ ==\ \&\mbox{\hyperlink{main_8cpp_a63b383dcaea1a05aba0d547ed00be2c5}{SetPointChar}})\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}{setPointTemp}}\ =\ String(value.c\_str()).toFloat();}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Novo\ setpoint\ recebido:\ "{}});}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ Serial.println(\mbox{\hyperlink{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}{setPointTemp}});}
+\DoxyCodeLine{00097\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pCharacteristic\ ==\ \&\mbox{\hyperlink{main_8cpp_a3811803b51148d50b73aa58696bc9445}{IntervaloChar}})\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervaloTemp}}\ =\ String(value.c\_str()).toInt();}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Novo\ intervalo\ recebido:\ "{}});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ Serial.println(\mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervaloTemp}});}
+\DoxyCodeLine{00101\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pCharacteristic\ ==\ \&\mbox{\hyperlink{main_8cpp_a11cbedf7d36e986b5fc9d9388bbe7784}{TelefoneChar}})\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{numCelular}}\ =\ String(value.c\_str());}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Número\ de\ celular\ recebido:\ "{}});}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ Serial.println(\mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{numCelular}});}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \}}
+
+\end{DoxyCode}
+Grafo de chamadas desta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_char_callback_ad6447b535c05ff3bb29cdc8716824639_cgraph}
+\end{center}
+\end{figure}
+
+
+A documentação para esta classe foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bleconfig_8cpp}{bleconfig.\+cpp}}\end{DoxyCompactItemize}

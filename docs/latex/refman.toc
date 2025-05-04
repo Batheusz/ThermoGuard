@@ -1,0 +1,102 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {portuges}{}\relax 
+\contentsline {chapter}{\numberline {1}Índice da hierarquia}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Hierarquia de classes}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Índice das estruturas de dados}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Estruturas de dados}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Índice dos ficheiros}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Lista de ficheiros}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Documentação da estruturas de dados}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Referência à classe Char\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Callback}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Descrição detalhada}{8}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Documentação das funções}{8}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}onWrite()}{8}{subsubsection.4.1.2.1}%
+\contentsline {section}{\numberline {4.2}Referência à classe My\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Callbacks}{9}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Descrição detalhada}{10}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Documentação das funções}{10}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}onConnect()}{10}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}onDisconnect()}{10}{subsubsection.4.2.2.2}%
+\contentsline {chapter}{\numberline {5}Documentação do ficheiro}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Referência ao ficheiro bleconfig.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{11}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Descrição detalhada}{12}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Documentação das funções}{12}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}EncerrarBLE()}{12}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}IniciarBLE()}{13}{subsubsection.5.1.2.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}IntervaloChar()}{14}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}IntervaloDesc()}{15}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}SetPointChar()}{15}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}SetPointDesc()}{16}{subsubsection.5.1.2.6}%
+\contentsline {subsubsection}{\numberline {5.1.2.7}TelefoneChar()}{16}{subsubsection.5.1.2.7}%
+\contentsline {subsubsection}{\numberline {5.1.2.8}TelefoneDesc()}{16}{subsubsection.5.1.2.8}%
+\contentsline {subsubsection}{\numberline {5.1.2.9}TemperaturaChar()}{17}{subsubsection.5.1.2.9}%
+\contentsline {subsubsection}{\numberline {5.1.2.10}TemperaturaDesc()}{17}{subsubsection.5.1.2.10}%
+\contentsline {subsubsection}{\numberline {5.1.2.11}WifiNomeChar()}{17}{subsubsection.5.1.2.11}%
+\contentsline {subsubsection}{\numberline {5.1.2.12}WifiNomeDesc()}{17}{subsubsection.5.1.2.12}%
+\contentsline {subsubsection}{\numberline {5.1.2.13}WifiSenhaChar()}{18}{subsubsection.5.1.2.13}%
+\contentsline {subsubsection}{\numberline {5.1.2.14}WifiSenhaDesc()}{18}{subsubsection.5.1.2.14}%
+\contentsline {section}{\numberline {5.2}Referência ao ficheiro ble\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{19}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Descrição detalhada}{20}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Documentação das macros}{20}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}BLECONFIGS\_H}{20}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}SERVICE\_UUID}{20}{subsubsection.5.2.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}SERVICE\_WIFI\_UUID}{20}{subsubsection.5.2.2.3}%
+\contentsline {subsection}{\numberline {5.2.3}Documentação das funções}{20}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}EncerrarBLE()}{20}{subsubsection.5.2.3.1}%
+\contentsline {subsubsection}{\numberline {5.2.3.2}IniciarBLE()}{21}{subsubsection.5.2.3.2}%
+\contentsline {subsection}{\numberline {5.2.4}Documentação das variáveis}{22}{subsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.4.1}deviceConnected}{22}{subsubsection.5.2.4.1}%
+\contentsline {section}{\numberline {5.3}ble\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Config.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{22}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Referência ao ficheiro funcoes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{23}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Descrição detalhada}{24}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Documentação das funções}{24}{subsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.1}CarregarConfig()}{24}{subsubsection.5.4.2.1}%
+\contentsline {subsubsection}{\numberline {5.4.2.2}ConectaWifi()}{24}{subsubsection.5.4.2.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.3}DesconectaWifi()}{25}{subsubsection.5.4.2.3}%
+\contentsline {subsubsection}{\numberline {5.4.2.4}EnviarWeb()}{25}{subsubsection.5.4.2.4}%
+\contentsline {subsubsection}{\numberline {5.4.2.5}EnviarWhats()}{26}{subsubsection.5.4.2.5}%
+\contentsline {subsubsection}{\numberline {5.4.2.6}SalvaConfig()}{27}{subsubsection.5.4.2.6}%
+\contentsline {section}{\numberline {5.5}Referência ao ficheiro funcoes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{28}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Descrição detalhada}{29}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Documentação das funções}{30}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}CarregarConfig()}{30}{subsubsection.5.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.5.2.2}ConectaWifi()}{30}{subsubsection.5.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.3}DesconectaWifi()}{31}{subsubsection.5.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.5.2.4}EnviarWeb()}{31}{subsubsection.5.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.5.2.5}EnviarWhats()}{32}{subsubsection.5.5.2.5}%
+\contentsline {subsubsection}{\numberline {5.5.2.6}SalvaConfig()}{33}{subsubsection.5.5.2.6}%
+\contentsline {subsection}{\numberline {5.5.3}Documentação das variáveis}{34}{subsection.5.5.3}%
+\contentsline {subsubsection}{\numberline {5.5.3.1}apiKey}{34}{subsubsection.5.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.5.3.2}apiWhats}{34}{subsubsection.5.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.5.3.3}intervaloTemp}{34}{subsubsection.5.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.5.3.4}nomeWifi}{34}{subsubsection.5.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.5.3.5}numCelular}{34}{subsubsection.5.5.3.5}%
+\contentsline {subsubsection}{\numberline {5.5.3.6}prefs}{34}{subsubsection.5.5.3.6}%
+\contentsline {subsubsection}{\numberline {5.5.3.7}senhaWifi}{35}{subsubsection.5.5.3.7}%
+\contentsline {subsubsection}{\numberline {5.5.3.8}server}{35}{subsubsection.5.5.3.8}%
+\contentsline {subsubsection}{\numberline {5.5.3.9}setPointTemp}{35}{subsubsection.5.5.3.9}%
+\contentsline {section}{\numberline {5.6}funcoes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{35}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Referência ao ficheiro main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{36}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Descrição detalhada}{37}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Documentação das funções}{37}{subsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.1}loop()}{37}{subsubsection.5.7.2.1}%
+\contentsline {subsubsection}{\numberline {5.7.2.2}PinOneWire()}{37}{subsubsection.5.7.2.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.3}setup()}{38}{subsubsection.5.7.2.3}%
+\contentsline {subsection}{\numberline {5.7.3}Documentação das variáveis}{39}{subsection.5.7.3}%
+\contentsline {subsubsection}{\numberline {5.7.3.1}apiKey}{39}{subsubsection.5.7.3.1}%
+\contentsline {subsubsection}{\numberline {5.7.3.2}apiWhats}{40}{subsubsection.5.7.3.2}%
+\contentsline {subsubsection}{\numberline {5.7.3.3}deviceConnected}{40}{subsubsection.5.7.3.3}%
+\contentsline {subsubsection}{\numberline {5.7.3.4}IntervaloChar}{40}{subsubsection.5.7.3.4}%
+\contentsline {subsubsection}{\numberline {5.7.3.5}intervaloTemp}{40}{subsubsection.5.7.3.5}%
+\contentsline {subsubsection}{\numberline {5.7.3.6}nomeWifi}{40}{subsubsection.5.7.3.6}%
+\contentsline {subsubsection}{\numberline {5.7.3.7}numCelular}{40}{subsubsection.5.7.3.7}%
+\contentsline {subsubsection}{\numberline {5.7.3.8}PinOneWire}{40}{subsubsection.5.7.3.8}%
+\contentsline {subsubsection}{\numberline {5.7.3.9}prefs}{40}{subsubsection.5.7.3.9}%
+\contentsline {subsubsection}{\numberline {5.7.3.10}senhaWifi}{40}{subsubsection.5.7.3.10}%
+\contentsline {subsubsection}{\numberline {5.7.3.11}server}{41}{subsubsection.5.7.3.11}%
+\contentsline {subsubsection}{\numberline {5.7.3.12}SetPointChar}{41}{subsubsection.5.7.3.12}%
+\contentsline {subsubsection}{\numberline {5.7.3.13}setPointTemp}{41}{subsubsection.5.7.3.13}%
+\contentsline {subsubsection}{\numberline {5.7.3.14}TelefoneChar}{41}{subsubsection.5.7.3.14}%
+\contentsline {subsubsection}{\numberline {5.7.3.15}TemperaturaChar}{41}{subsubsection.5.7.3.15}%
+\contentsline {subsubsection}{\numberline {5.7.3.16}ultimaTemp}{41}{subsubsection.5.7.3.16}%
+\contentsline {subsubsection}{\numberline {5.7.3.17}WifiNomeChar}{41}{subsubsection.5.7.3.17}%
+\contentsline {subsubsection}{\numberline {5.7.3.18}WifiSenhaChar}{41}{subsubsection.5.7.3.18}%

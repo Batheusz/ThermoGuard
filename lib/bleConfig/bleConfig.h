@@ -1,15 +1,10 @@
 /**
  * @file bleConfig.h
- * @brief Declarações para configuração do Bluetooth Low Energy (BLE).
+ * @brief Declarações relacionadas à configuração do BLE no ESP32.
  *
- * @details 
- * Define o UUID do serviço BLE e declara as funções públicas para
- * iniciar e encerrar o BLE.
- * 
- * @author
- * Matheus Orsini
- * @date
- * 2025-04-26
+ * @details
+ * Define UUIDs, variáveis globais e funções públicas para controle BLE.
+ * Contém os protótipos das funções IniciarBLE() e EncerrarBLE().
  */
 
 #ifndef BLECONFIG_H
@@ -25,8 +20,14 @@
 
 extern volatile bool deviceConnected;
 
+/**
+ * @brief Inicializa o serviço BLE com todas as características e inicia o advertising.
+ */
 void IniciarBLE();
 
+/**
+ * @brief Encerra a comunicação BLE e libera recursos.
+ */
 void EncerrarBLE();
 
 #endif

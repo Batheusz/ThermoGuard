@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ThermoGuard: Lista de componentes</title>
+<title>ThermoGuard: Estruturas de dados</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ThermoGuard
+   <div id="projectname">ThermoGuard<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Documentação do projeto ThermoGuard - Monitoramento de Temperatura BLE</div>
+   <div id="projectbrief">Monitoramento de Temperatura e Notificação via WhatsApp e ThingSpeak usando ESP32</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -103,12 +103,13 @@ $(function(){initNavTree('annotated.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lista de componentes</div></div>
+  <div class="headertitle"><div class="title">Estruturas de dados</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Lista de classes, estruturas, uniões e interfaces com uma breve descrição:</div><div class="directory">
+<div class="textblock">Lista das estruturas de dados com uma breve descrição:</div><div class="directory">
 <table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_my_server_callbacks.html" target="_self">MyServerCallbacks</a></td><td class="desc">Classe de callback para eventos de conexão/desconexão BLE </td></tr>
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_char_callback.html" target="_self">CharCallback</a></td><td class="desc">Callback para escrita em características BLE. Atualiza variáveis globais </td></tr>
+<tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_my_server_callbacks.html" target="_self">MyServerCallbacks</a></td><td class="desc">Callback de eventos do servidor BLE. Atualiza estado da conexão </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

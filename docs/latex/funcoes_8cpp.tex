@@ -2,31 +2,44 @@
 \hypertarget{funcoes_8cpp}{}\label{funcoes_8cpp}\index{funcoes.cpp@{funcoes.cpp}}
 
 
-Implementação das funções auxiliares para o projeto Thermo\+Guard ESP32.  
+Implementação das funções auxiliares para envio de dados e armazenamento.  
 
 
 {\ttfamily \#include "{}funcoes.\+h"{}}\newline
+Diagrama de dependências de inclusão para funcoes.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{funcoes_8cpp__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
 uint8\+\_\+t \mbox{\hyperlink{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa}{Enviar\+Whats}} (String mensagem)
-\begin{DoxyCompactList}\small\item\em Envia mensagem Whats\+App via Call\+Me\+Bot API. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{funcoes_8cpp_a496d1413601446647f4f6e259120b832}{Enviar\+Web}} (float valor)
-\begin{DoxyCompactList}\small\item\em Envia valor ao Thing\+Speak. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Envia um valor numérico para Thing\+Speak via HTTP GET. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{funcoes_8cpp_a420a08393185ceba2855a2de10715128}{Conecta\+Wifi}} (String nome, String senha)
-\begin{DoxyCompactList}\small\item\em Conecta o ESP32 à rede Wi-\/\+Fi. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Conecta o ESP32 à rede Wi-\/\+Fi especificada. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}{Desconecta\+Wifi}} ()
-\begin{DoxyCompactList}\small\item\em Desconecta e desativa o Wi-\/\+Fi. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{funcoes_8cpp_a10c0866444677cfc520f43e52f3b763a}{Salva\+Config}} (String wifi, String senha, float set\+Point, uint32\+\_\+t intervalo)
-\begin{DoxyCompactList}\small\item\em Salva configurações na NVS. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Desconecta o ESP32 da rede Wi-\/\+Fi e desativa o Wi-\/\+Fi. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{funcoes_8cpp_a18165d9dc3d16f2b88e24905b7706472}{Salva\+Config}} (String wifi, String senha, float set\+Point, uint32\+\_\+t intervalo, String numero)
+\begin{DoxyCompactList}\small\item\em Salva as configurações fornecidas na memória não volátil (NVS). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{funcoes_8cpp_ae37aeb6cc3ac00302fef48cad121e04a}{Carregar\+Config}} ()
-\begin{DoxyCompactList}\small\item\em Carrega configurações armazenadas na memória NVS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Carrega as configurações armazenadas na NVS. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Descrição detalhada}
-Implementação das funções auxiliares para o projeto Thermo\+Guard ESP32. 
+Implementação das funções auxiliares para envio de dados e armazenamento. 
 
-
+As funções incluem\+:
+\begin{DoxyItemize}
+\item Enviar mensagem via Call\+Me\+Bot (Whats\+App)
+\item Enviar valor para Thing\+Speak
+\item Salvar e carregar configurações com Preferences
+\item Conectar/desconectar Wi-\/\+Fi 
+\end{DoxyItemize}
 
 \doxysubsection{Documentação das funções}
 \Hypertarget{funcoes_8cpp_ae37aeb6cc3ac00302fef48cad121e04a}\index{funcoes.cpp@{funcoes.cpp}!CarregarConfig@{CarregarConfig}}
@@ -37,11 +50,29 @@ void Carregar\+Config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Carrega configurações armazenadas na memória NVS. 
+Carrega as configurações armazenadas na NVS. 
 
-Carrega as configurações armazenadas na NVS.
 
-Lê o nome do Wi-\/\+Fi, senha, setpoint de temperatura e intervalo de leitura, restaurando os valores padrão caso ainda não existam. \Hypertarget{funcoes_8cpp_a420a08393185ceba2855a2de10715128}\index{funcoes.cpp@{funcoes.cpp}!ConectaWifi@{ConectaWifi}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.begin(\textcolor{stringliteral}{"{}config"{}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00082\ \mbox{\hyperlink{main_8cpp_a1985d05d19fdca8123f77df57639188f}{nomeWifi}}\ =\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.getString(\textcolor{stringliteral}{"{}wifi"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00083\ \mbox{\hyperlink{main_8cpp_a2b53c380928d42395504a2470d0e10e6}{senhaWifi}}\ =\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.getString(\textcolor{stringliteral}{"{}senha"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00084\ \mbox{\hyperlink{main_8cpp_af47a190e4ffbde81edc3918a667db8cb}{setPointTemp}}\ =\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.getFloat(\textcolor{stringliteral}{"{}setPoint"{}},\ 38.0);}
+\DoxyCodeLine{00085\ \mbox{\hyperlink{main_8cpp_a0410997c46ed3194dd285765f7f31860}{intervaloTemp}}\ =\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.getUInt(\textcolor{stringliteral}{"{}intervalo"{}},\ 15);\ \textcolor{comment}{//\ 15\ min\ padrão}}
+\DoxyCodeLine{00086\ \mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{numCelular}}\ =\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.getString(\textcolor{stringliteral}{"{}cel"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00087\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.end();}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{funcoes_8cpp_ae37aeb6cc3ac00302fef48cad121e04a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{funcoes_8cpp_a420a08393185ceba2855a2de10715128}\index{funcoes.cpp@{funcoes.cpp}!ConectaWifi@{ConectaWifi}}
 \index{ConectaWifi@{ConectaWifi}!funcoes.cpp@{funcoes.cpp}}
 \doxysubsubsection{\texorpdfstring{ConectaWifi()}{ConectaWifi()}}
 {\footnotesize\ttfamily \label{funcoes_8cpp_a420a08393185ceba2855a2de10715128} 
@@ -49,9 +80,49 @@ uint8\+\_\+t Conecta\+Wifi (\begin{DoxyParamCaption}\item[{String}]{nome}{, }\it
 
 
 
-Conecta o ESP32 à rede Wi-\/\+Fi. 
+Conecta o ESP32 à rede Wi-\/\+Fi especificada. 
 
-Conecta o ESP32 à rede Wi-\/\+Fi especificada. \Hypertarget{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}\index{funcoes.cpp@{funcoes.cpp}!DesconectaWifi@{DesconectaWifi}}
+
+\begin{DoxyParams}{Parâmetros}
+{\em nome} & SSID da rede. \\
+\hline
+{\em senha} & Senha da rede. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores retornados}
+{\em 1} & Conectado com sucesso \\
+\hline
+{\em 0} & Falha na conexão \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ WiFi.begin(nome,\ senha);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ startTime\ =\ millis();}
+\DoxyCodeLine{00055\ \textcolor{keywordflow}{while}(millis()\ -\/\ startTime\ <\ 10000)}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (WiFi.status()\ ==\ WL\_CONNECTED)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00058\ \textcolor{keywordflow}{if}\ (WiFi.status()\ ==\ WL\_CONNECTED)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00060\ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ \}}
+
+\end{DoxyCode}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{funcoes_8cpp_a420a08393185ceba2855a2de10715128_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8}\index{funcoes.cpp@{funcoes.cpp}!DesconectaWifi@{DesconectaWifi}}
 \index{DesconectaWifi@{DesconectaWifi}!funcoes.cpp@{funcoes.cpp}}
 \doxysubsubsection{\texorpdfstring{DesconectaWifi()}{DesconectaWifi()}}
 {\footnotesize\ttfamily \label{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8} 
@@ -59,9 +130,24 @@ void Desconecta\+Wifi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Desconecta e desativa o Wi-\/\+Fi. 
+Desconecta o ESP32 da rede Wi-\/\+Fi e desativa o Wi-\/\+Fi. 
 
-Desconecta o ESP32 da rede Wi-\/\+Fi e desativa o Wi-\/\+Fi. \Hypertarget{funcoes_8cpp_a496d1413601446647f4f6e259120b832}\index{funcoes.cpp@{funcoes.cpp}!EnviarWeb@{EnviarWeb}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ WiFi.disconnect(\textcolor{keyword}{true});}
+\DoxyCodeLine{00067\ WiFi.mode(WIFI\_OFF);}
+\DoxyCodeLine{00068\ \}}
+
+\end{DoxyCode}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{funcoes_8cpp_ac0864cde0bddc4d52913c6a7215a85c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{funcoes_8cpp_a496d1413601446647f4f6e259120b832}\index{funcoes.cpp@{funcoes.cpp}!EnviarWeb@{EnviarWeb}}
 \index{EnviarWeb@{EnviarWeb}!funcoes.cpp@{funcoes.cpp}}
 \doxysubsubsection{\texorpdfstring{EnviarWeb()}{EnviarWeb()}}
 {\footnotesize\ttfamily \label{funcoes_8cpp_a496d1413601446647f4f6e259120b832} 
@@ -69,9 +155,54 @@ uint8\+\_\+t Enviar\+Web (\begin{DoxyParamCaption}\item[{float}]{valor}{}\end{Do
 
 
 
-Envia valor ao Thing\+Speak. 
+Envia um valor numérico para Thing\+Speak via HTTP GET. 
 
-Envia um valor numérico para Thing\+Speak via HTTP GET. \Hypertarget{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa}\index{funcoes.cpp@{funcoes.cpp}!EnviarWhats@{EnviarWhats}}
+
+\begin{DoxyParams}{Parâmetros}
+{\em valor} & Valor float a ser enviado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores retornados}
+{\em 1} & Sucesso (HTTP 200) \\
+\hline
+{\em 0} & Falha na requisição \\
+\hline
+{\em 2} & Wi-\/\+Fi não conectado \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \textcolor{keywordflow}{if}\ (WiFi.status()\ ==\ WL\_CONNECTED)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ HTTPClient\ http;}
+\DoxyCodeLine{00037\ \ \ \ \ String\ url\ =\ \mbox{\hyperlink{main_8cpp_a4cfa213c7b6b7e5a1788f5bf87b423d8}{server}}\ +\ \textcolor{stringliteral}{"{}?api\_key="{}}\ +\ \mbox{\hyperlink{main_8cpp_abafd9aa183f18bceec5da61aa1f93a87}{apiKey}}\ +\ \textcolor{stringliteral}{"{}\&field1="{}}\ +\ String(valor);}
+\DoxyCodeLine{00038\ \ \ \ \ http.begin(url);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ httpResponseCode\ =\ http.GET();}
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{if}\ (httpResponseCode\ ==\ 200)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ http.end();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00044\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ http.end();}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ \textcolor{keywordflow}{return}\ 2;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{funcoes_8cpp_a496d1413601446647f4f6e259120b832_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa}\index{funcoes.cpp@{funcoes.cpp}!EnviarWhats@{EnviarWhats}}
 \index{EnviarWhats@{EnviarWhats}!funcoes.cpp@{funcoes.cpp}}
 \doxysubsubsection{\texorpdfstring{EnviarWhats()}{EnviarWhats()}}
 {\footnotesize\ttfamily \label{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa} 
@@ -79,16 +210,94 @@ uint8\+\_\+t Enviar\+Whats (\begin{DoxyParamCaption}\item[{String}]{mensagem}{}\
 
 
 
-Envia mensagem Whats\+App via Call\+Me\+Bot API. 
+Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. 
 
-Envia uma mensagem via Whats\+App usando Call\+Me\+Bot API. \Hypertarget{funcoes_8cpp_a10c0866444677cfc520f43e52f3b763a}\index{funcoes.cpp@{funcoes.cpp}!SalvaConfig@{SalvaConfig}}
+
+\begin{DoxyParams}{Parâmetros}
+{\em mensagem} & Texto da mensagem a ser enviada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+uint8\+\_\+t 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores retornados}
+{\em 1} & Sucesso (HTTP 200) \\
+\hline
+{\em 0} & Falha na requisição \\
+\hline
+{\em 2} & Wi-\/\+Fi não conectado \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \textcolor{keywordflow}{if}\ (WiFi.status()\ ==\ WL\_CONNECTED)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ String\ url\ =\ \textcolor{stringliteral}{"{}https://api.callmebot.com/whatsapp.php?phone="{}}\ +\ \mbox{\hyperlink{main_8cpp_ae5f1bf82db9796145db3a408488ecefd}{numCelular}}\ +\ \textcolor{stringliteral}{"{}\&apikey="{}}\ +\ \mbox{\hyperlink{main_8cpp_a2178705e4b75e3811fb805ea29271cd6}{apiWhats}}\ +\ \textcolor{stringliteral}{"{}\&text="{}}\ +\ urlEncode(mensagem);}
+\DoxyCodeLine{00018\ \ \ \ \ HTTPClient\ http;}
+\DoxyCodeLine{00019\ \ \ \ \ http.begin(url);}
+\DoxyCodeLine{00020\ \ \ \ \ http.addHeader(\textcolor{stringliteral}{"{}Content-\/Type"{}},\ \textcolor{stringliteral}{"{}application/x-\/www-\/form-\/urlencoded"{}});}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ httpResponseCode\ =\ http.POST(url);}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (httpResponseCode\ ==\ 200)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ http.end();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00026\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ http.end();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ \textcolor{keywordflow}{return}\ 2;}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{funcoes_8cpp_aab7876312534d1d5cb2b52368d8a66aa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{funcoes_8cpp_a18165d9dc3d16f2b88e24905b7706472}\index{funcoes.cpp@{funcoes.cpp}!SalvaConfig@{SalvaConfig}}
 \index{SalvaConfig@{SalvaConfig}!funcoes.cpp@{funcoes.cpp}}
 \doxysubsubsection{\texorpdfstring{SalvaConfig()}{SalvaConfig()}}
-{\footnotesize\ttfamily \label{funcoes_8cpp_a10c0866444677cfc520f43e52f3b763a} 
-void Salva\+Config (\begin{DoxyParamCaption}\item[{String}]{wifi}{, }\item[{String}]{senha}{, }\item[{float}]{set\+Point}{, }\item[{uint32\+\_\+t}]{intervalo}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{funcoes_8cpp_a18165d9dc3d16f2b88e24905b7706472} 
+void Salva\+Config (\begin{DoxyParamCaption}\item[{String}]{wifi}{, }\item[{String}]{senha}{, }\item[{float}]{set\+Point}{, }\item[{uint32\+\_\+t}]{intervalo}{, }\item[{String}]{numero}{}\end{DoxyParamCaption})}
 
 
 
-Salva configurações na NVS. 
+Salva as configurações fornecidas na memória não volátil (NVS). 
 
-Salva as configurações recebidas (Wi-\/\+Fi, senha, setpoint e intervalo) na NVS. 
+
+\begin{DoxyParams}{Parâmetros}
+{\em wifi} & Nome da rede Wi-\/\+Fi. \\
+\hline
+{\em senha} & Senha da rede. \\
+\hline
+{\em set\+Point} & Temperatura alvo de referência. \\
+\hline
+{\em intervalo} & Intervalo entre medições (em minutos). \\
+\hline
+{\em numero} & Número de telefone para alertas. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.begin(\textcolor{stringliteral}{"{}config"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00072\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.putString(\textcolor{stringliteral}{"{}wifi"{}},\ wifi);}
+\DoxyCodeLine{00073\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.putString(\textcolor{stringliteral}{"{}senha"{}},\ senha);}
+\DoxyCodeLine{00074\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.putFloat(\textcolor{stringliteral}{"{}setPoint"{}},\ setPoint);}
+\DoxyCodeLine{00075\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.putUInt(\textcolor{stringliteral}{"{}intervalo"{}},\ intervalo);}
+\DoxyCodeLine{00076\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.putString(\textcolor{stringliteral}{"{}cel"{}},\ numero);}
+\DoxyCodeLine{00077\ \mbox{\hyperlink{main_8cpp_a77f70a9d88156f5f7dbdd99bfaaee64e}{prefs}}.end();}
+\DoxyCodeLine{00078\ \}}
+
+\end{DoxyCode}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{funcoes_8cpp_a18165d9dc3d16f2b88e24905b7706472_icgraph}
+\end{center}
+\end{figure}

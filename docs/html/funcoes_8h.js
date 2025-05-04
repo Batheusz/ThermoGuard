@@ -5,7 +5,7 @@ var funcoes_8h =
     [ "DesconectaWifi", "funcoes_8h.html#ac0864cde0bddc4d52913c6a7215a85c8", null ],
     [ "EnviarWeb", "funcoes_8h.html#a496d1413601446647f4f6e259120b832", null ],
     [ "EnviarWhats", "funcoes_8h.html#aab7876312534d1d5cb2b52368d8a66aa", null ],
-    [ "SalvaConfig", "funcoes_8h.html#a10c0866444677cfc520f43e52f3b763a", null ],
+    [ "SalvaConfig", "funcoes_8h.html#a18165d9dc3d16f2b88e24905b7706472", null ],
     [ "apiKey", "funcoes_8h.html#abafd9aa183f18bceec5da61aa1f93a87", null ],
     [ "apiWhats", "funcoes_8h.html#a2178705e4b75e3811fb805ea29271cd6", null ],
     [ "intervaloTemp", "funcoes_8h.html#a0410997c46ed3194dd285765f7f31860", null ],
@@ -14,5 +14,5 @@ var funcoes_8h =
     [ "prefs", "funcoes_8h.html#a77f70a9d88156f5f7dbdd99bfaaee64e", null ],
     [ "senhaWifi", "funcoes_8h.html#a2b53c380928d42395504a2470d0e10e6", null ],
     [ "server", "funcoes_8h.html#a4cfa213c7b6b7e5a1788f5bf87b423d8", null ],
-    [ "setpointTemp", "funcoes_8h.html#add1d9118be43175094da2653b50c9f78", null ]
+    [ "setPointTemp", "funcoes_8h.html#af47a190e4ffbde81edc3918a667db8cb", null ]
 ];

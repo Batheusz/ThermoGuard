@@ -1,5 +1,5 @@
 <map id="funcoes.h" name="funcoes.h">
-<area shape="rect" id="Node000001" title="Declarações de funções auxiliares para o projeto ThermoGuard ESP32." alt="" coords="256,5,335,32"/>
+<area shape="rect" id="Node000001" title="Declaração das funções auxiliares para comunicação Wi&#45;Fi e armazenamento." alt="" coords="256,5,335,32"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,80,82,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,34,98,79,96,74,255,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="106,80,165,107"/>

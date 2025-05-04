@@ -1,7 +1,7 @@
 <map id="bleConfig.h" name="bleConfig.h">
-<area shape="rect" id="Node000001" title="Declarações para configuração do Bluetooth Low Energy (BLE)." alt="" coords="66,5,153,32"/>
-<area shape="rect" id="Node000002" href="$bleconfig_8cpp.html" title=" " alt="" coords="5,80,104,107"/>
+<area shape="rect" id="Node000001" title="Declarações relacionadas à configuração do BLE no ESP32." alt="" coords="66,5,153,32"/>
+<area shape="rect" id="Node000002" href="$bleconfig_8cpp.html" title="Implementação da configuração BLE do ESP32." alt="" coords="5,80,104,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,46,66,81,62,78,88,43"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Projeto de monitoramento de temperatura e envio de alertas via WhatsApp e ThingSpeak usando ESP32." alt="" coords="128,80,202,107"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Loop principal do sistema de monitoramento de temperatura com ESP32." alt="" coords="128,80,202,107"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,43,158,78,153,81,126,46"/>
 </map>

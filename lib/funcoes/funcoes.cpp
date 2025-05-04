@@ -1,13 +1,17 @@
 /**
  * @file funcoes.cpp
- * @brief Implementação das funções auxiliares para o projeto ThermoGuard ESP32.
+ * @brief Implementação das funções auxiliares para envio de dados e armazenamento.
+ *
+ * @details
+ * As funções incluem:
+ * - Enviar mensagem via CallMeBot (WhatsApp)
+ * - Enviar valor para ThingSpeak
+ * - Salvar e carregar configurações com Preferences
+ * - Conectar/desconectar Wi-Fi
  */
 
 #include "funcoes.h"
 
-/**
- * @brief Envia mensagem WhatsApp via CallMeBot API.
- */
 uint8_t EnviarWhats(String mensagem) {
 if (WiFi.status() == WL_CONNECTED) {
     String url = "https://api.callmebot.com/whatsapp.php?phone=" + numCelular + "&apikey=" + apiWhats + "&text=" + urlEncode(mensagem);
@@ -27,9 +31,6 @@ if (WiFi.status() == WL_CONNECTED) {
 return 2;
 }
 
-/**
- * @brief Envia valor ao ThingSpeak.
- */
 uint8_t EnviarWeb(float valor) {
 if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
@@ -48,9 +49,6 @@ if (WiFi.status() == WL_CONNECTED) {
 return 2;
 }
 
-/**
- * @brief Conecta o ESP32 à rede Wi-Fi.
- */
 uint8_t ConectaWifi(String nome, String senha) {
 WiFi.begin(nome, senha);
 unsigned long startTime = millis();
@@ -64,17 +62,11 @@ if (WiFi.status() == WL_CONNECTED) {
 }
 }
 
-/**
- * @brief Desconecta e desativa o Wi-Fi.
- */
 void DesconectaWifi() {
 WiFi.disconnect(true);
 WiFi.mode(WIFI_OFF);
 }
 
-/**
- * @brief Salva configurações na NVS.
- */
 void SalvaConfig(String wifi, String senha, float setPoint, uint32_t intervalo, String numero) {
 prefs.begin("config", false);
 prefs.putString("wifi", wifi);
@@ -85,12 +77,6 @@ prefs.putString("cel", numero);
 prefs.end();
 }
 
-/**
- * @brief Carrega configurações armazenadas na memória NVS.
- * 
- * Lê o nome do Wi-Fi, senha, setpoint de temperatura e intervalo
- * de leitura, restaurando os valores padrão caso ainda não existam.
- */
 void CarregarConfig() {
 prefs.begin("config", true);
 nomeWifi = prefs.getString("wifi", "");

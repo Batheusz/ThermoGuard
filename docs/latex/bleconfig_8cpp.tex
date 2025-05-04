@@ -1,11 +1,26 @@
 \doxysection{Referência ao ficheiro bleconfig.\+cpp}
 \hypertarget{bleconfig_8cpp}{}\label{bleconfig_8cpp}\index{bleconfig.cpp@{bleconfig.cpp}}
+
+
+Implementação da configuração BLE do ESP32.  
+
+
 {\ttfamily \#include "{}ble\+Config.\+h"{}}\newline
-\doxysubsubsection*{Componentes}
+{\ttfamily \#include "{}funcoes.\+h"{}}\newline
+Diagrama de dependências de inclusão para bleconfig.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bleconfig_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Estruturas de Dados}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_my_server_callbacks}{My\+Server\+Callbacks}}
-\begin{DoxyCompactList}\small\item\em Classe de callback para eventos de conexão/desconexão BLE. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Callback de eventos do servidor BLE. Atualiza estado da conexão. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_char_callback}{Char\+Callback}}
+\begin{DoxyCompactList}\small\item\em Callback para escrita em características BLE. Atualiza variáveis globais. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Funções}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,23 +28,36 @@ BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_ad67a7974fa10bc5742f3e1c5719bd
 \item 
 BLEDescriptor \mbox{\hyperlink{bleconfig_8cpp_a0962a981d8b0fee9f4d0af772bdd319e}{Temperatura\+Desc}} (BLEUUID((uint16\+\_\+t) 0x2912))
 \item 
-BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_a28d7460209c71220475c726e58b7d90b}{Intervalo\+Char}} (BLEUUID((uint16\+\_\+t) 0x2\+B8F), BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE)
+BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_a010ccc34905f7cc9655974adc9ce3658}{Intervalo\+Char}} (BLEUUID((uint16\+\_\+t) 0x2\+B8F), BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE)
 \item 
 BLEDescriptor \mbox{\hyperlink{bleconfig_8cpp_a6631abdf9342c486ac682344cdb0baba}{Intervalo\+Desc}} (BLEUUID((uint16\+\_\+t) 0x290E))
 \item 
-BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_a36b06be8e7e69a1bcfba370b1683a854}{Wifi\+Nome\+Char}} ("{}09caff73-\/bfcf-\/4066-\/90a1-\/b142a385d7f6"{}, BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE)
+BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_a52de2f616e8f99d8b7cf055658e96105}{Set\+Point\+Char}} ("{}22399fc7-\/2eef-\/48c8-\/924c-\/bba26ca25376"{}, BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE)
+\item 
+BLEDescriptor \mbox{\hyperlink{bleconfig_8cpp_ab0d48f79db265c260a47817cd61ad676}{Set\+Point\+Desc}} (BLEUUID((uint16\+\_\+t) 0x2903))
+\item 
+BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_a471c54ed74a210fdae2b309648feac3b}{Wifi\+Nome\+Char}} ("{}09caff73-\/bfcf-\/4066-\/90a1-\/b142a385d7f6"{}, BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE)
 \item 
 BLEDescriptor \mbox{\hyperlink{bleconfig_8cpp_a796c95a5f393a0b35df0662a34d87793}{Wifi\+Nome\+Desc}} (BLEUUID((uint16\+\_\+t) 0x2903))
 \item 
-BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_afc0060aea761b2f271bcb66ccd8d8e88}{Wifi\+Senha\+Char}} ("{}bd96b429-\/e88d-\/4702-\/9450-\/f023c08e509c"{}, BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE)
+BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_a607efe564a574dd9ff9494992df9e4b0}{Wifi\+Senha\+Char}} ("{}74ddaf0d-\/dd25-\/4c8f-\/bb76-\/bee0df68c786"{}, BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE)
 \item 
 BLEDescriptor \mbox{\hyperlink{bleconfig_8cpp_a4393c035390ec7c37282009cedb4d801}{Wifi\+Senha\+Desc}} (BLEUUID((uint16\+\_\+t) 0x2903))
+\item 
+BLECharacteristic \mbox{\hyperlink{bleconfig_8cpp_a840b910ed5a8e9e5665365d330f81295}{Telefone\+Char}} ("{}bd96b429-\/e88d-\/4702-\/9450-\/f023c08e509c"{}, BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE)
+\item 
+BLEDescriptor \mbox{\hyperlink{bleconfig_8cpp_a1cbe1235606de50d263b23fd87a27f1f}{Telefone\+Desc}} (BLEUUID((uint16\+\_\+t) 0x2903))
 \item 
 void \mbox{\hyperlink{bleconfig_8cpp_a5c0efe429f3a4ddda46992fd1c9e08fc}{Iniciar\+BLE}} ()
 \begin{DoxyCompactList}\small\item\em Inicializa o Bluetooth Low Energy (BLE). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{bleconfig_8cpp_a9f566969550d007df837c1490bb6316b}{Encerrar\+BLE}} ()
 \begin{DoxyCompactList}\small\item\em Encerra o Bluetooth Low Energy (BLE). \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Descrição detalhada}
+Implementação da configuração BLE do ESP32. 
+
+Define as características BLE (temperatura, setpoint, intervalo, Wi-\/\+Fi e telefone). Controla os eventos de conexão e escrita nas características, atualizando as variáveis globais e salvando-\/as na NVS quando necessário. 
 
 \doxysubsection{Documentação das funções}
 \Hypertarget{bleconfig_8cpp_a9f566969550d007df837c1490bb6316b}\index{bleconfig.cpp@{bleconfig.cpp}!EncerrarBLE@{EncerrarBLE}}
@@ -42,7 +70,23 @@ void Encerrar\+BLE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Encerra o Bluetooth Low Energy (BLE). 
 
-Finaliza o serviço BLE e libera os recursos alocados. \Hypertarget{bleconfig_8cpp_a5c0efe429f3a4ddda46992fd1c9e08fc}\index{bleconfig.cpp@{bleconfig.cpp}!IniciarBLE@{IniciarBLE}}
+Encerra a comunicação BLE e libera recursos.
+
+Finaliza o serviço BLE e libera os recursos alocados. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ BLEDevice::deinit(\textcolor{keyword}{true});}
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{bleconfig_8cpp_a9f566969550d007df837c1490bb6316b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_a5c0efe429f3a4ddda46992fd1c9e08fc}\index{bleconfig.cpp@{bleconfig.cpp}!IniciarBLE@{IniciarBLE}}
 \index{IniciarBLE@{IniciarBLE}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{IniciarBLE()}{IniciarBLE()}}
 {\footnotesize\ttfamily \label{bleconfig_8cpp_a5c0efe429f3a4ddda46992fd1c9e08fc} 
@@ -52,18 +96,147 @@ void Iniciar\+BLE (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 Inicializa o Bluetooth Low Energy (BLE). 
 
-Configura o servidor BLE, cria as características e descritores para temperatura, intervalo de leitura e dados de Wi-\/\+Fi, e inicia a propaganda BLE. \Hypertarget{bleconfig_8cpp_a28d7460209c71220475c726e58b7d90b}\index{bleconfig.cpp@{bleconfig.cpp}!IntervaloChar@{IntervaloChar}}
+Inicializa o serviço BLE com todas as características e inicia o advertising.
+
+Configura o servidor BLE, cria as características e descritores para temperatura, intervalo de leitura e dados de Wi-\/\+Fi, e inicia o advertising BLE. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ BLEDevice::init(\textcolor{stringliteral}{"{}ThermoGuard"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ BLEServer\ *pServer\ =\ BLEDevice::createServer();}
+\DoxyCodeLine{00119\ \ \ \ \ pServer-\/>setCallbacks(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_my_server_callbacks}{MyServerCallbacks}}());}
+\DoxyCodeLine{00120\ \ \ \ \ BLEService\ *pService\ =\ pServer-\/>createService(\mbox{\hyperlink{ble_config_8h_a445125ee8c34695376c85f10b38844d6}{SERVICE\_UUID}});}
+\DoxyCodeLine{00121\ \ \ \ \ BLEService\ *pServiceWifi\ =\ pServer-\/>createService(\mbox{\hyperlink{ble_config_8h_a59b30314274ba5ab7b26e747323ff56b}{SERVICE\_WIFI\_UUID}});}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Temperatura}}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_a0962a981d8b0fee9f4d0af772bdd319e}{TemperaturaDesc}}.setValue(\textcolor{stringliteral}{"{}Temperatura\ lida\ do\ sensor\ em\ celsius"{}});}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{main_8cpp_addaafdcebe086b82f5e22ac3ba9b50e2}{TemperaturaChar}}.addDescriptor(\&\mbox{\hyperlink{bleconfig_8cpp_a0962a981d8b0fee9f4d0af772bdd319e}{TemperaturaDesc}});}
+\DoxyCodeLine{00126\ \ \ \ \ pService-\/>addCharacteristic(\&\mbox{\hyperlink{main_8cpp_addaafdcebe086b82f5e22ac3ba9b50e2}{TemperaturaChar}});}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_ab0d48f79db265c260a47817cd61ad676}{SetPointDesc}}.setValue(\textcolor{stringliteral}{"{}Setpoint\ para\ alerta"{}});}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a63b383dcaea1a05aba0d547ed00be2c5}{SetPointChar}}.addDescriptor(\&\mbox{\hyperlink{bleconfig_8cpp_ab0d48f79db265c260a47817cd61ad676}{SetPointDesc}});}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a63b383dcaea1a05aba0d547ed00be2c5}{SetPointChar}}.setCallbacks(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_char_callback}{CharCallback}}());}
+\DoxyCodeLine{00130\ \ \ \ \ pService-\/>addCharacteristic(\&\mbox{\hyperlink{main_8cpp_a63b383dcaea1a05aba0d547ed00be2c5}{SetPointChar}});}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ Intervalo}}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_a6631abdf9342c486ac682344cdb0baba}{IntervaloDesc}}.setValue(\textcolor{stringliteral}{"{}Tempo\ entre\ leitura\ em\ minutos"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3811803b51148d50b73aa58696bc9445}{IntervaloChar}}.addDescriptor(\&\mbox{\hyperlink{bleconfig_8cpp_a6631abdf9342c486ac682344cdb0baba}{IntervaloDesc}});}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a3811803b51148d50b73aa58696bc9445}{IntervaloChar}}.setCallbacks(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_char_callback}{CharCallback}}());}
+\DoxyCodeLine{00135\ \ \ \ \ pService-\/>addCharacteristic(\&\mbox{\hyperlink{main_8cpp_a3811803b51148d50b73aa58696bc9445}{IntervaloChar}});}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ Wifi}}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_a796c95a5f393a0b35df0662a34d87793}{WifiNomeDesc}}.setValue(\textcolor{stringliteral}{"{}Nome\ WiFi"{}});}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a9c75ccaf0b3424e327cd58ed3bdcdd5c}{WifiNomeChar}}.addDescriptor(\&\mbox{\hyperlink{bleconfig_8cpp_a796c95a5f393a0b35df0662a34d87793}{WifiNomeDesc}});}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a9c75ccaf0b3424e327cd58ed3bdcdd5c}{WifiNomeChar}}.setCallbacks(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_char_callback}{CharCallback}}());}
+\DoxyCodeLine{00141\ \ \ \ \ pServiceWifi-\/>addCharacteristic(\&\mbox{\hyperlink{main_8cpp_a9c75ccaf0b3424e327cd58ed3bdcdd5c}{WifiNomeChar}});}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_a4393c035390ec7c37282009cedb4d801}{WifiSenhaDesc}}.setValue(\textcolor{stringliteral}{"{}Senha\ WiFi"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a84b6c8c5171c5c7911a016cd906ead76}{WifiSenhaChar}}.addDescriptor(\&\mbox{\hyperlink{bleconfig_8cpp_a4393c035390ec7c37282009cedb4d801}{WifiSenhaDesc}});}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a84b6c8c5171c5c7911a016cd906ead76}{WifiSenhaChar}}.setCallbacks(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_char_callback}{CharCallback}}());}
+\DoxyCodeLine{00145\ \ \ \ \ pServiceWifi-\/>addCharacteristic(\&\mbox{\hyperlink{main_8cpp_a84b6c8c5171c5c7911a016cd906ead76}{WifiSenhaChar}});}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ Telefone}}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{bleconfig_8cpp_a1cbe1235606de50d263b23fd87a27f1f}{TelefoneDesc}}.setValue(\textcolor{stringliteral}{"{}Numero\ de\ telefone"{}});}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a11cbedf7d36e986b5fc9d9388bbe7784}{TelefoneChar}}.addDescriptor(\&\mbox{\hyperlink{bleconfig_8cpp_a1cbe1235606de50d263b23fd87a27f1f}{TelefoneDesc}});}
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a11cbedf7d36e986b5fc9d9388bbe7784}{TelefoneChar}}.setCallbacks(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_char_callback}{CharCallback}}());}
+\DoxyCodeLine{00150\ \ \ \ \ pServiceWifi-\/>addCharacteristic(\&\mbox{\hyperlink{main_8cpp_a11cbedf7d36e986b5fc9d9388bbe7784}{TelefoneChar}});}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ pService-\/>start();}
+\DoxyCodeLine{00153\ \ \ \ \ pServiceWifi-\/>start();}
+\DoxyCodeLine{00154\ \ \ \ \ BLEAdvertising\ *pAdvertising\ =\ BLEDevice::getAdvertising();}
+\DoxyCodeLine{00155\ \ \ \ \ pAdvertising-\/>addServiceUUID(\mbox{\hyperlink{ble_config_8h_a445125ee8c34695376c85f10b38844d6}{SERVICE\_UUID}});}
+\DoxyCodeLine{00156\ \ \ \ \ pAdvertising-\/>addServiceUUID(\mbox{\hyperlink{ble_config_8h_a59b30314274ba5ab7b26e747323ff56b}{SERVICE\_WIFI\_UUID}});}
+\DoxyCodeLine{00157\ \ \ \ \ pServer-\/>getAdvertising()-\/>start();}
+\DoxyCodeLine{00158\ \}}
+
+\end{DoxyCode}
+Grafo de chamadas desta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{bleconfig_8cpp_a5c0efe429f3a4ddda46992fd1c9e08fc_cgraph}
+\end{center}
+\end{figure}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{bleconfig_8cpp_a5c0efe429f3a4ddda46992fd1c9e08fc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_a010ccc34905f7cc9655974adc9ce3658}\index{bleconfig.cpp@{bleconfig.cpp}!IntervaloChar@{IntervaloChar}}
 \index{IntervaloChar@{IntervaloChar}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{IntervaloChar()}{IntervaloChar()}}
-{\footnotesize\ttfamily \label{bleconfig_8cpp_a28d7460209c71220475c726e58b7d90b} 
-BLECharacteristic Intervalo\+Char (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x2\+B8F)}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE}]{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{bleconfig_8cpp_a010ccc34905f7cc9655974adc9ce3658} 
+BLECharacteristic Intervalo\+Char (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x2\+B8F)}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE}]{}{}\end{DoxyParamCaption})}
 
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{bleconfig_8cpp_a010ccc34905f7cc9655974adc9ce3658_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{bleconfig_8cpp_a6631abdf9342c486ac682344cdb0baba}\index{bleconfig.cpp@{bleconfig.cpp}!IntervaloDesc@{IntervaloDesc}}
 \index{IntervaloDesc@{IntervaloDesc}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{IntervaloDesc()}{IntervaloDesc()}}
 {\footnotesize\ttfamily \label{bleconfig_8cpp_a6631abdf9342c486ac682344cdb0baba} 
 BLEDescriptor Intervalo\+Desc (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x290E)}]{}{}\end{DoxyParamCaption})}
 
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{bleconfig_8cpp_a6631abdf9342c486ac682344cdb0baba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_a52de2f616e8f99d8b7cf055658e96105}\index{bleconfig.cpp@{bleconfig.cpp}!SetPointChar@{SetPointChar}}
+\index{SetPointChar@{SetPointChar}!bleconfig.cpp@{bleconfig.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPointChar()}{SetPointChar()}}
+{\footnotesize\ttfamily \label{bleconfig_8cpp_a52de2f616e8f99d8b7cf055658e96105} 
+BLECharacteristic Set\+Point\+Char (\begin{DoxyParamCaption}\item[{"{}22399fc7-\/2eef-\/48c8-\/924c-\/bba26ca25376"{}}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE}]{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{bleconfig_8cpp_a52de2f616e8f99d8b7cf055658e96105_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_ab0d48f79db265c260a47817cd61ad676}\index{bleconfig.cpp@{bleconfig.cpp}!SetPointDesc@{SetPointDesc}}
+\index{SetPointDesc@{SetPointDesc}!bleconfig.cpp@{bleconfig.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPointDesc()}{SetPointDesc()}}
+{\footnotesize\ttfamily \label{bleconfig_8cpp_ab0d48f79db265c260a47817cd61ad676} 
+BLEDescriptor Set\+Point\+Desc (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x2903)}]{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{bleconfig_8cpp_ab0d48f79db265c260a47817cd61ad676_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_a840b910ed5a8e9e5665365d330f81295}\index{bleconfig.cpp@{bleconfig.cpp}!TelefoneChar@{TelefoneChar}}
+\index{TelefoneChar@{TelefoneChar}!bleconfig.cpp@{bleconfig.cpp}}
+\doxysubsubsection{\texorpdfstring{TelefoneChar()}{TelefoneChar()}}
+{\footnotesize\ttfamily \label{bleconfig_8cpp_a840b910ed5a8e9e5665365d330f81295} 
+BLECharacteristic Telefone\+Char (\begin{DoxyParamCaption}\item[{"{}bd96b429-\/e88d-\/4702-\/9450-\/f023c08e509c"{}}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE}]{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{bleconfig_8cpp_a840b910ed5a8e9e5665365d330f81295_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_a1cbe1235606de50d263b23fd87a27f1f}\index{bleconfig.cpp@{bleconfig.cpp}!TelefoneDesc@{TelefoneDesc}}
+\index{TelefoneDesc@{TelefoneDesc}!bleconfig.cpp@{bleconfig.cpp}}
+\doxysubsubsection{\texorpdfstring{TelefoneDesc()}{TelefoneDesc()}}
+{\footnotesize\ttfamily \label{bleconfig_8cpp_a1cbe1235606de50d263b23fd87a27f1f} 
+BLEDescriptor Telefone\+Desc (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x2903)}]{}{}\end{DoxyParamCaption})}
+
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{bleconfig_8cpp_a1cbe1235606de50d263b23fd87a27f1f_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{bleconfig_8cpp_ad67a7974fa10bc5742f3e1c5719bdf0b}\index{bleconfig.cpp@{bleconfig.cpp}!TemperaturaChar@{TemperaturaChar}}
 \index{TemperaturaChar@{TemperaturaChar}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{TemperaturaChar()}{TemperaturaChar()}}
@@ -76,27 +249,62 @@ BLECharacteristic Temperatura\+Char (\begin{DoxyParamCaption}\item[{BLEUUID((uin
 {\footnotesize\ttfamily \label{bleconfig_8cpp_a0962a981d8b0fee9f4d0af772bdd319e} 
 BLEDescriptor Temperatura\+Desc (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x2912)}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{bleconfig_8cpp_a36b06be8e7e69a1bcfba370b1683a854}\index{bleconfig.cpp@{bleconfig.cpp}!WifiNomeChar@{WifiNomeChar}}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{bleconfig_8cpp_a0962a981d8b0fee9f4d0af772bdd319e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_a471c54ed74a210fdae2b309648feac3b}\index{bleconfig.cpp@{bleconfig.cpp}!WifiNomeChar@{WifiNomeChar}}
 \index{WifiNomeChar@{WifiNomeChar}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{WifiNomeChar()}{WifiNomeChar()}}
-{\footnotesize\ttfamily \label{bleconfig_8cpp_a36b06be8e7e69a1bcfba370b1683a854} 
-BLECharacteristic Wifi\+Nome\+Char (\begin{DoxyParamCaption}\item[{"{}09caff73-\/bfcf-\/4066-\/90a1-\/b142a385d7f6"{}}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE}]{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{bleconfig_8cpp_a471c54ed74a210fdae2b309648feac3b} 
+BLECharacteristic Wifi\+Nome\+Char (\begin{DoxyParamCaption}\item[{"{}09caff73-\/bfcf-\/4066-\/90a1-\/b142a385d7f6"{}}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE}]{}{}\end{DoxyParamCaption})}
 
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{bleconfig_8cpp_a471c54ed74a210fdae2b309648feac3b_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{bleconfig_8cpp_a796c95a5f393a0b35df0662a34d87793}\index{bleconfig.cpp@{bleconfig.cpp}!WifiNomeDesc@{WifiNomeDesc}}
 \index{WifiNomeDesc@{WifiNomeDesc}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{WifiNomeDesc()}{WifiNomeDesc()}}
 {\footnotesize\ttfamily \label{bleconfig_8cpp_a796c95a5f393a0b35df0662a34d87793} 
 BLEDescriptor Wifi\+Nome\+Desc (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x2903)}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{bleconfig_8cpp_afc0060aea761b2f271bcb66ccd8d8e88}\index{bleconfig.cpp@{bleconfig.cpp}!WifiSenhaChar@{WifiSenhaChar}}
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{bleconfig_8cpp_a796c95a5f393a0b35df0662a34d87793_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{bleconfig_8cpp_a607efe564a574dd9ff9494992df9e4b0}\index{bleconfig.cpp@{bleconfig.cpp}!WifiSenhaChar@{WifiSenhaChar}}
 \index{WifiSenhaChar@{WifiSenhaChar}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{WifiSenhaChar()}{WifiSenhaChar()}}
-{\footnotesize\ttfamily \label{bleconfig_8cpp_afc0060aea761b2f271bcb66ccd8d8e88} 
-BLECharacteristic Wifi\+Senha\+Char (\begin{DoxyParamCaption}\item[{"{}bd96b429-\/e88d-\/4702-\/9450-\/f023c08e509c"{}}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE}]{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{bleconfig_8cpp_a607efe564a574dd9ff9494992df9e4b0} 
+BLECharacteristic Wifi\+Senha\+Char (\begin{DoxyParamCaption}\item[{"{}74ddaf0d-\/dd25-\/4c8f-\/bb76-\/bee0df68c786"{}}]{}{, }\item[{BLECharacteristic\+::\+PROPERTY\+\_\+\+READ\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+NOTIFY\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+WRITE\texorpdfstring{$\vert$}{|}BLECharacteristic\+::\+PROPERTY\+\_\+\+INDICATE}]{}{}\end{DoxyParamCaption})}
 
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{bleconfig_8cpp_a607efe564a574dd9ff9494992df9e4b0_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{bleconfig_8cpp_a4393c035390ec7c37282009cedb4d801}\index{bleconfig.cpp@{bleconfig.cpp}!WifiSenhaDesc@{WifiSenhaDesc}}
 \index{WifiSenhaDesc@{WifiSenhaDesc}!bleconfig.cpp@{bleconfig.cpp}}
 \doxysubsubsection{\texorpdfstring{WifiSenhaDesc()}{WifiSenhaDesc()}}
 {\footnotesize\ttfamily \label{bleconfig_8cpp_a4393c035390ec7c37282009cedb4d801} 
 BLEDescriptor Wifi\+Senha\+Desc (\begin{DoxyParamCaption}\item[{BLEUUID((uint16\+\_\+t) 0x2903)}]{}{}\end{DoxyParamCaption})}
 
+Este é o diagrama das funções que utilizam esta função\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{bleconfig_8cpp_a4393c035390ec7c37282009cedb4d801_icgraph}
+\end{center}
+\end{figure}

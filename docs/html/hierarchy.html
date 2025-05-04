@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ThermoGuard
+   <div id="projectname">ThermoGuard<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Documentação do projeto ThermoGuard - Monitoramento de Temperatura BLE</div>
+   <div id="projectbrief">Monitoramento de Temperatura e Notificação via WhatsApp e ThingSpeak usando ESP32</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -106,10 +106,14 @@ $(function(){initNavTree('hierarchy.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Hierarquia de classes</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Esta lista de heranças está organizada, dentro do possível, por ordem alfabética:</div><div class="directory">
+<div class="textblock">
+<p><a href="inherits.html">Ir para a representação gráfica da hierarquia da classe</a></p>
+Esta lista de heranças está organizada, dentro do possível, por ordem alfabética:</div><div class="directory">
 <div class="levels">[nível de detalhes <span onclick="javascript:dynsection.toggleLevel(1);">1</span><span onclick="javascript:dynsection.toggleLevel(2);">2</span>]</div><table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="dynsection.toggleFolder('0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>BLEServerCallbacks</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_my_server_callbacks.html" target="_self">MyServerCallbacks</a></td><td class="desc">Classe de callback para eventos de conexão/desconexão BLE </td></tr>
+<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="dynsection.toggleFolder('0_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>BLECharacteristicCallbacks</b></td><td class="desc"></td></tr>
+<tr id="row_0_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_char_callback.html" target="_self">CharCallback</a></td><td class="desc">Callback para escrita em características BLE. Atualiza variáveis globais </td></tr>
+<tr id="row_1_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="dynsection.toggleFolder('1_')">&#9660;</span><span class="icona"><span class="icon">C</span></span><b>BLEServerCallbacks</b></td><td class="desc"></td></tr>
+<tr id="row_1_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="class_my_server_callbacks.html" target="_self">MyServerCallbacks</a></td><td class="desc">Callback de eventos do servidor BLE. Atualiza estado da conexão </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

@@ -1,16 +1,12 @@
 /**
  * @file funcoes.h
- * @brief Declarações de funções auxiliares para o projeto ThermoGuard ESP32.
+ * @brief Declaração das funções auxiliares para comunicação Wi-Fi e armazenamento.
  *
  * @details
- * Contém as funções para:
- * - Envio de dados via HTTP para WhatsApp e ThingSpeak
- * - Gerenciamento da conexão Wi-Fi
- * - Armazenamento e recuperação de configurações na NVS
- * - Tratamento de interrupções para BLE
- * 
- * @author Matheus Orsini
- * @date 2025-04-26
+ * Contém funções para:
+ * - Conexão e desconexão do Wi-Fi
+ * - Envio de dados via HTTP
+ * - Armazenamento e carregamento de configurações na NVS
  */
 
 #ifndef FUNCOES_H
@@ -58,12 +54,12 @@ uint8_t EnviarWeb(float valor);
 
 /**
  * @brief Conecta o ESP32 à rede Wi-Fi especificada.
- * 
- * @param nome Nome (SSID) da rede Wi-Fi.
- * @param senha Senha da rede Wi-Fi.
+ *
+ * @param nome SSID da rede.
+ * @param senha Senha da rede.
  * @return uint8_t
- * @retval 1 Sucesso
- * @retval 0 Falha
+ * @retval 1 Conectado com sucesso
+ * @retval 0 Falha na conexão
  */
 uint8_t ConectaWifi(String nome, String senha);
 
@@ -73,12 +69,13 @@ uint8_t ConectaWifi(String nome, String senha);
 void DesconectaWifi();
 
 /**
- * @brief Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS.
- * 
+ * @brief Salva as configurações fornecidas na memória não volátil (NVS).
+ *
  * @param wifi Nome da rede Wi-Fi.
- * @param senha Senha da rede Wi-Fi.
- * @param setPoint Valor do setpoint de temperatura.
- * @param intervalo Intervalo de tempo entre leituras(minutos).
+ * @param senha Senha da rede.
+ * @param setPoint Temperatura alvo de referência.
+ * @param intervalo Intervalo entre medições (em minutos).
+ * @param numero Número de telefone para alertas.
  */
 void SalvaConfig(String wifi, String senha, float setPoint, uint32_t intervalo, String numero);
 

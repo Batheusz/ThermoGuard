@@ -25,18 +25,18 @@
 var NAVTREE =
 [
   [ "ThermoGuard", "index.html", [
-    [ "Classes", "annotated.html", [
-      [ "Lista de componentes", "annotated.html", "annotated_dup" ],
-      [ "Índice dos componentes", "classes.html", null ],
+    [ "Estruturas de dados", "annotated.html", [
+      [ "Estruturas de dados", "annotated.html", "annotated_dup" ],
+      [ "Índice das estruturas de dados", "classes.html", null ],
       [ "Hierarquia de classes", "hierarchy.html", "hierarchy" ],
-      [ "Componentes membro", "functions.html", [
+      [ "Campos de dados", "functions.html", [
         [ "Tudo", "functions.html", null ],
         [ "Funções", "functions_func.html", null ]
       ] ]
     ] ],
     [ "Ficheiros", "files.html", [
       [ "Lista de ficheiros", "files.html", "files_dup" ],
-      [ "Membros dos Ficheiros", "globals.html", [
+      [ "Globais", "globals.html", [
         [ "Tudo", "globals.html", null ],
         [ "Funções", "globals_func.html", null ],
         [ "Variáveis", "globals_vars.html", null ],

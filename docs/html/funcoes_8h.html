@@ -32,9 +32,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ThermoGuard
+   <div id="projectname">ThermoGuard<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Documentação do projeto ThermoGuard - Monitoramento de Temperatura BLE</div>
+   <div id="projectbrief">Monitoramento de Temperatura e Notificação via WhatsApp e ThingSpeak usando ESP32</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -110,7 +110,7 @@ $(function(){initNavTree('funcoes_8h.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>Declarações de funções auxiliares para o projeto ThermoGuard ESP32.  
+<p>Declaração das funções auxiliares para comunicação Wi-Fi e armazenamento.  
 <a href="#details">Mais...</a></p>
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &lt;WiFi.h&gt;</code><br />
@@ -118,6 +118,44 @@ $(function(){initNavTree('funcoes_8h.html',''); initResizable(true); });
 <code>#include &lt;HTTPClient.h&gt;</code><br />
 <code>#include &lt;UrlEncode.h&gt;</code><br />
 <code>#include &lt;Preferences.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Diagrama de dependências de inclusão para funcoes.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h__incl.png" border="0" usemap="#afuncoes_8h" alt=""/></div>
+<map name="afuncoes_8h" id="afuncoes_8h">
+<area shape="rect" title="Declaração das funções auxiliares para comunicação Wi&#45;Fi e armazenamento." alt="" coords="256,5,335,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,82,107"/>
+<area shape="poly" title=" " alt="" coords="257,34,98,79,96,74,255,29"/>
+<area shape="rect" title=" " alt="" coords="106,80,165,107"/>
+<area shape="poly" title=" " alt="" coords="269,35,178,76,176,71,267,30"/>
+<area shape="rect" title=" " alt="" coords="189,80,282,107"/>
+<area shape="poly" title=" " alt="" coords="287,34,257,70,253,66,283,31"/>
+<area shape="rect" title=" " alt="" coords="306,80,408,107"/>
+<area shape="poly" title=" " alt="" coords="308,31,339,66,335,70,304,34"/>
+<area shape="rect" title=" " alt="" coords="432,80,525,107"/>
+<area shape="poly" title=" " alt="" coords="328,30,433,71,431,76,326,35"/>
+<area shape="rect" title=" " alt="" coords="548,80,651,107"/>
+<area shape="poly" title=" " alt="" coords="336,27,534,74,533,79,335,32"/>
+</map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h__dep__incl.png" border="0" usemap="#afuncoes_8hdep" alt=""/></div>
+<map name="afuncoes_8hdep" id="afuncoes_8hdep">
+<area shape="rect" title="Declaração das funções auxiliares para comunicação Wi&#45;Fi e armazenamento." alt="" coords="135,5,214,32"/>
+<area shape="rect" href="bleconfig_8cpp.html" title="Implementação da configuração BLE do ESP32." alt="" coords="5,80,104,107"/>
+<area shape="poly" title=" " alt="" coords="142,43,77,82,74,77,139,38"/>
+<area shape="rect" href="funcoes_8cpp.html" title="Implementação das funções auxiliares para envio de dados e armazenamento." alt="" coords="128,80,221,107"/>
+<area shape="poly" title=" " alt="" coords="177,48,177,80,172,80,172,48"/>
+<area shape="rect" href="main_8cpp.html" title="Loop principal do sistema de monitoramento de temperatura com ESP32." alt="" coords="245,80,320,107"/>
+<area shape="poly" title=" " alt="" coords="207,39,265,77,262,82,204,43"/>
+</map>
+</div>
 </div>
 <p><a href="funcoes_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
 <table class="memberdecls">
@@ -135,9 +173,9 @@ Funções</h2></td></tr>
 <tr class="memitem:ac0864cde0bddc4d52913c6a7215a85c8" id="r_ac0864cde0bddc4d52913c6a7215a85c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0864cde0bddc4d52913c6a7215a85c8">DesconectaWifi</a> ()</td></tr>
 <tr class="memdesc:ac0864cde0bddc4d52913c6a7215a85c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desconecta o ESP32 da rede Wi-Fi e desativa o Wi-Fi.  <br /></td></tr>
 <tr class="separator:ac0864cde0bddc4d52913c6a7215a85c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10c0866444677cfc520f43e52f3b763a" id="r_a10c0866444677cfc520f43e52f3b763a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10c0866444677cfc520f43e52f3b763a">SalvaConfig</a> (String wifi, String senha, float setPoint, uint32_t intervalo)</td></tr>
-<tr class="memdesc:a10c0866444677cfc520f43e52f3b763a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS.  <br /></td></tr>
-<tr class="separator:a10c0866444677cfc520f43e52f3b763a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18165d9dc3d16f2b88e24905b7706472" id="r_a18165d9dc3d16f2b88e24905b7706472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18165d9dc3d16f2b88e24905b7706472">SalvaConfig</a> (String wifi, String senha, float setPoint, uint32_t intervalo, String numero)</td></tr>
+<tr class="memdesc:a18165d9dc3d16f2b88e24905b7706472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva as configurações fornecidas na memória não volátil (NVS).  <br /></td></tr>
+<tr class="separator:a18165d9dc3d16f2b88e24905b7706472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae37aeb6cc3ac00302fef48cad121e04a" id="r_ae37aeb6cc3ac00302fef48cad121e04a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae37aeb6cc3ac00302fef48cad121e04a">CarregarConfig</a> ()</td></tr>
 <tr class="memdesc:ae37aeb6cc3ac00302fef48cad121e04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega as configurações armazenadas na NVS.  <br /></td></tr>
 <tr class="separator:ae37aeb6cc3ac00302fef48cad121e04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,23 +198,20 @@ Variáveis</h2></td></tr>
 <tr class="memitem:a4cfa213c7b6b7e5a1788f5bf87b423d8" id="r_a4cfa213c7b6b7e5a1788f5bf87b423d8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cfa213c7b6b7e5a1788f5bf87b423d8">server</a></td></tr>
 <tr class="memdesc:a4cfa213c7b6b7e5a1788f5bf87b423d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">URL do servidor ThingSpeak para envio de dados.  <br /></td></tr>
 <tr class="separator:a4cfa213c7b6b7e5a1788f5bf87b423d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add1d9118be43175094da2653b50c9f78" id="r_add1d9118be43175094da2653b50c9f78"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add1d9118be43175094da2653b50c9f78">setpointTemp</a></td></tr>
-<tr class="separator:add1d9118be43175094da2653b50c9f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af47a190e4ffbde81edc3918a667db8cb" id="r_af47a190e4ffbde81edc3918a667db8cb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af47a190e4ffbde81edc3918a667db8cb">setPointTemp</a></td></tr>
+<tr class="separator:af47a190e4ffbde81edc3918a667db8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0410997c46ed3194dd285765f7f31860" id="r_a0410997c46ed3194dd285765f7f31860"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a></td></tr>
 <tr class="separator:a0410997c46ed3194dd285765f7f31860"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77f70a9d88156f5f7dbdd99bfaaee64e" id="r_a77f70a9d88156f5f7dbdd99bfaaee64e"><td class="memItemLeft" align="right" valign="top">Preferences&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a></td></tr>
 <tr class="separator:a77f70a9d88156f5f7dbdd99bfaaee64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Declarações de funções auxiliares para o projeto ThermoGuard ESP32. </p>
-<p>Contém as funções para:</p><ul>
-<li>Envio de dados via HTTP para WhatsApp e ThingSpeak</li>
-<li>Gerenciamento da conexão Wi-Fi</li>
-<li>Armazenamento e recuperação de configurações na NVS</li>
-<li>Tratamento de interrupções para BLE</li>
+<div class="textblock"><p>Declaração das funções auxiliares para comunicação Wi-Fi e armazenamento. </p>
+<p>Contém funções para:</p><ul>
+<li>Conexão e desconexão do Wi-Fi</li>
+<li>Envio de dados via HTTP</li>
+<li>Armazenamento e carregamento de configurações na NVS </li>
 </ul>
-<dl class="section author"><dt>Autor</dt><dd>Matheus Orsini </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>2025-04-26 </dd></dl>
 </div><h2 class="groupheader">Documentação das funções</h2>
 <a id="ae37aeb6cc3ac00302fef48cad121e04a" name="ae37aeb6cc3ac00302fef48cad121e04a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae37aeb6cc3ac00302fef48cad121e04a">&#9670;&#160;</a></span>CarregarConfig()</h2>
@@ -194,8 +229,33 @@ Variáveis</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Carrega as configurações armazenadas na NVS. </p>
-<p>Carrega as configurações armazenadas na NVS.</p>
-<p>Lê o nome do Wi-Fi, senha, setpoint de temperatura e intervalo de leitura, restaurando os valores padrão caso ainda não existam. </p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>                      {</div>
+<div class="line"><span class="lineno">   81</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.begin(<span class="stringliteral">&quot;config&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   82</span><a class="code hl_variable" href="main_8cpp.html#a1985d05d19fdca8123f77df57639188f">nomeWifi</a> = <a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.getString(<span class="stringliteral">&quot;wifi&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">   83</span><a class="code hl_variable" href="main_8cpp.html#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a> = <a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.getString(<span class="stringliteral">&quot;senha&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">   84</span><a class="code hl_variable" href="main_8cpp.html#af47a190e4ffbde81edc3918a667db8cb">setPointTemp</a> = <a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.getFloat(<span class="stringliteral">&quot;setPoint&quot;</span>, 38.0);</div>
+<div class="line"><span class="lineno">   85</span><a class="code hl_variable" href="main_8cpp.html#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a> = <a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.getUInt(<span class="stringliteral">&quot;intervalo&quot;</span>, 15); <span class="comment">// 15 min padrão</span></div>
+<div class="line"><span class="lineno">   86</span><a class="code hl_variable" href="main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a> = <a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.getString(<span class="stringliteral">&quot;cel&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><span class="lineno">   87</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.end();</div>
+<div class="line"><span class="lineno">   88</span>}</div>
+<div class="ttc" id="amain_8cpp_html_a0410997c46ed3194dd285765f7f31860"><div class="ttname"><a href="main_8cpp.html#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a></div><div class="ttdeci">uint32_t intervaloTemp</div><div class="ttdef"><b>Definição</b> main.cpp:43</div></div>
+<div class="ttc" id="amain_8cpp_html_a1985d05d19fdca8123f77df57639188f"><div class="ttname"><a href="main_8cpp.html#a1985d05d19fdca8123f77df57639188f">nomeWifi</a></div><div class="ttdeci">String nomeWifi</div><div class="ttdoc">Nome da rede Wi-Fi para conexão.</div><div class="ttdef"><b>Definição</b> main.cpp:31</div></div>
+<div class="ttc" id="amain_8cpp_html_a2b53c380928d42395504a2470d0e10e6"><div class="ttname"><a href="main_8cpp.html#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a></div><div class="ttdeci">String senhaWifi</div><div class="ttdoc">Senha da rede Wi-Fi.</div><div class="ttdef"><b>Definição</b> main.cpp:33</div></div>
+<div class="ttc" id="amain_8cpp_html_a77f70a9d88156f5f7dbdd99bfaaee64e"><div class="ttname"><a href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a></div><div class="ttdeci">Preferences prefs</div><div class="ttdef"><b>Definição</b> main.cpp:52</div></div>
+<div class="ttc" id="amain_8cpp_html_ae5f1bf82db9796145db3a408488ecefd"><div class="ttname"><a href="main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a></div><div class="ttdeci">String numCelular</div><div class="ttdef"><b>Definição</b> main.cpp:27</div></div>
+<div class="ttc" id="amain_8cpp_html_af47a190e4ffbde81edc3918a667db8cb"><div class="ttname"><a href="main_8cpp.html#af47a190e4ffbde81edc3918a667db8cb">setPointTemp</a></div><div class="ttdeci">float setPointTemp</div><div class="ttdef"><b>Definição</b> main.cpp:42</div></div>
+</div><!-- fragment --><div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h_ae37aeb6cc3ac00302fef48cad121e04a_icgraph.png" border="0" usemap="#afuncoes_8h_ae37aeb6cc3ac00302fef48cad121e04a_icgraph" alt=""/></div>
+<map name="afuncoes_8h_ae37aeb6cc3ac00302fef48cad121e04a_icgraph" id="afuncoes_8h_ae37aeb6cc3ac00302fef48cad121e04a_icgraph">
+<area shape="rect" title="Carrega as configurações armazenadas na NVS." alt="" coords="107,5,216,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -221,20 +281,43 @@ Variáveis</h2></td></tr>
 <p>Conecta o ESP32 à rede Wi-Fi especificada. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nome</td><td>Nome (SSID) da rede Wi-Fi. </td></tr>
-    <tr><td class="paramname">senha</td><td>Senha da rede Wi-Fi. </td></tr>
+    <tr><td class="paramname">nome</td><td>SSID da rede. </td></tr>
+    <tr><td class="paramname">senha</td><td>Senha da rede. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>uint8_t </dd></dl>
 <dl class="retval"><dt>Valores retornados</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">1</td><td>Sucesso </td></tr>
-    <tr><td class="paramname">0</td><td>Falha</td></tr>
+    <tr><td class="paramname">1</td><td>Conectado com sucesso </td></tr>
+    <tr><td class="paramname">0</td><td>Falha na conexão </td></tr>
   </table>
   </dd>
 </dl>
-<p>Conecta o ESP32 à rede Wi-Fi especificada. </p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                               {</div>
+<div class="line"><span class="lineno">   53</span>WiFi.begin(nome, senha);</div>
+<div class="line"><span class="lineno">   54</span><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> startTime = millis();</div>
+<div class="line"><span class="lineno">   55</span><span class="keywordflow">while</span>(millis() - startTime &lt; 10000)</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">if</span> (WiFi.status() == WL_CONNECTED)</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   58</span><span class="keywordflow">if</span> (WiFi.status() == WL_CONNECTED) {</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   60</span>} <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   62</span>}</div>
+<div class="line"><span class="lineno">   63</span>}</div>
+</div><!-- fragment --><div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h_a420a08393185ceba2855a2de10715128_icgraph.png" border="0" usemap="#afuncoes_8h_a420a08393185ceba2855a2de10715128_icgraph" alt=""/></div>
+<map name="afuncoes_8h_a420a08393185ceba2855a2de10715128_icgraph" id="afuncoes_8h_a420a08393185ceba2855a2de10715128_icgraph">
+<area shape="rect" title="Conecta o ESP32 à rede Wi&#45;Fi especificada." alt="" coords="107,5,200,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -254,7 +337,22 @@ Variáveis</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Desconecta o ESP32 da rede Wi-Fi e desativa o Wi-Fi. </p>
-<p>Desconecta o ESP32 da rede Wi-Fi e desativa o Wi-Fi. </p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>                      {</div>
+<div class="line"><span class="lineno">   66</span>WiFi.disconnect(<span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   67</span>WiFi.mode(WIFI_OFF);</div>
+<div class="line"><span class="lineno">   68</span>}</div>
+</div><!-- fragment --><div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h_ac0864cde0bddc4d52913c6a7215a85c8_icgraph.png" border="0" usemap="#afuncoes_8h_ac0864cde0bddc4d52913c6a7215a85c8_icgraph" alt=""/></div>
+<map name="afuncoes_8h_ac0864cde0bddc4d52913c6a7215a85c8_icgraph" id="afuncoes_8h_ac0864cde0bddc4d52913c6a7215a85c8_icgraph">
+<area shape="rect" title="Desconecta o ESP32 da rede Wi&#45;Fi e desativa o Wi&#45;Fi." alt="" coords="107,5,221,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -285,11 +383,41 @@ Variáveis</h2></td></tr>
   <table class="retval">
     <tr><td class="paramname">1</td><td>Sucesso (HTTP 200) </td></tr>
     <tr><td class="paramname">0</td><td>Falha na requisição </td></tr>
-    <tr><td class="paramname">2</td><td>Wi-Fi não conectado</td></tr>
+    <tr><td class="paramname">2</td><td>Wi-Fi não conectado </td></tr>
   </table>
   </dd>
 </dl>
-<p>Envia um valor numérico para ThingSpeak via HTTP GET. </p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>                               {</div>
+<div class="line"><span class="lineno">   35</span><span class="keywordflow">if</span> (WiFi.status() == WL_CONNECTED) {</div>
+<div class="line"><span class="lineno">   36</span>    HTTPClient http;</div>
+<div class="line"><span class="lineno">   37</span>    String url = <a class="code hl_variable" href="main_8cpp.html#a4cfa213c7b6b7e5a1788f5bf87b423d8">server</a> + <span class="stringliteral">&quot;?api_key=&quot;</span> + <a class="code hl_variable" href="main_8cpp.html#abafd9aa183f18bceec5da61aa1f93a87">apiKey</a> + <span class="stringliteral">&quot;&amp;field1=&quot;</span> + String(valor);</div>
+<div class="line"><span class="lineno">   38</span>    http.begin(url);</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span> httpResponseCode = http.GET();</div>
+<div class="line"><span class="lineno">   40</span>    </div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> (httpResponseCode == 200) {</div>
+<div class="line"><span class="lineno">   42</span>    http.end();</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   44</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   45</span>    http.end();</div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   47</span>    }</div>
+<div class="line"><span class="lineno">   48</span>}</div>
+<div class="line"><span class="lineno">   49</span><span class="keywordflow">return</span> 2;</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+<div class="ttc" id="amain_8cpp_html_a4cfa213c7b6b7e5a1788f5bf87b423d8"><div class="ttname"><a href="main_8cpp.html#a4cfa213c7b6b7e5a1788f5bf87b423d8">server</a></div><div class="ttdeci">String server</div><div class="ttdoc">URL do servidor ThingSpeak para envio de dados.</div><div class="ttdef"><b>Definição</b> main.cpp:37</div></div>
+<div class="ttc" id="amain_8cpp_html_abafd9aa183f18bceec5da61aa1f93a87"><div class="ttname"><a href="main_8cpp.html#abafd9aa183f18bceec5da61aa1f93a87">apiKey</a></div><div class="ttdeci">String apiKey</div><div class="ttdoc">API key de acesso ao ThingSpeak.</div><div class="ttdef"><b>Definição</b> main.cpp:39</div></div>
+</div><!-- fragment --><div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h_a496d1413601446647f4f6e259120b832_icgraph.png" border="0" usemap="#afuncoes_8h_a496d1413601446647f4f6e259120b832_icgraph" alt=""/></div>
+<map name="afuncoes_8h_a496d1413601446647f4f6e259120b832_icgraph" id="afuncoes_8h_a496d1413601446647f4f6e259120b832_icgraph">
+<area shape="rect" title="Envia um valor numérico para ThingSpeak via HTTP GET." alt="" coords="107,5,191,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -320,16 +448,46 @@ Variáveis</h2></td></tr>
   <table class="retval">
     <tr><td class="paramname">1</td><td>Sucesso (HTTP 200) </td></tr>
     <tr><td class="paramname">0</td><td>Falha na requisição </td></tr>
-    <tr><td class="paramname">2</td><td>Wi-Fi não conectado</td></tr>
+    <tr><td class="paramname">2</td><td>Wi-Fi não conectado </td></tr>
   </table>
   </dd>
 </dl>
-<p>Envia uma mensagem via WhatsApp usando CallMeBot API. </p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>                                     {</div>
+<div class="line"><span class="lineno">   16</span><span class="keywordflow">if</span> (WiFi.status() == WL_CONNECTED) {</div>
+<div class="line"><span class="lineno">   17</span>    String url = <span class="stringliteral">&quot;https://api.callmebot.com/whatsapp.php?phone=&quot;</span> + <a class="code hl_variable" href="main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a> + <span class="stringliteral">&quot;&amp;apikey=&quot;</span> + <a class="code hl_variable" href="main_8cpp.html#a2178705e4b75e3811fb805ea29271cd6">apiWhats</a> + <span class="stringliteral">&quot;&amp;text=&quot;</span> + urlEncode(mensagem);</div>
+<div class="line"><span class="lineno">   18</span>    HTTPClient http;</div>
+<div class="line"><span class="lineno">   19</span>    http.begin(url);</div>
+<div class="line"><span class="lineno">   20</span>    http.addHeader(<span class="stringliteral">&quot;Content-Type&quot;</span>, <span class="stringliteral">&quot;application/x-www-form-urlencoded&quot;</span>);</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordtype">int</span> httpResponseCode = http.POST(url);</div>
+<div class="line"><span class="lineno">   22</span>    </div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">if</span> (httpResponseCode == 200) {</div>
+<div class="line"><span class="lineno">   24</span>    http.end();</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">   26</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   27</span>    http.end();</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   29</span>    }</div>
+<div class="line"><span class="lineno">   30</span>}</div>
+<div class="line"><span class="lineno">   31</span><span class="keywordflow">return</span> 2;</div>
+<div class="line"><span class="lineno">   32</span>}</div>
+<div class="ttc" id="amain_8cpp_html_a2178705e4b75e3811fb805ea29271cd6"><div class="ttname"><a href="main_8cpp.html#a2178705e4b75e3811fb805ea29271cd6">apiWhats</a></div><div class="ttdeci">String apiWhats</div><div class="ttdef"><b>Definição</b> main.cpp:28</div></div>
+</div><!-- fragment --><div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h_aab7876312534d1d5cb2b52368d8a66aa_icgraph.png" border="0" usemap="#afuncoes_8h_aab7876312534d1d5cb2b52368d8a66aa_icgraph" alt=""/></div>
+<map name="afuncoes_8h_aab7876312534d1d5cb2b52368d8a66aa_icgraph" id="afuncoes_8h_aab7876312534d1d5cb2b52368d8a66aa_icgraph">
+<area shape="rect" title="Envia uma mensagem via WhatsApp usando CallMeBot API." alt="" coords="107,5,203,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a10c0866444677cfc520f43e52f3b763a" name="a10c0866444677cfc520f43e52f3b763a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10c0866444677cfc520f43e52f3b763a">&#9670;&#160;</a></span>SalvaConfig()</h2>
+<a id="a18165d9dc3d16f2b88e24905b7706472" name="a18165d9dc3d16f2b88e24905b7706472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18165d9dc3d16f2b88e24905b7706472">&#9670;&#160;</a></span>SalvaConfig()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,22 +510,48 @@ Variáveis</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>intervalo</em></span>&#160;)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>intervalo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>numero</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS. </p>
+<p>Salva as configurações fornecidas na memória não volátil (NVS). </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">wifi</td><td>Nome da rede Wi-Fi. </td></tr>
-    <tr><td class="paramname">senha</td><td>Senha da rede Wi-Fi. </td></tr>
-    <tr><td class="paramname">setPoint</td><td>Valor do setpoint de temperatura. </td></tr>
-    <tr><td class="paramname">intervalo</td><td>Intervalo de tempo entre leituras (em microssegundos).</td></tr>
+    <tr><td class="paramname">senha</td><td>Senha da rede. </td></tr>
+    <tr><td class="paramname">setPoint</td><td>Temperatura alvo de referência. </td></tr>
+    <tr><td class="paramname">intervalo</td><td>Intervalo entre medições (em minutos). </td></tr>
+    <tr><td class="paramname">numero</td><td>Número de telefone para alertas. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Salva as configurações recebidas (Wi-Fi, senha, setpoint e intervalo) na NVS. </p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                                                               {</div>
+<div class="line"><span class="lineno">   71</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.begin(<span class="stringliteral">&quot;config&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">   72</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.putString(<span class="stringliteral">&quot;wifi&quot;</span>, wifi);</div>
+<div class="line"><span class="lineno">   73</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.putString(<span class="stringliteral">&quot;senha&quot;</span>, senha);</div>
+<div class="line"><span class="lineno">   74</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.putFloat(<span class="stringliteral">&quot;setPoint&quot;</span>, setPoint);</div>
+<div class="line"><span class="lineno">   75</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.putUInt(<span class="stringliteral">&quot;intervalo&quot;</span>, intervalo);</div>
+<div class="line"><span class="lineno">   76</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.putString(<span class="stringliteral">&quot;cel&quot;</span>, numero);</div>
+<div class="line"><span class="lineno">   77</span><a class="code hl_variable" href="main_8cpp.html#a77f70a9d88156f5f7dbdd99bfaaee64e">prefs</a>.end();</div>
+<div class="line"><span class="lineno">   78</span>}</div>
+</div><!-- fragment --><div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Este é o diagrama das funções que utilizam esta função:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="funcoes_8h_a18165d9dc3d16f2b88e24905b7706472_icgraph.png" border="0" usemap="#afuncoes_8h_a18165d9dc3d16f2b88e24905b7706472_icgraph" alt=""/></div>
+<map name="afuncoes_8h_a18165d9dc3d16f2b88e24905b7706472_icgraph" id="afuncoes_8h_a18165d9dc3d16f2b88e24905b7706472_icgraph">
+<area shape="rect" title="Salva as configurações fornecidas na memória não volátil (NVS)." alt="" coords="107,5,199,32"/>
+<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title="Função de configuração inicial do dispositivo." alt="" coords="5,5,59,32"/>
+<area shape="poly" title=" " alt="" coords="91,21,59,21,59,16,91,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -556,8 +740,8 @@ Variáveis</h2></td></tr>
 
 </div>
 </div>
-<a id="add1d9118be43175094da2653b50c9f78" name="add1d9118be43175094da2653b50c9f78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add1d9118be43175094da2653b50c9f78">&#9670;&#160;</a></span>setpointTemp</h2>
+<a id="af47a190e4ffbde81edc3918a667db8cb" name="af47a190e4ffbde81edc3918a667db8cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af47a190e4ffbde81edc3918a667db8cb">&#9670;&#160;</a></span>setPointTemp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,7 +750,7 @@ Variáveis</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float setpointTemp</td>
+          <td class="memname">float setPointTemp</td>
         </tr>
       </table>
   </td>

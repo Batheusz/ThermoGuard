@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ThermoGuard: Referência à classe CharCallback</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ThermoGuard<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Monitoramento de Temperatura e Notificação via WhatsApp e ThingSpeak usando ESP32</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_char_callback.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pri-methods">Membros privados</a>  </div>
+  <div class="headertitle"><div class="title">Referência à classe CharCallback</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Callback para escrita em características BLE. Atualiza variáveis globais.  
+ <a href="#details">Mais...</a></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Diagrama de heranças da classe CharCallback</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_char_callback__inherit__graph.png" border="0" usemap="#a_char_callback_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_char_callback_inherit__map" id="a_char_callback_inherit__map">
+<area shape="rect" title="Callback para escrita em características BLE. Atualiza variáveis globais." alt="" coords="48,80,148,107"/>
+<area shape="rect" title=" " alt="" coords="5,5,191,32"/>
+<area shape="poly" title=" " alt="" coords="101,48,101,80,95,80,95,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Diagrama de colaboração para CharCallback:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_char_callback__coll__graph.png" border="0" usemap="#a_char_callback_coll__map" alt="Collaboration graph"/></div>
+<map name="a_char_callback_coll__map" id="a_char_callback_coll__map">
+<area shape="rect" title="Callback para escrita em características BLE. Atualiza variáveis globais." alt="" coords="48,80,148,107"/>
+<area shape="rect" title=" " alt="" coords="5,5,191,32"/>
+<area shape="poly" title=" " alt="" coords="101,48,101,80,95,80,95,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Membros privados</h2></td></tr>
+<tr class="memitem:ad6447b535c05ff3bb29cdc8716824639" id="r_ad6447b535c05ff3bb29cdc8716824639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6447b535c05ff3bb29cdc8716824639">onWrite</a> (BLECharacteristic *pCharacteristic) override</td></tr>
+<tr class="separator:ad6447b535c05ff3bb29cdc8716824639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Callback para escrita em características BLE. Atualiza variáveis globais. </p>
+<ul>
+<li>Interpreta strings recebidas do App via BLE.</li>
+<li>Atualiza variáveis globais (nome e senha do Wi-Fi, telefone, setpoint, intervalo).</li>
+<li>Chama a função <a class="el" href="funcoes_8cpp.html#a18165d9dc3d16f2b88e24905b7706472" title="Salva as configurações fornecidas na memória não volátil (NVS).">SalvaConfig()</a> para persistência imediata na NVS. </li>
+</ul>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="ad6447b535c05ff3bb29cdc8716824639" name="ad6447b535c05ff3bb29cdc8716824639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6447b535c05ff3bb29cdc8716824639">&#9670;&#160;</a></span>onWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharCallback::onWrite </td>
+          <td>(</td>
+          <td class="paramtype">BLECharacteristic *</td>          <td class="paramname"><span class="paramname"><em>pCharacteristic</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   83</span>                                                            {</div>
+<div class="line"><span class="lineno">   84</span>    std::string value = pCharacteristic-&gt;getValue();</div>
+<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">if</span> (pCharacteristic == &amp;<a class="code hl_variable" href="main_8cpp.html#a9c75ccaf0b3424e327cd58ed3bdcdd5c">WifiNomeChar</a>) {</div>
+<div class="line"><span class="lineno">   86</span>      <a class="code hl_variable" href="main_8cpp.html#a1985d05d19fdca8123f77df57639188f">nomeWifi</a> = String(value.c_str());</div>
+<div class="line"><span class="lineno">   87</span>      Serial.print(<span class="stringliteral">&quot;Novo nome do WiFi recebido: &quot;</span>);</div>
+<div class="line"><span class="lineno">   88</span>      Serial.println(<a class="code hl_variable" href="main_8cpp.html#a1985d05d19fdca8123f77df57639188f">nomeWifi</a>);</div>
+<div class="line"><span class="lineno">   89</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pCharacteristic == &amp;<a class="code hl_variable" href="main_8cpp.html#a84b6c8c5171c5c7911a016cd906ead76">WifiSenhaChar</a>) {</div>
+<div class="line"><span class="lineno">   90</span>      <a class="code hl_variable" href="main_8cpp.html#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a> = String(value.c_str());</div>
+<div class="line"><span class="lineno">   91</span>      Serial.print(<span class="stringliteral">&quot;Nova senha do WiFi recebida: &quot;</span>);</div>
+<div class="line"><span class="lineno">   92</span>      Serial.println(<a class="code hl_variable" href="main_8cpp.html#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a>);</div>
+<div class="line"><span class="lineno">   93</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pCharacteristic == &amp;<a class="code hl_variable" href="main_8cpp.html#a63b383dcaea1a05aba0d547ed00be2c5">SetPointChar</a>) {</div>
+<div class="line"><span class="lineno">   94</span>      <a class="code hl_variable" href="main_8cpp.html#af47a190e4ffbde81edc3918a667db8cb">setPointTemp</a> = String(value.c_str()).toFloat();</div>
+<div class="line"><span class="lineno">   95</span>      Serial.print(<span class="stringliteral">&quot;Novo setpoint recebido: &quot;</span>);</div>
+<div class="line"><span class="lineno">   96</span>      Serial.println(<a class="code hl_variable" href="main_8cpp.html#af47a190e4ffbde81edc3918a667db8cb">setPointTemp</a>);</div>
+<div class="line"><span class="lineno">   97</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pCharacteristic == &amp;<a class="code hl_variable" href="main_8cpp.html#a3811803b51148d50b73aa58696bc9445">IntervaloChar</a>) {</div>
+<div class="line"><span class="lineno">   98</span>      <a class="code hl_variable" href="main_8cpp.html#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a> = String(value.c_str()).toInt();</div>
+<div class="line"><span class="lineno">   99</span>      Serial.print(<span class="stringliteral">&quot;Novo intervalo recebido: &quot;</span>);</div>
+<div class="line"><span class="lineno">  100</span>      Serial.println(<a class="code hl_variable" href="main_8cpp.html#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a>);</div>
+<div class="line"><span class="lineno">  101</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pCharacteristic == &amp;<a class="code hl_variable" href="main_8cpp.html#a11cbedf7d36e986b5fc9d9388bbe7784">TelefoneChar</a>) {</div>
+<div class="line"><span class="lineno">  102</span>      <a class="code hl_variable" href="main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a> = String(value.c_str());</div>
+<div class="line"><span class="lineno">  103</span>      Serial.print(<span class="stringliteral">&quot;Número de celular recebido: &quot;</span>);</div>
+<div class="line"><span class="lineno">  104</span>      Serial.println(<a class="code hl_variable" href="main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a>);</div>
+<div class="line"><span class="lineno">  105</span>    }</div>
+<div class="line"><span class="lineno">  106</span>  }</div>
+<div class="ttc" id="amain_8cpp_html_a0410997c46ed3194dd285765f7f31860"><div class="ttname"><a href="main_8cpp.html#a0410997c46ed3194dd285765f7f31860">intervaloTemp</a></div><div class="ttdeci">uint32_t intervaloTemp</div><div class="ttdef"><b>Definição</b> main.cpp:43</div></div>
+<div class="ttc" id="amain_8cpp_html_a11cbedf7d36e986b5fc9d9388bbe7784"><div class="ttname"><a href="main_8cpp.html#a11cbedf7d36e986b5fc9d9388bbe7784">TelefoneChar</a></div><div class="ttdeci">BLECharacteristic TelefoneChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a1985d05d19fdca8123f77df57639188f"><div class="ttname"><a href="main_8cpp.html#a1985d05d19fdca8123f77df57639188f">nomeWifi</a></div><div class="ttdeci">String nomeWifi</div><div class="ttdoc">Nome da rede Wi-Fi para conexão.</div><div class="ttdef"><b>Definição</b> main.cpp:31</div></div>
+<div class="ttc" id="amain_8cpp_html_a2b53c380928d42395504a2470d0e10e6"><div class="ttname"><a href="main_8cpp.html#a2b53c380928d42395504a2470d0e10e6">senhaWifi</a></div><div class="ttdeci">String senhaWifi</div><div class="ttdoc">Senha da rede Wi-Fi.</div><div class="ttdef"><b>Definição</b> main.cpp:33</div></div>
+<div class="ttc" id="amain_8cpp_html_a3811803b51148d50b73aa58696bc9445"><div class="ttname"><a href="main_8cpp.html#a3811803b51148d50b73aa58696bc9445">IntervaloChar</a></div><div class="ttdeci">BLECharacteristic IntervaloChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a63b383dcaea1a05aba0d547ed00be2c5"><div class="ttname"><a href="main_8cpp.html#a63b383dcaea1a05aba0d547ed00be2c5">SetPointChar</a></div><div class="ttdeci">BLECharacteristic SetPointChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a84b6c8c5171c5c7911a016cd906ead76"><div class="ttname"><a href="main_8cpp.html#a84b6c8c5171c5c7911a016cd906ead76">WifiSenhaChar</a></div><div class="ttdeci">BLECharacteristic WifiSenhaChar</div></div>
+<div class="ttc" id="amain_8cpp_html_a9c75ccaf0b3424e327cd58ed3bdcdd5c"><div class="ttname"><a href="main_8cpp.html#a9c75ccaf0b3424e327cd58ed3bdcdd5c">WifiNomeChar</a></div><div class="ttdeci">BLECharacteristic WifiNomeChar</div></div>
+<div class="ttc" id="amain_8cpp_html_ae5f1bf82db9796145db3a408488ecefd"><div class="ttname"><a href="main_8cpp.html#ae5f1bf82db9796145db3a408488ecefd">numCelular</a></div><div class="ttdeci">String numCelular</div><div class="ttdef"><b>Definição</b> main.cpp:27</div></div>
+<div class="ttc" id="amain_8cpp_html_af47a190e4ffbde81edc3918a667db8cb"><div class="ttname"><a href="main_8cpp.html#af47a190e4ffbde81edc3918a667db8cb">setPointTemp</a></div><div class="ttdeci">float setPointTemp</div><div class="ttdef"><b>Definição</b> main.cpp:42</div></div>
+</div><!-- fragment --><div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Grafo de chamadas desta função:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_char_callback_ad6447b535c05ff3bb29cdc8716824639_cgraph.png" border="0" usemap="#aclass_char_callback_ad6447b535c05ff3bb29cdc8716824639_cgraph" alt=""/></div>
+<map name="aclass_char_callback_ad6447b535c05ff3bb29cdc8716824639_cgraph" id="aclass_char_callback_ad6447b535c05ff3bb29cdc8716824639_cgraph">
+<area shape="rect" title=" " alt="" coords="5,107,158,133"/>
+<area shape="rect" href="bleconfig_8cpp.html#a010ccc34905f7cc9655974adc9ce3658" title=" " alt="" coords="211,5,310,32"/>
+<area shape="poly" title=" " alt="" coords="102,104,204,42,213,37,216,42,207,46,105,108"/>
+<area shape="rect" href="bleconfig_8cpp.html#a52de2f616e8f99d8b7cf055658e96105" title=" " alt="" coords="211,56,310,83"/>
+<area shape="poly" title=" " alt="" coords="131,103,195,85,197,90,132,109"/>
+<area shape="rect" href="bleconfig_8cpp.html#a840b910ed5a8e9e5665365d330f81295" title=" " alt="" coords="211,107,310,133"/>
+<area shape="poly" title=" " alt="" coords="158,117,196,117,196,123,158,123"/>
+<area shape="rect" href="bleconfig_8cpp.html#a471c54ed74a210fdae2b309648feac3b" title=" " alt="" coords="207,157,314,184"/>
+<area shape="poly" title=" " alt="" coords="132,131,197,150,195,155,131,137"/>
+<area shape="rect" href="bleconfig_8cpp.html#a607efe564a574dd9ff9494992df9e4b0" title=" " alt="" coords="206,208,315,235"/>
+<area shape="poly" title=" " alt="" coords="105,132,207,194,216,198,213,203,204,198,102,136"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>A documentação para esta classe foi gerada a partir do seguinte ficheiro:<ul>
+<li><a class="el" href="bleconfig_8cpp.html">bleconfig.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_char_callback.html">CharCallback</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

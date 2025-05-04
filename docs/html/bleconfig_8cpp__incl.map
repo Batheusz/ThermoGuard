@@ -1,13 +1,27 @@
 <map id="bleconfig.cpp" name="bleconfig.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="177,5,276,32"/>
-<area shape="rect" id="Node000002" href="$ble_config_8h.html" title="Declarações para configuração do Bluetooth Low Energy (BLE)." alt="" coords="183,80,270,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,33,229,64,224,64,224,33"/>
+<area shape="rect" id="Node000001" title="Implementação da configuração BLE do ESP32." alt="" coords="440,5,538,32"/>
+<area shape="rect" id="Node000002" href="$ble_config_8h.html" title="Declarações relacionadas à configuração do BLE no ESP32." alt="" coords="240,80,328,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="454,35,335,77,333,72,453,30"/>
+<area shape="rect" id="Node000007" href="$funcoes_8h.html" title="Declaração das funções auxiliares para comunicação Wi&#45;Fi e armazenamento." alt="" coords="657,80,735,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="526,30,646,72,645,77,524,35"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,155,104,181"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="198,110,100,151,97,146,196,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,110,110,152,109,147,243,105"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="128,155,213,181"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="219,109,191,144,187,141,215,106"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="266,109,205,148,202,144,263,105"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="236,155,332,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="239,106,267,141,262,144,234,109"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="286,107,286,139,281,139,281,107"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="356,155,441,181"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="257,105,356,146,353,151,255,110"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="305,105,367,144,364,148,302,109"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="466,155,542,181"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="663,110,552,151,551,146,661,105"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="566,155,626,181"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="680,109,627,147,624,143,677,105"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="649,155,742,181"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="698,107,698,139,693,139,693,107"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="766,155,868,181"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="718,105,784,144,781,149,716,110"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="892,155,985,181"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="736,104,882,147,881,152,735,109"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1009,155,1111,181"/>
+<area shape="poly" id="edge12_Node000007_Node000013" title=" " alt="" coords="736,100,994,151,993,156,735,105"/>
 </map>

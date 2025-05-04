@@ -53,7 +53,7 @@ USE_PDFLATEX         = YES
 PDF_HYPERLINKS       = YES
 
 # Language
-OUTPUT_LANGUAGE        = English
+OUTPUT_LANGUAGE        = Portuguese
 
 # Other
 TAB_SIZE               = 2
