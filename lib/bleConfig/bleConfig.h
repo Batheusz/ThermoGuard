@@ -8,7 +8,7 @@
  */
 
 #ifndef BLECONFIG_H
-#define BLECONFIGS_H
+#define BLECONFIG_H
 
 #define SERVICE_UUID BLEUUID((uint16_t)0x1809)
 #define SERVICE_WIFI_UUID "7be95774-8734-4f46-a326-573d290c1e9f"

@@ -40,7 +40,7 @@ String apiKey = "J7NA0N95H2SGO68W";
 
 // Sensor de temp
 float setPointTemp = 0.0;
-uint32_t intervaloTemp = 15; //Minutos
+uint32_t intervaloTemp = 60; //Minutos
 /** @brief Instância do barramento OneWire para comunicação com o sensor DS18B20. */
 OneWire PinOneWire(4); 
 /** @brief Instância do sensor de temperatura DallasTemperature. */
@@ -71,19 +71,14 @@ extern BLECharacteristic TelefoneChar;
  */
 void setup() {
   CarregarConfig();
-
+  // delay(5000); // Delay debug para verificar o prints do setup 
   Serial.begin(115200);
   
-  esp_sleep_enable_ext0_wakeup(GPIO_NUM_15, 1);
+  // esp_sleep_enable_ext0_wakeup(GPIO_NUM_3, 1);
+  esp_deep_sleep_enable_gpio_wakeup((1ULL << GPIO_NUM_3),ESP_GPIO_WAKEUP_GPIO_HIGH);
 
-  esp_sleep_enable_timer_wakeup(intervaloTemp * 1000000ULL);
-  
-  Serial.print("ultima temperatura lida:"); Serial.println(ultimaTemp);
-  Serial.print("set point lidos:"); Serial.println(setPointTemp);
-  Serial.print("intervalo lidos:"); Serial.println(intervaloTemp);
-  Serial.print("wifi nome lidos:"); Serial.println(nomeWifi);
-  Serial.print("wifi senha lidos:"); Serial.println(senhaWifi);
-  Serial.print("telefone lido:"); Serial.println(numCelular);
+  esp_sleep_enable_timer_wakeup(intervaloTemp * 60 * 1000000ULL);
+  neopixelWrite(10, 0, 5, 0 );
 
   TempSensor.begin();
   TempSensor.requestTemperatures();
@@ -110,33 +105,34 @@ void setup() {
       }
       break;
     }
-    case ESP_SLEEP_WAKEUP_EXT0:{
+    case ESP_SLEEP_WAKEUP_GPIO:{
       Serial.println("Acordei pelo botão!");
       IniciarBLE();
       uint32_t tempo = millis();
       while (((millis() - tempo) < 1 * 60 * 1000) || deviceConnected){
         if (deviceConnected) {
-          // TempSensor.requestTemperatures();
-          // ultimaTemp = TempSensor.getTempCByIndex(0);
-          // String tempStr = String(ultimaTemp,2);
-          
-          // TemperaturaChar.setValue(tempStr.c_str());
-          // TemperaturaChar.notify();
+          neopixelWrite(10, 0, 0, 5 );
+          TempSensor.requestTemperatures();
+          ultimaTemp = TempSensor.getTempCByIndex(0);
+          int16_t tempCenti = static_cast<int16_t>(ultimaTemp * 100.0f);
 
-          // SetPointChar.setValue(setPointTemp);
-          // IntervaloChar.notify();
+          TemperaturaChar.setValue((uint8_t*)&tempCenti, 2);
+          TemperaturaChar.notify();
 
-          // IntervaloChar.setValue(intervaloTemp);
-          // IntervaloChar.notify();
+          SetPointChar.setValue(setPointTemp);
+          IntervaloChar.notify();
 
-          // WifiNomeChar.setValue(nomeWifi.c_str());
-          // WifiNomeChar.notify();
+          IntervaloChar.setValue(intervaloTemp);
+          IntervaloChar.notify();
 
-          // WifiSenhaChar.setValue(senhaWifi.c_str());
-          // WifiSenhaChar.notify();
+          WifiNomeChar.setValue(nomeWifi.c_str());
+          WifiNomeChar.notify();
 
-          // TelefoneChar.setValue(numCelular.c_str());
-          // TelefoneChar.notify();
+          WifiSenhaChar.setValue(senhaWifi.c_str());
+          WifiSenhaChar.notify();
+
+          TelefoneChar.setValue(numCelular.c_str());
+          TelefoneChar.notify();
             
         }
       }
@@ -148,8 +144,15 @@ void setup() {
       break;
     } 
   }
+  Serial.print("ultima temperatura lida:"); Serial.println(ultimaTemp);
+  Serial.print("set point lidos:"); Serial.println(setPointTemp);
+  Serial.print("intervalo lidos:"); Serial.println(intervaloTemp);
+  Serial.print("wifi nome lidos:"); Serial.println(nomeWifi);
+  Serial.print("wifi senha lidos:"); Serial.println(senhaWifi);
+  Serial.print("telefone lido:"); Serial.println(numCelular);
   Serial.println("Dormindo...");
   SalvaConfig(nomeWifi,senhaWifi,setPointTemp,intervaloTemp,numCelular);
+  neopixelWrite(10, 0, 0, 0 );
   esp_deep_sleep_start();
 }
 

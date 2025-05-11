@@ -154,7 +154,8 @@ void IniciarBLE() {
     BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
     pAdvertising->addServiceUUID(SERVICE_UUID);
     pAdvertising->addServiceUUID(SERVICE_WIFI_UUID);
-    pServer->getAdvertising()->start();
+    // pServer->getAdvertising()->start();
+    BLEDevice::startAdvertising();
 }
 
 /**
