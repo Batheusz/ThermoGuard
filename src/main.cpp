@@ -116,27 +116,27 @@ void setup() {
       uint32_t tempo = millis();
       while (((millis() - tempo) < 1 * 60 * 1000) || deviceConnected){
         if (deviceConnected) {
-          // TempSensor.requestTemperatures();
-          // ultimaTemp = TempSensor.getTempCByIndex(0);
-          // String tempStr = String(ultimaTemp,2);
-          
-          // TemperaturaChar.setValue(tempStr.c_str());
-          // TemperaturaChar.notify();
+          TempSensor.requestTemperatures();
+          ultimaTemp = TempSensor.getTempCByIndex(0);
+          int16_t tempCenti = static_cast<int16_t>(ultimaTemp * 100.0f);
 
-          // SetPointChar.setValue(setPointTemp);
-          // IntervaloChar.notify();
+          TemperaturaChar.setValue((uint8_t*)&tempCenti, 2);
+          TemperaturaChar.notify();
 
-          // IntervaloChar.setValue(intervaloTemp);
-          // IntervaloChar.notify();
+          SetPointChar.setValue(setPointTemp);
+          IntervaloChar.notify();
 
-          // WifiNomeChar.setValue(nomeWifi.c_str());
-          // WifiNomeChar.notify();
+          IntervaloChar.setValue(intervaloTemp);
+          IntervaloChar.notify();
 
-          // WifiSenhaChar.setValue(senhaWifi.c_str());
-          // WifiSenhaChar.notify();
+          WifiNomeChar.setValue(nomeWifi.c_str());
+          WifiNomeChar.notify();
 
-          // TelefoneChar.setValue(numCelular.c_str());
-          // TelefoneChar.notify();
+          WifiSenhaChar.setValue(senhaWifi.c_str());
+          WifiSenhaChar.notify();
+
+          TelefoneChar.setValue(numCelular.c_str());
+          TelefoneChar.notify();
             
         }
       }
