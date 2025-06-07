@@ -89,8 +89,14 @@ void setup() {
     case ESP_SLEEP_WAKEUP_TIMER:{
       if(ConectaWifi(nomeWifi, senhaWifi)){
         if (ultimaTemp >= setPointTemp){
-          EnviarWhats("ALERTA!!\nTemperatura acima da configurada!\nVerifique o paciente!!");
+          String msg = "ALERTA!!\nTemperatura acima de" + String(setPointTemp,2) + "!\nVerifique o paciente!!";
+          EnviarWhats(msg);
         }
+        else if (ultimaTemp <= 30.00){
+          String msg = "ALERTA!!\nTemperatura baixa!\nVerifique o paciente!!";
+          EnviarWhats(msg);
+        }
+        
         if(EnviarWeb(ultimaTemp) == 1){
           Serial.println("Enviado com sucesso");
         }else{
